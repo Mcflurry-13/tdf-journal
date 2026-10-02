@@ -1,0 +1,204 @@
+/* PDF = the same pages printed. Use the browser's “Save as PDF”.
+   Turn on “Headers and footers” in the print dialog for page numbers.
+   Rows (text left / evidence right) print as one column: text, then evidence. */
+@page {
+  size: A4;
+  margin: 18mm 16mm;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    background: #fff;
+    font-size: 10pt;
+    line-height: 1.6;
+  }
+
+  /* Hide interface */
+  .no-print,
+  .dev-banner,
+  .topbar,
+  .toc-grid-wrap,
+  .toc-mobile,
+  .week-pager,
+  .code-toggle,
+  .btn,
+  .same-week {
+    display: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+  span.print-only {
+    display: inline;
+  }
+
+  .page,
+  .week-wrap {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .print-runhead {
+    display: flex !important;
+    justify-content: space-between;
+    margin-bottom: 14pt;
+    padding-bottom: 4pt;
+    border-bottom: 0.5pt solid var(--ink);
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    color: var(--ink-2);
+    text-transform: uppercase;
+  }
+  .print-foot {
+    display: flex !important;
+    justify-content: space-between;
+    gap: 12pt;
+    margin-top: 24pt;
+    padding-top: 4pt;
+    border-top: 0.5pt solid var(--rule-soft);
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    color: var(--ink-2);
+  }
+
+  /* One column */
+  .week-head,
+  .row {
+    display: block;
+  }
+  .week-head {
+    padding-bottom: 12pt;
+  }
+  .week-head-id,
+  .week-head-main {
+    gap: 6pt;
+    padding-top: 0;
+  }
+  .week-head-main {
+    margin-top: 8pt;
+  }
+  .row {
+    padding: 12pt 0 16pt;
+  }
+  .row-text {
+    position: static;
+    margin-bottom: 10pt;
+  }
+  .row-media {
+    gap: 12pt;
+  }
+  .row-text .row-prose,
+  .row-media > .row-prose,
+  .row-intro {
+    font-size: 10pt;
+    max-width: none;
+  }
+
+  /* Type sizes */
+  .week-code {
+    font-size: 38pt;
+  }
+  .week-title {
+    font-size: 17pt;
+  }
+  .week-summary {
+    font-size: 11pt;
+  }
+  .h2 {
+    font-size: 13pt;
+  }
+  .row-lead .row-prose p,
+  .quote {
+    font-size: 11pt;
+  }
+
+  /* Breaks: keep headings with what follows, never split figures */
+  .row-head,
+  .h2,
+  .row-prose h3 {
+    break-after: avoid;
+  }
+  /* Single images never split; a gallery may break between images. */
+  .figure,
+  .pcr,
+  .video,
+  .kv,
+  .attachment,
+  .code-head {
+    break-inside: avoid;
+  }
+  .figure img {
+    max-height: 110mm;
+  }
+  .gallery { display:block; }
+  .gallery-row { break-inside:avoid; page-break-inside:avoid; }
+  .gallery img { max-height:none; }
+  .bundle-week {
+    break-before: page;
+    margin: 0;
+  }
+  .bundle-cover {
+    max-width: none;
+  }
+
+  /* Code: always expanded; very long files print only the head */
+  .is-collapsed .code-mid,
+  .is-collapsed .code-tail {
+    display: inline;
+  }
+  .is-long .code-tail {
+    display: none !important;
+  }
+  .code-body {
+    font-size: 8pt;
+    white-space: pre-wrap;
+    background: #f4f3ef;
+  }
+
+  /* Status prints as plain text: [Verified] */
+  .status {
+    padding: 0;
+    border: 0;
+    background: none !important;
+    color: var(--ink) !important;
+  }
+  .status-mark {
+    display: none;
+  }
+  .status::before {
+    content: '[';
+  }
+  .status::after {
+    content: ']';
+  }
+
+  /* Links print their URL */
+  a {
+    text-decoration: none;
+  }
+  .row-prose a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    word-break: break-all;
+  }
+  .attachment a[data-print-url] {
+    font-size: 0;
+  }
+  .attachment a[data-print-url]::after {
+    content: attr(data-print-url);
+    font-family: var(--font-mono);
+    font-size: 7pt;
+    word-break: break-all;
+  }
+  .print-url {
+    display: block;
+    font-size: 7.5pt;
+    word-break: break-all;
+  }
+}

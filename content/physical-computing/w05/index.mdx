@@ -1,0 +1,114 @@
+---
+type: physical-computing
+relatedTypes: [digital-fabrication]
+week: 5
+dateStart: 2026-09-20
+dateEnd: 2026-10-01
+title: "Expressive Mechanics"
+summary: "Inviting interaction with a quiet ceramic object — from printed mechanisms to deliberate gestures and projected patterns."
+cover: "./images/projection-demo.png"
+projects: [expressive-mechanics]
+status: published
+updatedAt: 2026-10-02
+---
+
+<Entry date="2026-09-20" title="From a family collection to an interaction">
+
+My grandfather collects ceramic crafts, and our home is filled with them. Quiet, fragile and still, they can become easy to overlook. I wanted interaction to bring these objects back into attention and invite associations with family and memory.
+
+A visitor's gesture becomes a projected pattern on a turning vessel. The axisymmetric form keeps its outline consistent as it rotates.
+
+<Gallery>
+<Figure src="./images/concept-projector-sketch.svg" kind="diagram" caption="Redrawn concept sketch: camera, pinch gesture, Arduino-driven turntable and external projector. Bilingual labels clarify the interaction." />
+<Figure src="./images/5585820545df-1.jpg" kind="photo" caption="Initial concept: a vessel, a rotating base and an external projector." />
+<Figure src="./images/vessel-exploded-trimmed.jpg" kind="diagram" caption="Exploded overview of the concept: vessel, tray, drive gear and bearing-supported base." />
+</Gallery>
+</Entry>
+
+<Entry date="2026-09-20" dateEnd="2026-10-01" title="Iterating the servo mount">
+
+I printed about four mount variants. The early pocket trapped the cable; opening the side helped insertion but reduced support. I revised the walls and added a top-open cable slot so the servo and its wires could lower into place together.
+
+<Gallery>
+<Figure src="./images/5bbd3eaf6c4e-3.jpg" kind="photo" caption="Failed early fit: the MG90S could not sit flat with its cable in the way." />
+<Figure src="./images/servo-mount-first-pocket.jpg" kind="photo" caption="Early printed pocket: checking the opening and support walls." />
+<Figure src="./images/servo-fit-oct01.jpg" kind="photo" caption="October 1 fit check: the FS90R body and cable exit in the printed mount." />
+</Gallery>
+<CadViewer src="./files/servo-mount-top-slot.stl" poster="./images/clean-top-slot-trimmed.jpg" caption="Revised mount coupon: supporting walls with a top-open cable slot." />
+</Entry>
+
+<Entry date="2026-09-22" dateEnd="2026-09-24" title="Supporting stable bearing rotation">
+
+The open base let me inspect how the tray was supported. I arranged three upper bearings with three corresponding vertical bearing supports below to guide rotation and keep the tray stable.
+
+The brackets left too much sideways play. Adding spacers and stepped locating pins held the bearings in position while allowing them to rotate freely.
+
+<Gallery>
+<Figure src="./images/open-base-bearing-supports.jpg" kind="photo" caption="Open-base test: the three peripheral bearing-support positions remained accessible." />
+<Figure src="./images/open-base-roller-test.jpg" kind="photo" caption="Checking how the tray sits on the bearing supports." />
+<Figure src="./images/5bbd3eaf6c4e-2.jpg" kind="photo" caption="Inspecting the sideways clearance before choosing spacer thickness." />
+</Gallery>
+<CadViewer src="./files/bearing-stepped-axle.stl" poster="./images/clean-stepped-axle-trimmed.jpg" caption="Stepped locating pin: different sections locate the bearing and its support holes." />
+<CadViewer src="./files/turntable-final-assembly.stl" poster="./images/clean-final-trimmed.jpg" color="#54b3ad" caption="Final saved model, assembled and exploded: revised FS90R base, tray and bearing arrangement." />
+</Entry>
+
+<Entry date="2026-09-22" dateEnd="2026-10-01" title="Fitting the gear to the servo horn">
+
+The pinion's recess needs to fit the servo arm closely so they rotate together. The first printed pocket jammed at the sharp internal corners; adding rounded relief allowed the arm to seat properly.
+
+I also checked the pinion against the tray gear during assembly, because the horn fit, gear spacing and height all affect engagement.
+
+<Gallery>
+<Figure src="./images/horn-pocket-first-print.jpg" kind="photo" caption="First printed pocket: the servo arm could not seat properly." />
+<Figure src="./images/horn-pocket-sharp-roots.jpg" kind="photo" caption="The sharp internal corners interfered with the arm roots." />
+<Figure src="./images/horn-pocket-rounded-comparison.jpg" kind="photo" caption="Printed iterations together: rounded relief made room for the servo arm." />
+<Figure src="./images/tray-underside-gear.jpg" kind="photo" caption="The tray's underside gear, checked against the servo-driven pinion." />
+</Gallery>
+<CadViewer src="./files/horn-pocket-sharp.stl" poster="./images/clean-cross-sharp-trimmed.jpg" flip caption="First cross-horn pocket: sharp internal corners interfered with the horn roots." />
+<CadViewer src="./files/horn-pocket-rounded.stl" poster="./images/clean-cross-rounded-trimmed.jpg" flip caption="CAD revision: rounded central relief, with the outer arm slots retained." />
+</Entry>
+
+<Entry date="2026-09-24" dateEnd="2026-10-01" title="Bringing the controls into one frontend">
+
+I used vibe coding to bring p5.js interaction and Arduino control into one frontend. Camera tracking, drawing and generated-image previews appear side by side, while serial commands start and stop the turntable.
+
+<Gallery>
+<Figure src="./images/frontend-tracking-live.jpg" kind="screen" caption="p5.js running in the frontend: camera tracking, drawing preview and the generated-image panel." />
+<Figure src="./images/f7e71d4917ba-1.jpg" kind="photo" caption="Arduino, breadboard and servo wiring during the control test." />
+</Gallery>
+<Attachments>
+<Attachment src="./files/studio-sketch.js" kind="Code" label="Interaction sketch" />
+<Attachment src="./files/turntable_serial_servo.ino" kind="Code" label="Arduino control" />
+</Attachments>
+</Entry>
+
+<Entry date="2026-09-24" title="Making presence and drawing intentional">
+
+The early hand tracker struggled near my face. I switched to MediaPipe Holistic so the face and hands could stay in the frame together.
+
+Pinching puts the pen down; releasing lifts it, avoiding accidental marks while repositioning. One welcome rotation per continuous visit prevents repeated triggering, and the interaction resets after the visitor leaves.
+
+<Gallery>
+<Figure src="./images/early-camera-tracking-detail.jpg" kind="screen" caption="Early camera tracking test, with my face still in frame." />
+<Figure src="./images/pinch-drawing-live.jpg" kind="photo" caption="Pinch-to-draw in use, with the running p5.js canvas visible on the laptop." />
+<Figure src="./images/hand-control-detail.jpg" kind="photo" caption="Hand interaction and the live control interface during testing." />
+<Figure src="./images/5ebc4e56eb4d-1.png" kind="screen" caption="Drawing on a separate canvas made the intended gesture easier to see." />
+</Gallery>
+</Entry>
+
+<Entry date="2026-09-23" dateEnd="2026-09-29" title="Giving the drawing room on the vessel">
+
+The early mirrored strokes were too heavy; later generated scenes added too much decoration. I returned to a restrained ink-painting direction with one main motif and more empty space, keeping an association with the visitor's drawing.
+
+<Gallery>
+<Figure src="./images/generation-early-symmetry.jpg" kind="screen" caption="Early generation experiment: thick, mirrored strokes dominated the vase-shaped canvas." />
+<Figure src="./images/bc17b0e99774-1.png" kind="screen" caption="Abstract contour used to test a recognisable interpretation of the original drawing." />
+<Figure src="./images/455b77d79c0e-1.png" kind="screen" caption="Smile test: preserving the visitor's mark mattered more than adding decoration." />
+</Gallery>
+</Entry>
+
+<Section title="Prototype in use" intro="A short clip of the gesture-controlled prototype in use.">
+<Gallery>
+<Figure src="./images/prototype-pinch-demo.gif" kind="photo" caption="Pinch-to-draw demonstration with the frontend and physical prototype." />
+</Gallery>
+</Section>

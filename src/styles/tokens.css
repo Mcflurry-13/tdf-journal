@@ -1,0 +1,35 @@
+/* Design tokens — the only place colours, fonts and spacing are defined.
+   Fonts are provisional until checked against the existing Journal. */
+:root {
+  /* Base: near-white paper, black ink, hairlines. No red, no shadows. */
+  --paper: #f6f5f1;
+  --paper-2: #edebe5; /* code background */
+  --placeholder: #e9e7e1;
+  --rule-soft: #d6d3cb;
+  --ink: #151515; /* 17:1 on paper */
+  --ink-2: #4a4946; /* dates, captions, kickers — 8.6:1 */
+
+  /* Pastel tints: fills only, never text. */
+  --tint-pc: #ecebfb; /* Physical Computing — lavender */
+  --tint-df: #ddf2ec; /* Digital Fabrication — mint */
+  --tint-cd: #dce5fb; /* Computational Design (reserved) — sky */
+  --tint-project: #fde8eb; /* Project tags — pink */
+
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+  --text-body: 17px;
+  --text-meta: 12px;
+
+  --measure: 720px; /* max line length for long text */
+  --text-col: 360px; /* left (text) column of every row */
+  --gutter: 64px; /* page margin */
+}
+
+@media (max-width: 640px) {
+  :root {
+    --text-body: 16px;
+    --gutter: 16px;
+  }
+}

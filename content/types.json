@@ -1,0 +1,24 @@
+[
+  {
+    "id": "physical-computing",
+    "short": "PC",
+    "name": "Physical Computing",
+    "tint": "var(--tint-pc)",
+    "blurb": "Arduino · sensors · servos · p5.js · serial"
+  },
+  {
+    "id": "digital-fabrication",
+    "short": "DF",
+    "name": "Digital Fabrication",
+    "tint": "var(--tint-df)",
+    "blurb": "Laser cutting · CAD · 3D printing · fit and tolerance"
+  },
+  {
+    "id": "computational-design",
+    "short": "CD",
+    "name": "Computational Design",
+    "tint": "var(--tint-cd)",
+    "blurb": "Appears once a module is added",
+    "reserved": true
+  }
+]
