@@ -1,3 +1,4 @@
+import { FrontendStudy } from './FrontendStudy';
 /**
  * Content blocks available inside week MDX files.
  *
@@ -14,7 +15,7 @@ import type { StatusValue } from '../types';
 import { useWeekDir } from '../week-context';
 import { CodeBlock, Pre } from './CodeBlock';
 import { Figure, Gallery, BeforeAfter } from './Gallery';
-import { CadViewer } from './CadViewer';
+import { CadViewer, CadGroup } from './CadViewer';
 export { Figure, Gallery, BeforeAfter, FigurePair, ImageGallery } from './Gallery';
 import { ProjectTag } from './tags';
 
@@ -261,6 +262,8 @@ export function Video({ href, src, title, duration, poster }: { href?: string; s
 const EVIDENCE = new Set<unknown>([
   Figure,
   CadViewer,
+  CadGroup,
+  FrontendStudy,
   Gallery,
   BeforeAfter,
   Specs,

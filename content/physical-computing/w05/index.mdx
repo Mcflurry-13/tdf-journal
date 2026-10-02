@@ -47,8 +47,10 @@ The brackets left too much sideways play. Adding spacers and stepped locating pi
 <Figure src="./images/open-base-roller-test.jpg" kind="photo" caption="Checking how the tray sits on the bearing supports." />
 <Figure src="./images/5bbd3eaf6c4e-2.jpg" kind="photo" caption="Inspecting the sideways clearance before choosing spacer thickness." />
 </Gallery>
+<CadGroup>
 <CadViewer src="./files/bearing-stepped-axle.stl" poster="./images/clean-stepped-axle-trimmed.jpg" caption="Stepped locating pin: different sections locate the bearing and its support holes." />
-<CadViewer src="./files/turntable-final-assembly.stl" poster="./images/clean-final-trimmed.jpg" color="#54b3ad" caption="Final saved model, assembled and exploded: revised FS90R base, tray and bearing arrangement." />
+<CadViewer src="./files/turntable-final-assembly.stl" poster="./images/clean-final-trimmed.jpg" color="#54b3ad" caption="Revised base, tray and bearing arrangement." />
+</CadGroup>
 </Entry>
 
 <Entry date="2026-09-22" dateEnd="2026-09-24" title="Fitting the gear to the servo horn">
@@ -63,8 +65,10 @@ I also checked the pinion against the tray gear during assembly, because the hor
 <Figure src="./images/horn-pocket-rounded-comparison.jpg" kind="photo" caption="Printed iterations together: rounded relief made room for the servo arm." />
 <Figure src="./images/tray-underside-gear.jpg" kind="photo" caption="The tray's underside gear, checked against the servo-driven pinion." />
 </Gallery>
-<CadViewer src="./files/horn-pocket-sharp.stl" poster="./images/clean-cross-sharp-trimmed.jpg" flip caption="First cross-horn pocket: sharp internal corners interfered with the horn roots." />
-<CadViewer src="./files/horn-pocket-rounded.stl" poster="./images/clean-cross-rounded-trimmed.jpg" flip caption="CAD revision: rounded central relief, with the outer arm slots retained." />
+<CadGroup>
+<CadViewer src="./files/horn-pocket-sharp.stl" poster="./images/clean-cross-sharp-trimmed.jpg" flip caption="First pocket: sharp corners blocked the servo horn." />
+<CadViewer src="./files/horn-pocket-rounded.stl" poster="./images/clean-cross-rounded-trimmed.jpg" flip caption="Revised pocket: rounded relief for the servo horn." />
+</CadGroup>
 </Entry>
 
 <Entry date="2026-09-24" title="Testing Arduino control">
@@ -73,25 +77,25 @@ The browser sends R to rotate and S to stop. An eight-second timeout stops the m
 
 <Gallery>
 <Figure src="./images/f7e71d4917ba-1.jpg" kind="photo" caption="Arduino, breadboard and servo wiring during the control test." />
-<Figure src="./images/arduino-expected-output.svg" kind="diagram" caption="Expected Serial Monitor responses from the firmware logic: startup, run, stop and timeout." />
+<Figure src="./images/arduino-expected-output.svg" kind="diagram" caption="Serial response example: startup, run, stop and timeout." />
 </Gallery>
 <CodeBlock src="./files/turntable_serial_servo.ino" lang="Arduino" />
 </Entry>
 
 <Entry date="2026-09-24" dateEnd="2026-09-29" title="From presence to a deliberate brushstroke">
 
-The first tests detected a person in view. I then switched to MediaPipe Holistic so face and hand tracking could work together, with p5.js drawing the marks.
+The first version tracked the torso and limbs to detect a person in view. I then switched to MediaPipe Holistic so face and hand tracking could work together, with p5.js drawing the marks.
 
 Pinching the thumb and index finger puts the pen down; releasing lifts it. One welcome rotation per visit avoids repeated triggering while someone stays in frame.
 
 I tested several Chinese ink-painting prompts. Dense landscapes competed with the drawing, so I reduced the decoration and left more empty space around the main motif.
 
 <Gallery>
-<Figure src="./images/presence-detection-test.jpg" kind="photo" caption="Early presence-detection test alongside the printed mechanism and Arduino." />
-<Figure src="./images/early-camera-tracking-detail.jpg" kind="screen" caption="Face and hand tracking in the same frame during the early camera tests." />
-<Figure src="./images/pinch-onsite-poster.jpg" kind="photo" caption="Pinch-to-draw with the running canvas and physical prototype; the full action is shown below." />
+<Figure src="./images/presence-detection-test.jpg" kind="photo" caption="First version: tracking the torso and limbs." />
+<Figure src="./images/early-camera-tracking-detail.jpg" kind="screen" caption="Early camera-based presence tracking." />
+<Figure src="./images/pinch-onsite-poster.jpg" kind="photo" caption="Pinch-to-draw during the live demonstration." />
 </Gallery>
-<Video src="./files/pinch-canvas-recording.mp4" poster="./images/pinch-recording-poster.jpg" title="Screen recording: pinch to draw, release to lift the pen" duration="0:30" />
+<Video src="./files/pinch-canvas-recording.mp4" poster="./images/pinch-recording-poster.jpg" title="Pinch to draw, then generate a pattern" duration="0:26" />
 <Video src="./files/pinch-onsite.mp4" poster="./images/pinch-onsite-poster.jpg" title="On-site test: the hand gesture, live canvas and physical prototype" duration="0:18" />
 <CodeBlock src="./files/studio-sketch.js" lang="JavaScript / p5.js" />
 <Gallery>
@@ -104,9 +108,7 @@ I tested several Chinese ink-painting prompts. Dense landscapes competed with th
 
 I used vibe coding to bring p5.js drawing, image generation and Arduino controls into one frontend.
 
-<Gallery>
-<Figure wide src="./images/frontend-hd.jpg" kind="screen" caption="The integrated frontend, captured from the original high-resolution screen recording." />
-</Gallery>
+<FrontendStudy drawing="./images/frontend-hand-state.jpg" result="./images/frontend-hd.jpg" />
 </Entry>
 
 <Section title="Prototype in use" intro="A short clip of the gesture-controlled prototype in use.">

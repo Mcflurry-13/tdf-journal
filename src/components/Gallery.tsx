@@ -15,7 +15,7 @@ export interface FigureProps {
 export function imageDimensions(dir: string, src?: string): Size | undefined {
   return src ? sizes[`${dir}/${src.replace(/^\.\//, '')}`] : undefined;
 }
-export function Figure({ src, kind='photo', caption, alt, label, wide, focus='50% 50%', cell, onSize }: FigureProps) {
+export function Figure({ src, caption, alt, label, wide, focus='50% 50%', cell, onSize }: FigureProps) {
   const dir = useWeekDir(), url = resolveAsset(dir, src);
   const [natural, setNatural] = useState<Size>();
   const size = imageDimensions(dir, src) ?? natural;
@@ -26,7 +26,7 @@ export function Figure({ src, kind='photo', caption, alt, label, wide, focus='50
         style={cell === 'grid' ? {objectPosition:focus} : size ? {aspectRatio:`${size.width} / ${size.height}`} : undefined}
         onLoad={e => { if (!size) { const next = {width:e.currentTarget.naturalWidth,height:e.currentTarget.naturalHeight}; setNatural(next); onSize?.(next); } }} />
     </a> : <div className="placeholder">{src ? `Image not found: ${src}` : '[Image]'}</div>}
-    <figcaption>{label && <span className="figure-label mono">{label} · </span>}<span className="kind">{kind.toUpperCase()}</span>{caption}</figcaption>
+    <figcaption>{label && <span className="figure-label mono">{label} · </span>}<span className="caption-pointer" aria-hidden="true">▲</span>{caption}</figcaption>
   </figure>;
 }
 interface GalleryProps { children?:ReactNode; layout?:'justified'|'grid'; cols?:2|3; pair?:boolean; }

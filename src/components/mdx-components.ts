@@ -1,4 +1,5 @@
-import { CadViewer } from './CadViewer';
+import { FrontendStudy } from './FrontendStudy';
+import { CadViewer, CadGroup } from './CadViewer';
 import { InteractionFlow } from './RecordArchive';
 import type { MDXComponents } from 'mdx/types';
 import {
@@ -23,6 +24,8 @@ import { CodeBlock, Pre } from './CodeBlock';
 export const mdxComponents: MDXComponents = {
   InteractionFlow,
   CadViewer,
+  CadGroup,
+  FrontendStudy,
   Section,
   Entry,
   Figure,

@@ -239,7 +239,7 @@ Accessibility: real links/buttons, 2px focus ring, ≥44px touch targets on mobi
 - Each multi-image row fills the column exactly: `(column width − gutters) / sum(aspect ratios)` gives its height. Every image keeps its aspect ratio. Source order never changes.
 - A singleton fills the column until its natural proportional height reaches 480px, then remains at that height, left-aligned. Extreme aspect ratios, forced wide items and very narrow columns can make the preferred height band impossible; uncropped content, exact multi-image row edges and source order take priority.
 - Gutters are 12px desktop / 8px mobile, in both directions. Captions start at the same height within each row; a row grows to fit its longest caption, followed by one gutter. No clamping, hidden text, grey fill, rounded corners, letterboxing or `object-fit: contain`.
-- Kind labels (PHOTO / CAD / SCREEN / DIAGRAM / CONCEPT) are retained. Preserve author-supplied `kind` and `caption` verbatim when importing assets.
+- Captions display a small ▲ marker, without PHOTO / CAD / SCREEN prefixes; `kind` remains asset metadata. Preserve author-supplied `kind` and `caption` verbatim when importing assets.
 - `<Gallery layout="grid" cols={2}>` (or 3) explicitly opts into equal 4:3 crop cells using `object-fit: cover`; `<Figure focus="50% 30%">` supplies the crop position. Mobile uses at most two columns. Default galleries never crop.
 - `<Figure wide>` forces its own full row and obeys the singleton height cap.
 - `<BeforeAfter>` stays two-up with equal image heights, including on mobile. It preserves aspect ratios rather than cropping. Print can break between gallery rows, never between an image and its caption.
@@ -266,4 +266,9 @@ Run `node scripts/gallery-layout.test.mjs` and `npm run build`. At 1440px and 39
 
 Use `<Video src="./files/clip.mp4" poster="./images/poster.jpg" title="…" duration="0:30" />` for a local recording. It shows native controls, never autoplays, preserves the full frame, and prints its poster. Keep excerpts focused; retain the original recording outside the site.
 
-Use `<CodeBlock src="./files/sketch.ino" lang="Arduino" />` to preview, expand, copy and download the actual source. Source comments and interface labels are English. Expected serial output illustrations must be labelled as expected, not recorded test results. Fabrication iterations in Week 5 end on September 24; later capture dates are not fabrication dates.
+Use `<CodeBlock src="./files/sketch.ino" lang="Arduino" />` to preview, expand, copy and download the actual source. Source comments and interface labels are English. Serial illustrations use “Serial response example” and identify firmware-derived content; never describe them as recorded hardware results. Fabrication iterations in Week 5 end on September 24; later capture dates are not fabrication dates.
+
+### Direct CAD previews
+`<CadViewer>` loads the actual STL immediately, with rotation, zoom, keyboard arrows and reset. Static posters are print-only. Wrap related models in `<CadGroup>` for two equal columns on desktop, one column below 640px; keep each model and caption together in print.
+
+October 2 media revision: pinch recording uses original 87–102.6s and 110.15–120.2s (25.65s total); generation waiting is shortened to about one second. FrontendStudy arranges the real hand-tracking panel from 95s with drawing/result panels from 120s. Caption says “interface states”; this is not a single simultaneous screenshot. Full original frames remain unmodified.

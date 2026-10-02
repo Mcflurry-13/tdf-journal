@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { resolveAsset } from '../content';
 import { useWeekDir } from '../week-context';
 import { imageDimensions } from './Gallery';
@@ -6,9 +6,9 @@ import { imageDimensions } from './Gallery';
 export function CadViewer({src,poster,caption,flip=false,color='#b4c3ca'}:{src:string;poster:string;caption:string;flip?:boolean;color?:string}) {
   const dir=useWeekDir(), url=resolveAsset(dir,src), image=resolveAsset(dir,poster), size=imageDimensions(dir,poster);
   const host=useRef<HTMLDivElement>(null), reset=useRef<()=>void>();
-  const [active,setActive]=useState(false),[status,setStatus]=useState(''),[ready,setReady]=useState(false);
+  const [status,setStatus]=useState(''),[ready,setReady]=useState(false);
   useEffect(()=>{
-    if(!active || !url || !host.current) return;
+    if(!url || !host.current) return;
     const node=host.current;let disposed=false;let cleanup=()=>{};
     setStatus('Loading model…');
     (async()=>{
@@ -36,13 +36,16 @@ export function CadViewer({src,poster,caption,flip=false,color='#b4c3ca'}:{src:s
       setReady(true);setStatus('Drag to rotate · Scroll to zoom');
     })().catch(()=>{if(!disposed)setStatus('Preview unavailable. Download the STL to open it locally.');});
     return()=>{disposed=true;cleanup();};
-  },[active,url,flip,color]);
+  },[url,flip,color]);
   return <figure className="figure cad-viewer">
     <div className="cad-stage" ref={host}>
-      <img className={`cad-poster${ready?' cad-poster-hidden':''}`} src={image} width={size?.width} height={size?.height} alt={caption}/>
-      {!active && <button className="cad-activate no-print" onClick={()=>setActive(true)}>Explore 3D ↗</button>}
+      <img className="cad-poster print-only" src={image} width={size?.width} height={size?.height} alt={caption}/>
     </div>
     <div className="cad-tools no-print"><span role="status">{status || 'STL model · Interactive preview'}</span>{ready && <button onClick={()=>reset.current?.()}>Reset view</button>}{url && <a href={url} download>Download STL</a>}</div>
-    <figcaption><span className="kind">CAD</span>{caption}</figcaption>
+    <figcaption><span className="caption-pointer" aria-hidden="true">▲</span>{caption}</figcaption>
   </figure>;
+}
+
+export function CadGroup({children}:{children?:ReactNode}) {
+  return <div className="cad-group">{children}</div>;
 }

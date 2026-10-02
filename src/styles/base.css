@@ -1042,3 +1042,18 @@ a.type-tile:hover,
 .code-head { flex-wrap: wrap; }
 .code-head > .mono { min-width: 0; overflow-wrap: anywhere; }
 .code-actions { flex-shrink: 0; }
+
+/* Direct interactive CAD comparisons and quiet image captions. */
+.caption-pointer { display:inline-block; font-size:10px; margin-right:9px; vertical-align:2px; }
+.cad-group { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.cad-group .cad-viewer { min-width:0; margin:0; }
+.cad-stage .cad-poster { display:none; }
+.cad-tools { align-items:start; }
+.cad-tools > [role="status"] { flex-basis:100%; }
+@media (max-width:639px) { .cad-group { grid-template-columns:minmax(0,1fr); gap:8px; } }
+@media print { .cad-group { break-inside:avoid; } .cad-stage .cad-poster { display:block; } }
+
+.frontend-states { position:relative; width:100%; overflow:hidden; }
+.frontend-states > .frontend-result { width:100%; display:block; }
+.frontend-hand-panel { position:absolute; left:0; top:0; width:32%; height:75%; overflow:hidden; }
+.frontend-hand-panel img { width:312.5%; max-width:none; height:auto; }

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1120" viewBox="0 0 1100 1120">
 <rect width="1100" height="1120" fill="#182126"/><path d="M0 0H1100V100H0Z" fill="#26343a"/>
 <g font-family="monospace" fill="#e9edeb"><text x="48" y="62" font-size="27">ARDUINO / SERIAL MONITOR</text>
-<text x="48" y="157" font-size="22" fill="#b1c4c6">Expected output · 9600 baud</text>
+<text x="48" y="157" font-size="22" fill="#b1c4c6">Serial response example · 9600 baud</text>
 <text x="48" y="214" font-size="21" fill="#b1c4c6">turntable_serial_servo.ino · Signal: D9</text>
 <g font-size="29"><text x="48" y="296" fill="#9bb8ac"># On startup</text><text x="48" y="344">STOPPED</text><text x="48" y="392">READY</text>
 <text x="48" y="484" fill="#9bb8ac">&gt; Send R</text><text x="48" y="532">ROTATING</text>
