@@ -272,3 +272,7 @@ Use `<CodeBlock src="./files/sketch.ino" lang="Arduino" />` to preview, expand, 
 `<CadViewer>` loads the actual STL immediately, with rotation, zoom, keyboard arrows and reset. Static posters are print-only. Wrap related models in `<CadGroup>` for two equal columns on desktop, one column below 640px; keep each model and caption together in print.
 
 October 2 media revision: pinch recording uses original 87–102.6s and 110.15–120.2s (25.65s total); generation waiting is shortened to about one second. FrontendStudy arranges the real hand-tracking panel from 95s with drawing/result panels from 120s. Caption says “interface states”; this is not a single simultaneous screenshot. Full original frames remain unmodified.
+
+### October 2 follow-up: cloud pattern and seated demo
+The supplied blue/cream cloud pattern is embedded unchanged in `cloud-pattern-vessel.svg` and clipped to the actual frontend vase profile. This is a pattern presentation, not an old captured screenshot.
+The edited demo now uses original 87–99s for drawing, 101.4–102.05s for the Generate click, and an 8-second panel composition: seated camera/drawing from 99–107s with rotating result from112–120s. No standing, talking or projector-carrying appears. This intentionally demonstrates the shortened interaction, not real generation latency; title says edited demo.
