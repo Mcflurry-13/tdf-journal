@@ -19,20 +19,19 @@ My grandfather collects ceramic crafts, and our home is filled with them. Quiet,
 A visitor's gesture becomes a projected pattern on a turning vessel. The axisymmetric form keeps its outline consistent as it rotates.
 
 <Gallery>
-<Figure src="./images/concept-projector-sketch.svg" kind="diagram" caption="Redrawn concept sketch: camera, pinch gesture, Arduino-driven turntable and external projector. Bilingual labels clarify the interaction." />
-<Figure src="./images/5585820545df-1.jpg" kind="photo" caption="Initial concept: a vessel, a rotating base and an external projector." />
-<Figure src="./images/vessel-exploded-trimmed.jpg" kind="diagram" caption="Exploded overview of the concept: vessel, tray, drive gear and bearing-supported base." />
+<Figure wide src="./images/concept-pencil-sketch.png" kind="diagram" caption="Concept sketch: a pinch becomes a drawing, then a projected pattern on the rotating vessel." />
+<Figure src="./images/vessel-exploded-transparent.png" kind="diagram" caption="Exploded concept overview: vessel, tray, drive gear and bearing-supported base." />
 </Gallery>
 </Entry>
 
-<Entry date="2026-09-20" dateEnd="2026-10-01" title="Iterating the servo mount">
+<Entry date="2026-09-20" dateEnd="2026-09-24" title="Iterating the servo mount">
 
 I printed about four mount variants. The early pocket trapped the cable; opening the side helped insertion but reduced support. I revised the walls and added a top-open cable slot so the servo and its wires could lower into place together.
 
 <Gallery>
 <Figure src="./images/5bbd3eaf6c4e-3.jpg" kind="photo" caption="Failed early fit: the MG90S could not sit flat with its cable in the way." />
 <Figure src="./images/servo-mount-first-pocket.jpg" kind="photo" caption="Early printed pocket: checking the opening and support walls." />
-<Figure src="./images/servo-fit-oct01.jpg" kind="photo" caption="October 1 fit check: the FS90R body and cable exit in the printed mount." />
+<Figure src="./images/servo-fit-revised.jpg" kind="photo" caption="Revised fit check: the FS90R body and cable exit in the printed mount." />
 </Gallery>
 <CadViewer src="./files/servo-mount-top-slot.stl" poster="./images/clean-top-slot-trimmed.jpg" caption="Revised mount coupon: supporting walls with a top-open cable slot." />
 </Entry>
@@ -52,7 +51,7 @@ The brackets left too much sideways play. Adding spacers and stepped locating pi
 <CadViewer src="./files/turntable-final-assembly.stl" poster="./images/clean-final-trimmed.jpg" color="#54b3ad" caption="Final saved model, assembled and exploded: revised FS90R base, tray and bearing arrangement." />
 </Entry>
 
-<Entry date="2026-09-22" dateEnd="2026-10-01" title="Fitting the gear to the servo horn">
+<Entry date="2026-09-22" dateEnd="2026-09-24" title="Fitting the gear to the servo horn">
 
 The pinion's recess needs to fit the servo arm closely so they rotate together. The first printed pocket jammed at the sharp internal corners; adding rounded relief allowed the arm to seat properly.
 
@@ -68,42 +67,45 @@ I also checked the pinion against the tray gear during assembly, because the hor
 <CadViewer src="./files/horn-pocket-rounded.stl" poster="./images/clean-cross-rounded-trimmed.jpg" flip caption="CAD revision: rounded central relief, with the outer arm slots retained." />
 </Entry>
 
-<Entry date="2026-09-24" dateEnd="2026-10-01" title="Bringing the controls into one frontend">
+<Entry date="2026-09-24" title="Testing Arduino control">
 
-I used vibe coding to bring p5.js interaction and Arduino control into one frontend. Camera tracking, drawing and generated-image previews appear side by side, while serial commands start and stop the turntable.
+The browser sends R to rotate and S to stop. An eight-second timeout stops the motor if no stop command arrives.
 
 <Gallery>
-<Figure src="./images/frontend-tracking-live.jpg" kind="screen" caption="p5.js running in the frontend: camera tracking, drawing preview and the generated-image panel." />
 <Figure src="./images/f7e71d4917ba-1.jpg" kind="photo" caption="Arduino, breadboard and servo wiring during the control test." />
+<Figure src="./images/arduino-expected-output.svg" kind="diagram" caption="Expected Serial Monitor responses from the firmware logic: startup, run, stop and timeout." />
 </Gallery>
-<Attachments>
-<Attachment src="./files/studio-sketch.js" kind="Code" label="Interaction sketch" />
-<Attachment src="./files/turntable_serial_servo.ino" kind="Code" label="Arduino control" />
-</Attachments>
+<CodeBlock src="./files/turntable_serial_servo.ino" lang="Arduino" />
 </Entry>
 
-<Entry date="2026-09-24" title="Making presence and drawing intentional">
+<Entry date="2026-09-24" dateEnd="2026-09-29" title="From presence to a deliberate brushstroke">
 
-The early hand tracker struggled near my face. I switched to MediaPipe Holistic so the face and hands could stay in the frame together.
+The first tests detected a person in view. I then switched to MediaPipe Holistic so face and hand tracking could work together, with p5.js drawing the marks.
 
-Pinching puts the pen down; releasing lifts it, avoiding accidental marks while repositioning. One welcome rotation per continuous visit prevents repeated triggering, and the interaction resets after the visitor leaves.
+Pinching the thumb and index finger puts the pen down; releasing lifts it. One welcome rotation per visit avoids repeated triggering while someone stays in frame.
+
+I tested several Chinese ink-painting prompts. Dense landscapes competed with the drawing, so I reduced the decoration and left more empty space around the main motif.
 
 <Gallery>
-<Figure src="./images/early-camera-tracking-detail.jpg" kind="screen" caption="Early camera tracking test, with my face still in frame." />
-<Figure src="./images/pinch-drawing-live.jpg" kind="photo" caption="Pinch-to-draw in use, with the running p5.js canvas visible on the laptop." />
-<Figure src="./images/hand-control-detail.jpg" kind="photo" caption="Hand interaction and the live control interface during testing." />
-<Figure src="./images/5ebc4e56eb4d-1.png" kind="screen" caption="Drawing on a separate canvas made the intended gesture easier to see." />
+<Figure src="./images/presence-detection-test.jpg" kind="photo" caption="Early presence-detection test alongside the printed mechanism and Arduino." />
+<Figure src="./images/early-camera-tracking-detail.jpg" kind="screen" caption="Face and hand tracking in the same frame during the early camera tests." />
+<Figure src="./images/pinch-onsite-poster.jpg" kind="photo" caption="Pinch-to-draw with the running canvas and physical prototype; the full action is shown below." />
+</Gallery>
+<Video src="./files/pinch-canvas-recording.mp4" poster="./images/pinch-recording-poster.jpg" title="Screen recording: pinch to draw, release to lift the pen" duration="0:30" />
+<Video src="./files/pinch-onsite.mp4" poster="./images/pinch-onsite-poster.jpg" title="On-site test: the hand gesture, live canvas and physical prototype" duration="0:18" />
+<CodeBlock src="./files/studio-sketch.js" lang="JavaScript / p5.js" />
+<Gallery>
+<Figure src="./images/ink-landscape-panel.svg" kind="screen" caption="Earlier prompt: a dense landscape filled the vessel and overwhelmed the visitor's mark." />
+<Figure src="./images/ink-restrained-panel.svg" kind="screen" caption="Later prompt in the running prototype: a restrained ink landscape with more open space." />
 </Gallery>
 </Entry>
 
-<Entry date="2026-09-23" dateEnd="2026-09-29" title="Giving the drawing room on the vessel">
+<Entry date="2026-09-24" dateEnd="2026-10-01" title="One frontend for the prototype">
 
-The early mirrored strokes were too heavy; later generated scenes added too much decoration. I returned to a restrained ink-painting direction with one main motif and more empty space, keeping an association with the visitor's drawing.
+I used vibe coding to bring p5.js drawing, image generation and Arduino controls into one frontend.
 
 <Gallery>
-<Figure src="./images/generation-early-symmetry.jpg" kind="screen" caption="Early generation experiment: thick, mirrored strokes dominated the vase-shaped canvas." />
-<Figure src="./images/bc17b0e99774-1.png" kind="screen" caption="Abstract contour used to test a recognisable interpretation of the original drawing." />
-<Figure src="./images/455b77d79c0e-1.png" kind="screen" caption="Smile test: preserving the visitor's mark mattered more than adding decoration." />
+<Figure wide src="./images/frontend-hd.jpg" kind="screen" caption="The integrated frontend, captured from the original high-resolution screen recording." />
 </Gallery>
 </Entry>
 

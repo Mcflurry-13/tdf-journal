@@ -1,5 +1,5 @@
 // AI Ceramic Pattern Studio
-// Holistic 只显示手部锚点；脸和身体仅作为模型的内部追踪上下文。
+// Show hand landmarks only; face and body remain internal tracking context for Holistic.
 
 const CAM_W = 640;
 const CAM_H = 480;

@@ -1028,3 +1028,17 @@ a.type-tile:hover,
 .cad-tools button { background:none; border:0; text-decoration:underline; cursor:pointer; }
 @media (max-width:639px) { .cad-stage { height:260px; } .cad-stage .cad-poster {max-height:260px;} }
 @media print { .cad-stage {height:auto;} .cad-stage canvas {display:none;} .cad-stage .cad-poster {display:block !important;max-height:80mm;} }
+
+/* Native-resolution recordings; never crop the hand or interface. */
+.recording { margin: 0; width: 100%; min-width: 0; break-inside: avoid; }
+.recording video, .recording > img { width: 100%; height: auto; display: block; }
+.recording .video-meta { padding-top: 10px; font-size: 13px; }
+.recording .print-only { display: none; }
+@media print {
+  .recording video { display: none !important; }
+  .recording > .print-only { display: block; }
+}
+
+.code-head { flex-wrap: wrap; }
+.code-head > .mono { min-width: 0; overflow-wrap: anywhere; }
+.code-actions { flex-shrink: 0; }

@@ -1,15 +1,15 @@
 #include <Servo.h>
 
-// FS90R 信号线接 Arduino D9。
-// 舵机红线接外部 5V，棕/黑线接外部 GND；Arduino GND 必须与外部 GND 相连。
+// Connect the FS90R signal wire to Arduino D9.
+// Connect servo red to external 5V and brown/black to ground. Share ground with Arduino.
 const byte SERVO_PIN = 9;
 
-// FS90R 是连续旋转舵机。1500us 附近为停止，数值偏大/偏小决定方向与速度。
-// 如果停止时还在缓慢爬行，把 STOP_US 每次改 5（例如 1495、1505）再测试。
+// The FS90R rotates continuously. Around 1500 us stops it; offsets set direction and speed.
+// If it creeps at rest, adjust STOP_US in 5 us steps and test again.
 const int STOP_US = 1500;
 const int RUN_US = 1600;
 
-// 即使网页意外断开，舵机也会在 8 秒后强制停止。
+// Stop after eight seconds even if the browser disconnects.
 const unsigned long FAILSAFE_MS = 8000;
 
 Servo turntableServo;

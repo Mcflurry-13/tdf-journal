@@ -261,3 +261,9 @@ The script applies EXIF orientation, exports a maximum 2400px long edge at JPEG 
 ### Verification
 
 Run `node scripts/gallery-layout.test.mjs` and `npm run build`. At 1440px and 390px, inspect both Week 5 routes: shared caption tops, equal image heights, filled multi-image row edges, singleton height caps, no overflow, no cropped photos and no missing metadata. Confirm that the two URLs display the same source article. Capture the screenshots outside the published content folder.
+
+## Inline recordings and readable code
+
+Use `<Video src="./files/clip.mp4" poster="./images/poster.jpg" title="…" duration="0:30" />` for a local recording. It shows native controls, never autoplays, preserves the full frame, and prints its poster. Keep excerpts focused; retain the original recording outside the site.
+
+Use `<CodeBlock src="./files/sketch.ino" lang="Arduino" />` to preview, expand, copy and download the actual source. Source comments and interface labels are English. Expected serial output illustrations must be labelled as expected, not recorded test results. Fabrication iterations in Week 5 end on September 24; later capture dates are not fabrication dates.

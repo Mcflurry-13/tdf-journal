@@ -230,24 +230,30 @@ const PlayIcon = () => (
   </svg>
 );
 
-/** External video. Never autoplays; prints as poster + full URL. */
-export function Video({ href, title, duration, poster }: { href: string; title: string; duration?: string; poster?: string }) {
+/** Local recordings play inline; external demonstrations remain links. */
+export function Video({ href, src, title, duration, poster }: { href?: string; src?: string; title: string; duration?: string; poster?: string }) {
   const dir = useWeekDir();
   const img = resolveAsset(dir, poster);
+  const local = src ? resolveAsset(dir, src) : undefined;
+  const url = local ?? href;
   return (
-    <div className="video">
-      <div className="video-poster">
+    <figure className={local ? 'recording' : 'video'}>
+      {local ? <>
+        <video className="no-print" controls playsInline preload="none" poster={img} aria-label={title}>
+          <source src={local} type="video/mp4" />
+          <a href={local}>Open recording</a>
+        </video>
+        {img && <img className="print-only" src={img} alt={title} />}
+      </> : <div className="video-poster">
         {img ? <img src={img} alt="" /> : <div className="placeholder"><PlayIcon /></div>}
-      </div>
-      <div className="video-meta">
+      </div>}
+      <figcaption className="video-meta">
         <span className="mono muted">VIDEO{duration ? ` · ${duration}` : ''}</span>
         <span className="video-title">{title}</span>
-        <a href={href} target="_blank" rel="noreferrer" className="no-print">
-          Open in new tab ↗
-        </a>
-        <span className="print-only mono print-url">{href}</span>
-      </div>
-    </div>
+        <a href={url} target="_blank" rel="noreferrer" className="no-print">Open full-size recording ↗</a>
+        <span className="print-only mono print-url">{url ? absoluteUrl(url) : ''}</span>
+      </figcaption>
+    </figure>
   );
 }
 
