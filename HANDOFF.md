@@ -276,3 +276,6 @@ October 2 media revision: pinch recording uses original 87–102.6s and 110.15�
 ### October 2 follow-up: cloud pattern and seated demo
 The supplied blue/cream cloud pattern is embedded unchanged in `cloud-pattern-vessel.svg` and clipped to the actual frontend vase profile. This is a pattern presentation, not an old captured screenshot.
 The edited demo now uses original 87–99s for drawing, 101.4–102.05s for the Generate click, and an 8-second panel composition: seated camera/drawing from 99–107s with rotating result from112–120s. No standing, talking or projector-carrying appears. This intentionally demonstrates the shortened interaction, not real generation latency; title says edited demo.
+
+### October 2 final prototype video
+The final Prototype in use section now plays the user-supplied `01_Prototype Demo Video.mp4` in full (60.1 seconds), replacing the GIF. The web copy retains its 3840×2160 resolution and 30 fps with H.264 CRF 23 and fast-start metadata; no scenes are trimmed or reordered. The source has no audio track. Poster is taken at 3 seconds. The exploded illustration remains the corrected transparent version with matching left and right bearing supports, beside the original hand sketch.
