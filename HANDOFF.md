@@ -18,6 +18,14 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 
 ---
 
+## Week 2 source import (October 8, 2026)
+
+`content/physical-computing/w02/index.mdx` is the Physical Computing Week 2 record, titled **Week 2**. Source: [26FALL-TDF, Week 2 · Arduino Journal](https://www.figma.com/design/TZMQOkNx0EGp1sZYJ48oKf/26FALL-TDF?node-id=64-131). September 3, 2026 is the date printed in that source; it renders as Week 2. The six entries preserve the Figma narratives and code: Serial Communication, Onboard LED, Hello World, External LED, LDR, and Three-LED Sequence. The serial setup is explicitly labeled as a setup snippet, not a complete sketch. Code files are selectable, expandable where needed, copyable and downloadable through the existing CodeBlock component.
+
+Reuse existing Entry, Gallery, Figure and CodeBlock styles; do not import Figma's rounded cards or shadows. Original classroom photographs were matched to the source and read from `UCB/TDF-Design-Journal/Week-02-Arduino/photos/`, then exported upright at a 2400px long edge, JPEG quality 82, without cropping. Circuit diagrams, Serial Monitor captures and demonstration stills were exported from the Figma source assets. Video files are awaiting the owner's download; these stills must not be described as playable recordings. The original source files and Figma document are unchanged.
+
+The Serial Monitor crops follow the source's output-panel presentation; the matching full code remains in CodeBlock. Desktop (1440px) and mobile (390px) were checked for overflow and code expansion; the build and 160 gallery layout scenarios pass.
+
 ## 1 · Run it
 
 ```bash

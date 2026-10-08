@@ -1,0 +1,86 @@
+---
+type: physical-computing
+week: 2
+dateStart: 2026-09-03
+dateEnd: 2026-09-03
+title: "Week 2"
+summary: "Arduino basics: serial communication, LED outputs and light-responsive circuits."
+cover: "./images/arduino-starter-kit.jpg"
+coverKind: photo
+projects: []
+status: published
+updatedAt: 2026-10-08
+---
+
+<Entry date="2026-09-03" title="Serial Communication">
+
+I initialized Serial at 9600 baud in setup() so Arduino could send readable information to the Serial Monitor. This became my main way to check what the board was doing.
+
+<CodeBlock src="./files/01_serial_setup.ino" lang="Arduino · setup snippet" />
+</Entry>
+
+<Entry date="2026-09-03" title="Onboard LED">
+
+I set the onboard LED pin as OUTPUT and alternated HIGH and LOW inside loop(). Changing delay() showed me how timing values control the blinking speed.
+
+<CodeBlock src="./files/02_blink.ino" lang="Arduino" />
+</Entry>
+
+<Entry date="2026-09-03" title="Hello World">
+
+I used Serial.println() to print “Hello, world!” repeatedly. Changing delay() controlled how often a new line appeared in the Serial Monitor.
+
+<Gallery>
+<Figure src="./images/arduino-starter-kit.jpg" kind="photo" caption="Exploring the Arduino starter kit." />
+<Figure src="./images/hello-world-running.jpg" kind="photo" caption="Hello World running with the connected Arduino Uno." />
+</Gallery>
+<CodeBlock src="./files/01_hello_world.ino" lang="Arduino" />
+</Entry>
+
+<Entry date="2026-09-03" title="External LED · Blink and Print">
+
+I moved the LED output onto a breadboard, synchronized it with the onboard LED, and printed each ON/OFF state in the Serial Monitor. The circuit follows D8 → 220 Ω resistor → LED → GND.
+
+I initially pasted two sketches together and created duplicate setup() and loop() functions. I fixed this by combining both behaviors into one setup() and one loop().
+
+<Gallery>
+<Figure src="./images/external-led-circuit.jpg" kind="diagram" caption="External LED circuit: D8, a 220 Ω resistor and GND." />
+<Figure src="./images/external-led-demo-poster.jpg" kind="photo" caption="The external LED wired on the breadboard." />
+</Gallery>
+<CodeBlock src="./files/03_blink_print.ino" lang="Arduino" />
+<Gallery>
+<Figure src="./images/external-led-serial.jpg" kind="screen" caption="ON/OFF messages in the Serial Monitor." />
+</Gallery>
+</Entry>
+
+<Entry date="2026-09-03" title="Light Input · LDR">
+
+I used an LDR to turn the LED on in darkness and off in bright light. The LDR and 10 kΩ resistor form a voltage divider read by A0; D8 controls the LED through a 220 Ω resistor.
+
+The reading first stayed around 1018–1023, so the LED never changed state. I checked the A0 midpoint and GND connection, then measured bright and dark values before choosing a threshold.
+
+<Gallery>
+<Figure src="./images/ldr-circuit.jpg" kind="diagram" caption="LDR voltage divider read through A0; D8 controls the LED." />
+<Figure src="./images/ldr-demo-poster.jpg" kind="photo" caption="The LDR and LED connected on the breadboard." />
+</Gallery>
+<CodeBlock src="./files/04_ambient_light.ino" lang="Arduino" />
+<Gallery>
+<Figure src="./images/ldr-serial.jpg" kind="screen" caption="Light readings and LED states in the Serial Monitor." />
+</Gallery>
+</Entry>
+
+<Entry date="2026-09-03" title="Three-LED Sequence">
+
+I connected red, yellow, and green LEDs to D8, D9, and D10 and turned them on one at a time. Each LED uses its own 220 Ω resistor, while all three share GND.
+
+I aligned the components so wiring mistakes were easier to see, then changed delay() to test different flashing speeds.
+
+<Gallery>
+<Figure src="./images/three-led-circuit.jpg" kind="diagram" caption="Three LEDs on D8, D9 and D10, each with its own resistor." />
+<Figure src="./images/three-led-demo-poster.jpg" kind="photo" caption="The three-light breadboard sequence." />
+</Gallery>
+<CodeBlock src="./files/05_led_sequence.ino" lang="Arduino" />
+<Gallery>
+<Figure src="./images/three-led-serial.jpg" kind="screen" caption="The Serial Monitor reports which LED is on." />
+</Gallery>
+</Entry>
