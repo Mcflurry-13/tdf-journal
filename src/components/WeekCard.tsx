@@ -3,13 +3,13 @@ import { formatWeek } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
 import { Status } from './blocks';
-import { ProjectTag } from './tags';
+import { TrackTags } from './tags';
 
-export function WeekCard({ week }: { week: Week }) {
+export function WeekCard({ week, id }: { week: Week; id?: string }) {
   const cover = resolveAsset(week.dir, week.cover);
   const pending = week.status === 'pending';
   return (
-    <article className="card">
+    <article className="card" id={id}>
       <div className="card-top">
         <span className="mono muted">{formatWeek(week.week)}</span>
       </div>
@@ -27,13 +27,7 @@ export function WeekCard({ week }: { week: Week }) {
         <Link to={week.path}>Week {week.week}: {week.title}</Link>
       </h3>
       {week.summary && <p className="card-summary">{week.summary}</p>}
-      {!!week.projects?.length && (
-        <div className="card-tags">
-          {week.projects.map((p) => (
-            <ProjectTag key={p} id={p} link={false} />
-          ))}
-        </div>
-      )}
+      <div className="card-tags"><TrackTags week={week} /></div>
       {(week.sample || week.status === 'draft') && (
         <span className="mono muted">{week.sample ? 'Sample' : 'Draft'} · dev only</span>
       )}

@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
-import { sameWeekElsewhere, typeById } from '../content';
+import { categoryByType, sameWeekElsewhere, typeById } from '../content';
 import { formatWeek, pad2 } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
-import { ProjectTag, TypeTag } from './tags';
+import { ProjectTag, TypeTag, TrackTags } from './tags';
 
 /** Same two columns as the rows below: identity left, title + contents right. */
 export function WeekHeader({ week, children }: { week: Week; children?: ReactNode }) {
@@ -12,7 +12,7 @@ export function WeekHeader({ week, children }: { week: Week; children?: ReactNod
   return (
     <header className="week-head">
       <div className="week-head-id">
-        <div className="card-tags"><TypeTag typeId={week.type} />{week.relatedTypes?.map(id => <TypeTag key={id} typeId={id} />)}</div>
+        <div className="card-tags"><TypeTag typeId={categoryByType(week.type).id} /><TrackTags week={week} /></div>
         <p className="display week-code">
           {week.relatedTypes?.length ? 'Project' : type.short} — W{pad2(week.week)}
         </p>
@@ -32,7 +32,7 @@ export function WeekHeader({ week, children }: { week: Week; children?: ReactNod
           return (
             <Link key={o.path} to={o.path} className="same-week no-print" style={{ background: ot.tint }}>
               <span>
-                <span className="mono muted">Same week, other class · </span>
+                <span className="mono muted">Same week · </span>
                 {ot.name} — W{pad2(o.week)}: {o.title}
               </span>
               <span className="mono">{o.code} →</span>

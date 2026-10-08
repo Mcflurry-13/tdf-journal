@@ -85,11 +85,23 @@ export const weeks: Week[] = Object.entries(modules)
   .filter((w): w is Week => w !== null && isVisible(w))
   .sort((a, b) => a.week - b.week || a.dateStart.localeCompare(b.dateStart) || a.path.localeCompare(b.path));
 
-export const firstType = types.find((t) => !t.reserved) ?? types[0];
+export const topTypes = types.filter((t) => !t.parentId);
+export const firstType = topTypes.find((t) => !t.reserved) ?? topTypes[0];
 
 export const typeById = (id: string) => types.find((t) => t.id === id);
+export const categoryByType = (id: string) => {
+  const type = typeById(id)!;
+  return typeById(type.parentId ?? type.id)!;
+};
+export const tracksOfWeek = (week: Week) => {
+  const ids = [week.type, ...(week.relatedTypes ?? [])];
+  return [
+    ...(ids.includes('digital-fabrication') ? [{ id: 'fabrication', name: 'Fabrication', tint: 'var(--tint-df)' }] : []),
+    ...(ids.includes('physical-computing') ? [{ id: 'hardware', name: 'Hardware Programming', tint: 'var(--tint-pc)' }] : []),
+  ];
+};
 export const projectById = (id: string) => projects.find((p) => p.id === id);
-export const weeksOfType = (typeId: string) => weeks.filter((w) => w.type === typeId || w.relatedTypes?.includes(typeId));
+export const weeksOfType = (typeId: string) => weeks.filter((w) => categoryByType(w.type).id === categoryByType(typeId).id);
 export const weeksOfProject = (id: string) => weeks.filter((w) => w.projects?.includes(id));
 export const findWeek = (typeId: string, slug: string) =>
   weeks.find((w) => (w.type === typeId || w.relatedTypes?.includes(typeId)) && w.slug === slug) ??
@@ -104,7 +116,7 @@ export function neighbours(week: Week) {
 
 /** The same course-content week in the other type(s). */
 export const sameWeekElsewhere = (week: Week) =>
-  weeks.filter((w) => w.week === week.week && w.type !== week.type);
+  weeks.filter((w) => w.week === week.week && w !== week);
 
 function key(dir: string, src: string) {
   return `${dir}/${src.replace(/^\.\//, '')}`;

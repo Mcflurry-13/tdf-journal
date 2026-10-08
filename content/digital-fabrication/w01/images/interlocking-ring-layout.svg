@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ring-layout" data-name="Ring layout" xmlns="http://www.w3.org/2000/svg" viewBox="-13 -13 350.49 139.44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #45494b;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: .7px;
+      }
+    </style>
+  </defs>
+  <g id="CUT_RGB_255_0_0_0.001_IN" data-name="CUT  RGB 255 0 0  0.001 IN">
+    <path id="A_MAIN_OUTER" data-name="A MAIN OUTER" class="cls-1" d="M4.28,18.45C4.28,8.27,19.51.02,38.29.02s34.02,8.25,34.02,18.43c0,9.58-12.56,17.29-22.68,19.05,17.01,5.1,26.93,20.78,26.93,37.64,0,21.13-17.13,38.27-38.27,38.27S.02,96.28.02,75.14C.02,58.28,9.95,42.6,26.95,37.5c-10.12-1.76-22.68-9.47-22.68-19.05Z"/>
+    <circle id="A_FINGER_OPENING_18.0" data-name="A FINGER OPENING 18.0" class="cls-1" cx="38.29" cy="75.14" r="25.51"/>
+    <path id="A1_TOP_CROSS_SLOT_3.05" data-name="A1 TOP CROSS SLOT 3.05" class="cls-1" d="M34,.17c0,7.23-.02,14.45-.03,21.68,0,.66.33.99.99.99h6.66c.66,0,.99-.33.99-.99,0-7.23.01-14.45.02-21.68"/>
+    <path id="A2_LEFT_KEY_PASSAGE_3.05" data-name="A2 LEFT KEY PASSAGE 3.05" class="cls-1" d="M16.29,33.76h12.36c.66,0,.99-.33.99-.99v-6.66c0-.33-.08-.58-.25-.74-.24-.24-.6-.25-.74-.25-.72,0-9.82,0-22.33,0"/>
+    <path id="B_HEART_OUTER" data-name="B HEART OUTER" class="cls-1" d="M163.02,76.56c-8.5-12.19-38.27-29.76-38.27-52.16,0-20.69,24.09-28.06,38.27-9.35,14.17-18.71,38.27-11.34,38.27,9.35,0,22.39-29.76,39.97-38.27,52.16Z"/>
+    <path id="B1_BOTTOM_CROSS_SLOT_3.05" data-name="B1 BOTTOM CROSS SLOT 3.05" class="cls-1" d="M158.73,71.5c-.01-8.9-.02-17.79-.03-26.69,0-.66.33-.99.99-.99h6.64c.33,0,.58.08.74.25.24.24.25.6.25.74,0,.72,0,11.67,0,26.71"/>
+    <path id="B2_RIGHT_KEY_PASSAGE_3.05" data-name="B2 RIGHT KEY PASSAGE 3.05" class="cls-1" d="M201.27,25.11h-26.64c-.66,0-.99.33-.99.99v6.66c0,.66.33.99.99.99h24.95"/>
+    <path id="B3_TOP_RELEASE_SLOT_3.05" data-name="B3 TOP RELEASE SLOT 3.05" class="cls-1" d="M158.69,10.37v11.34c0,.66.33.99.99.99h6.66c.66,0,.99-.33.99-.99v-11.34"/>
+    <path id="C_LOCK_KEY" data-name="C LOCK KEY" class="cls-1" d="M265.06,10.51c15.87-10.77,40.25-10.2,53.86,3.4,8.79,8.79,6.8,22.96-3.69,29.48-8.79,5.67-22.39,7.65-34.87,3.97v4.39c0,1.04-.52,1.56-1.56,1.56h-6.24c-1.04,0-1.56-.52-1.56-1.56v-7.65c-9.35-6.24-14.74-25.8-5.95-33.59Z"/>
+    <path id="C1_TOP_FORK_SLOT_3.05" data-name="C1 TOP FORK SLOT 3.05" class="cls-1" d="M289.09,3.03v21.51c0,.66.33.99.99.99h6.66c.66,0,.99-.33.99-.99V3.58"/>
+  </g>
+</svg>

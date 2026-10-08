@@ -1,4 +1,4 @@
-import { projects, site, typeById, types, weeksOfType } from '../content';
+import { projects, site, typeById, topTypes, weeksOfType } from '../content';
 import { formatWeek } from '../format';
 import { Link } from '../router';
 import { ProjectTag } from '../components/tags';
@@ -8,6 +8,8 @@ import { WeekCard } from '../components/WeekCard';
 export function ArchivePage({ typeId }: { typeId: string }) {
   const type = typeById(typeId)!;
   const list = weeksOfType(typeId);
+  const weekNumbers = [...new Set(list.map(w => w.week))];
+  const visibleProjects = projects.filter(p => list.some(w => w.projects?.includes(p.id)));
 
   return (
     <div className="page">
@@ -26,7 +28,7 @@ export function ArchivePage({ typeId }: { typeId: string }) {
 
       <section className="type-picker" aria-label="Journal categories">
         <nav className="type-tiles" aria-label="Types">
-          {types.map((t) =>
+          {topTypes.map((t) =>
             t.reserved ? (
               <div key={t.id} className="type-tile is-reserved" aria-disabled="true">
                 <span className="type-tile-name">{t.name}</span>
@@ -52,20 +54,17 @@ export function ArchivePage({ typeId }: { typeId: string }) {
         <aside className="archive-side">
           <nav aria-label={`${type.name} weeks`} className="side-weeks">
             <h2 className="side-head">{type.name}</h2>
-            {list.map((w) => (
-              <Link key={w.path} to={w.path} className="week-row">
-                <span className="mono muted">
-                  {formatWeek(w.week)}
-                  {w.status === 'pending' ? ' · pending' : ''}
-                </span>
-              </Link>
+            {weekNumbers.map(number => (
+              <a key={number} href={`#week-${number}`} className="week-row">
+                <span className="mono muted">{formatWeek(number)}</span>
+              </a>
             ))}
           </nav>
-          {projects.length > 0 && (
+          {visibleProjects.length > 0 && (
             <section className="side-projects">
               <h2 className="side-head">Project</h2>
               <div className="card-tags">
-                {projects.map((p) => (
+                {visibleProjects.map((p) => (
                   <ProjectTag key={p.id} id={p.id} />
                 ))}
               </div>
@@ -78,10 +77,8 @@ export function ArchivePage({ typeId }: { typeId: string }) {
             <span className="mono muted">Chronological order</span>
           </div>
           <nav className="week-chips" aria-label="Jump to week">
-            {list.map((w) => (
-              <Link key={w.path} to={w.path} className="week-chip">
-                {formatWeek(w.week)}
-              </Link>
+            {weekNumbers.map(number => (
+              <a key={number} href={`#week-${number}`} className="week-chip">{formatWeek(number)}</a>
             ))}
           </nav>
           {list.length === 0 ? (
@@ -89,7 +86,7 @@ export function ArchivePage({ typeId }: { typeId: string }) {
           ) : (
             <div className="card-grid">
               {list.map((w) => (
-                <WeekCard key={w.path} week={w} />
+                <WeekCard key={w.path} week={w} id={list.find(x => x.week === w.week) === w ? `week-${w.week}` : undefined} />
               ))}
             </div>
           )}

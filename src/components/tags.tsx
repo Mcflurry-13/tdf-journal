@@ -1,4 +1,5 @@
-import { projectById, typeById } from '../content';
+import type { Week } from '../types';
+import { projectById, typeById, tracksOfWeek } from '../content';
 import { Link } from '../router';
 
 /** Type tag — tint is a fill only, text stays ink. */
@@ -21,4 +22,8 @@ export function ProjectTag({ id, link = true }: { id: string; link?: boolean }) 
   ) : (
     <span className="tag tag-project">↳ {name}</span>
   );
+}
+
+export function TrackTags({ week }: { week: Week }) {
+  return <>{tracksOfWeek(week).map(track => <span key={track.id} className="tag" style={{ background: track.tint }}>{track.name}</span>)}</>;
 }

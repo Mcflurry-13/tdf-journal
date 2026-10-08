@@ -41,7 +41,7 @@ Node 18+ (tested on Node 24). Hosting: any static host. Because routes are real 
 
 ## 2 · Information architecture
 
-Archives group records by class. Expressive Mechanics is one combined article; `relatedTypes: [digital-fabrication]` makes both Week 3 routes and the project route resolve to it.
+The archive has exactly two top-level categories: Physical Computing and Computational Design. Fabrication is an internal track (`parentId: physical-computing`) alongside hardware programming. Physical Computing lists all those records once in ascending week order. Expressive Mechanics is one combined article with both track badges; `relatedTypes: [digital-fabrication]` preserves both Week 3 routes and the project route.
 
 ```
 /                          Archive (first type selected)
@@ -52,9 +52,9 @@ Archives group records by class. Expressive Mechanics is one combined article; `
 /project/expressive-mechanics   Weeks tagged with a project, across types
 ```
 
-Week page: breadcrumb · prev/next **within the same type** · link to the **same week in the other type** (PC-W03 ↔ DF-W03) · numbered contents grid (desktop) / collapsed “Contents” (mobile) · header · body · prev/next.
+Week page: breadcrumb · prev/next **within the top-level category** · links to other records from the same course week · numbered contents grid (desktop) / collapsed “Contents” (mobile) · header · body · prev/next.
 
-Types are data (`content/types.json`). Computational Design is already listed as `reserved: true` (dashed, not clickable). Remove `reserved` when the module starts.
+Types are data (`content/types.json`). `topTypes` excludes child tracks. Computational Design is clickable with an honest empty state until content is supplied. The old Digital Fabrication archive and print URLs display the combined Physical Computing views; existing article URLs remain valid.
 
 ---
 
@@ -298,7 +298,7 @@ The archive masthead and return links use Design Journal. Removed numbered Type/
 Visible week labels use the explicit `week` field in frontmatter, shared with Entry through WeekContext. Do not calculate course units from dates. The owner’s current mapping supersedes the earlier calendar-based mapping: Week 1 = Arduino lights + laser-cut ring; Week 2 = Arduino sensors/servo + 3D-printed ring; Week 3 = Expressive Mechanics; Week 4 = upcoming ESP32. Real making dates stay unchanged in source metadata; September 24 remains the Expressive Mechanics final presentation. Publish only supplied, documented work, not empty or invented exercises. The original hand sketch and exploded illustration use their own `<Gallery pair>` to remain side by side at all widths, without cropping; the generated concept sketch remains above them. Section accepts weekLabel for the final presentation marker.
 
 ### October 8 unified card titles and chronological ordering
-All journal cards use `Week N: Topic`, generated centrally by WeekCard from `week` and `title`. Store only the topic in frontmatter: `Arduino Basics` and `Expressive Mechanics` render as `Week 1: Arduino Basics` and `Week 3: Expressive Mechanics`. Cards, page headers, entries, contents and print labels all use the same explicit course week. New records inherit this convention. All category and project lists, sidebar week links, mobile week chips, and print bundles use ascending course weeks, then making date and route for stable ties. Previous/next links keep their earlier/later meaning. Do not reverse print ordering or reintroduce Newest first.
+All journal cards use `Week N: Topic`, generated centrally by WeekCard from `week` and `title`. Store only the topic in frontmatter: `Arduino Basics` and `Expressive Mechanics` render as `Week 1: Arduino Basics` and `Week 3: Expressive Mechanics`. Cards, page headers, entries, contents and print labels all use the same explicit course week. New records inherit this convention. All category and project lists and print bundles use ascending course weeks, then making date and route for stable ties. Sidebar links and mobile chips have one anchor per course week, pointing to the first card in that week. Previous/next links keep their earlier/later meaning. Do not reverse print ordering or reintroduce Newest first.
 
 
 Legacy URLs are listed in `content/legacy-routes.json` and emitted as static pages. A real current content route always takes precedence over a legacy alias (important when a future Arduino sensors article uses physical-computing/w02). The old physical-computing/w02 link currently opens Arduino Basics; both old w05 links open Expressive Mechanics at Week 3.
@@ -308,3 +308,11 @@ Legacy URLs are listed in `content/legacy-routes.json` and emitted as static pag
 `content/digital-fabrication/w02/index.mdx` documents the owner's supplied `Downloads/ring/` assets and October 8 answers. Three short sections: Word Play, Lettering, Clip Clearance. The intention is independent rotation of four alphabet rings to form words. The owner measured their finger, kept the basic ring form, changed unclear non-through lettering to cutouts, and widened a clip that fit numerically but broke when the tightly assembled rings were turned. Printing itself was reported as problem-free. Do not claim measured clearances, a particular printer/material, or verified final rotation/legibility: those were not supplied. Actual making dates remain TBD; the explicitly requested course unit is Week 2.
 
 The concept image is labeled as a render. Printed photos map to IMG_5936 (build plate), IMG_5948 (assembly and cover), and IMG_5954 (inside view). Photos are EXIF-oriented, uncropped JPEG quality 82, max 2400px long edge. Original STL files are supplied unchanged in interactive viewers; transparent print posters are rendered from their actual geometry. The two lettering versions are paired on desktop and stacked on mobile. The supplied clip model is described without claiming it is the widened final revision, since that file-version relationship has not been confirmed. Preserve English prose, triangle captions and existing editorial gallery/print rules. Classmate references informed the short process structure only; all personal process claims come from the owner.
+
+
+### October 8 · Combined archive and laser-cut ring
+Top-level navigation contains only Physical Computing and Computational Design. Preserve the existing two-column editorial article structure, warm paper, thin rules, rectangular cards and mobile stacking. Each card displays mint `Fabrication` and/or lavender `Hardware Programming` tags instead of a project tag. Expressive Mechanics carries both, but is never duplicated. Week headers use the parent category plus track tags; previous/next navigation and print bundles include both fabrication and hardware records. Category membership is centralized in `categoryByType`/`weeksOfType`, and track labels in `tracksOfWeek`. Keep internal digital-fabrication folders and URLs to avoid collisions with Arduino records in the same week.
+
+`content/digital-fabrication/w01/index.mdx` is **Week 1: Laser-Cut Ring**. Primary evidence: owner-supplied `Downloads/laser cutting ring/` and the owner's current description. Prior thread `01a08c49-7d1b-7cc0-a191-2dda7aaa8146` supports the earlier butterfly / interlocking-heart design intent, not fabricated physical success. Two short sections explain that repeated flexible cutting patterns could not bend the wooden band through a full circle, so the owner switched to slotted assembly. Do not claim a material species, thickness, laser setting, exact fit, or final durability. Actual making dates are unknown (TBD), not the export dates.
+
+IMG_5710 is the separated wooden pieces; IMG_5711 is the assembled ring and card cover. Photos retain the whole frame, EXIF orientation and JPEG quality 82 at max 2400px. IMG_5709 (4s cutting) and IMG_5722 (2s trials) retain their complete uncropped 2160×3840 H.264 picture and original audio through lossless MP4 remuxing. `VideoGroup` presents the short portrait clips side by side at up to 270px each, stacked on mobile. Print uses their posters. The owner's ai_ring.svg is the downloadable file unchanged; a separate display SVG only enlarges strokes and adds 4% padding. No rejected historical AI diagrams are reused.

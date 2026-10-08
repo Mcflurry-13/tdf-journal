@@ -16,7 +16,7 @@ export function PrintBundlePage({ typeId }: { typeId: string }) {
         <Link to={`/${type.id}`} className="mono">
           ← {type.name}
         </Link>
-        <span className="mono muted">Print preview · {list.length} weeks</span>
+        <span className="mono muted">Print preview · {list.length} journal records</span>
         <button type="button" className="btn" onClick={() => window.print()}>
           Print / save as PDF
         </button>

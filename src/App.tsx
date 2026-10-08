@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { findWeek, firstType, site, weeksOfProject, typeById } from './content';
+import { categoryByType, findWeek, firstType, site, weeksOfProject, typeById } from './content';
 import { Link, usePath } from './router';
 import { ArchivePage } from './pages/ArchivePage';
 import { WeekPage } from './pages/WeekPage';
@@ -28,11 +28,11 @@ export function App() {
     page = records.length === 1 ? <WeekPage week={records[0]} /> : <ProjectPage id={parts[1]} />;
     if (records.length === 1) title = `${records[0].title} · ${site.title}`;
   } else if (parts.length === 1 && typeById(parts[0]) && !typeById(parts[0])!.reserved) {
-    page = <ArchivePage typeId={parts[0]} />;
-    title = `${typeById(parts[0])!.name} · ${site.title}`;
+    page = <ArchivePage typeId={categoryByType(parts[0]).id} />;
+    title = `${categoryByType(parts[0]).name} · ${site.title}`;
   } else if (parts.length === 2 && parts[1] === 'print' && typeById(parts[0])) {
-    page = <PrintBundlePage typeId={parts[0]} />;
-    title = `${typeById(parts[0])!.name} — all weeks · ${site.title}`;
+    page = <PrintBundlePage typeId={categoryByType(parts[0]).id} />;
+    title = `${categoryByType(parts[0]).name} — all weeks · ${site.title}`;
   } else if (parts.length === 2) {
     const week = findWeek(parts[0], parts[1]);
     if (week) {

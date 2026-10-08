@@ -17,6 +17,8 @@ export interface TypeDef {
   blurb: string;
   /** Shown as a dashed, non-clickable tile until the module starts. */
   reserved?: boolean;
+  /** Internal content track grouped under a top-level archive. */
+  parentId?: string;
 }
 
 export interface ProjectDef {

@@ -4,21 +4,22 @@
     "short": "PC",
     "name": "Physical Computing",
     "tint": "var(--tint-pc)",
-    "blurb": "Arduino · sensors · servos · p5.js · serial"
+    "blurb": "Fabrication \u00b7 Arduino \u00b7 sensors \u00b7 servos \u00b7 physical interaction"
   },
   {
     "id": "digital-fabrication",
     "short": "DF",
-    "name": "Digital Fabrication",
+    "name": "Fabrication",
     "tint": "var(--tint-df)",
-    "blurb": "Laser cutting · CAD · 3D printing · fit and tolerance"
+    "blurb": "Laser cutting \u00b7 CAD \u00b7 3D printing \u00b7 fit and tolerance",
+    "parentId": "physical-computing"
   },
   {
     "id": "computational-design",
     "short": "CD",
     "name": "Computational Design",
     "tint": "var(--tint-cd)",
-    "blurb": "Appears once a module is added",
-    "reserved": true
+    "blurb": "Computation \u00b7 code \u00b7 generative design",
+    "reserved": false
   }
 ]

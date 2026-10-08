@@ -202,7 +202,7 @@ a.tag:hover {
 }
 .type-tiles {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 .type-tile {
@@ -1057,3 +1057,7 @@ a.type-tile:hover,
 .frontend-states > .frontend-result { width:100%; display:block; }
 .frontend-hand-panel { position:absolute; left:0; top:0; width:32%; height:75%; overflow:hidden; }
 .frontend-hand-panel img { width:312.5%; max-width:none; height:auto; }
+
+/* Short portrait workshop clips, kept uncropped at a readable height. */
+.recording-pair { display:grid; grid-template-columns:repeat(2,minmax(0,270px)); gap:12px; }
+@media (max-width:639px) { .recording-pair { grid-template-columns:minmax(0,270px); gap:24px; } }

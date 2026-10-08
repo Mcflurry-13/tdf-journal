@@ -17,6 +17,7 @@ import {
   Specs,
   Status,
   Video,
+  VideoGroup,
 } from './blocks';
 import { CodeBlock, Pre } from './CodeBlock';
 
@@ -39,6 +40,7 @@ export const mdxComponents: MDXComponents = {
   Attachments,
   Attachment,
   Video,
+  VideoGroup,
   Status,
   Quote,
   pre: Pre,

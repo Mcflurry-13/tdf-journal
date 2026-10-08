@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { neighbours, site, typeById } from '../content';
+import { neighbours, site, categoryByType } from '../content';
 import { absoluteUrl, formatDate, pad2 } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
@@ -10,7 +10,7 @@ import { WeekHeader } from '../components/WeekHeader';
 
 /** Level 2: one class, one week — numbered rows, text left, evidence right. */
 export function WeekPage({ week }: { week: Week }) {
-  const type = typeById(week.type)!;
+  const type = categoryByType(week.type);
   const { newer, older } = neighbours(week);
   const bodyRef = useRef<HTMLDivElement>(null);
   const toc = useTocItems(bodyRef, week.path);

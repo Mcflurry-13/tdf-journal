@@ -229,6 +229,10 @@ export function Attachment({ src, kind, label }: { src: string; kind?: string; l
   );
 }
 
+export function VideoGroup({children}:{children?:ReactNode}) {
+  return <div className="recording-pair">{children}</div>;
+}
+
 const PlayIcon = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
     <circle cx="14" cy="14" r="13" fill="none" stroke="currentColor" />
@@ -274,6 +278,7 @@ const EVIDENCE = new Set<unknown>([
   Specs,
   ProblemChangeResult,
   Attachments,
+  VideoGroup,
   Video,
   CodeBlock,
   Pre,
