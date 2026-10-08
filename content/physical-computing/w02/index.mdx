@@ -43,10 +43,8 @@ I moved the LED output onto a breadboard, synchronized it with the onboard LED, 
 
 I initially pasted two sketches together and created duplicate setup() and loop() functions. I fixed this by combining both behaviors into one setup() and one loop().
 
-<Gallery>
-<Figure src="./images/external-led-circuit.jpg" kind="diagram" caption="External LED circuit: D8, a 220 Ω resistor and GND." />
-<Figure src="./images/external-led-demo-poster.jpg" kind="photo" caption="The external LED wired on the breadboard." />
-</Gallery>
+<Video src="./files/external-led-simulation.mp4" poster="./images/external-led-simulation-poster.jpg" title="External LED · Circuit simulation" duration="0:12" />
+<Video src="./files/external-led-demo.mp4" poster="./images/external-led-demo-poster.jpg" title="External LED · Breadboard test" duration="0:04" />
 <CodeBlock src="./files/03_blink_print.ino" lang="Arduino" />
 <Gallery>
 <Figure src="./images/external-led-serial.jpg" kind="screen" caption="ON/OFF messages in the Serial Monitor." />
@@ -59,10 +57,8 @@ I used an LDR to turn the LED on in darkness and off in bright light. The LDR an
 
 The reading first stayed around 1018–1023, so the LED never changed state. I checked the A0 midpoint and GND connection, then measured bright and dark values before choosing a threshold.
 
-<Gallery>
-<Figure src="./images/ldr-circuit.jpg" kind="diagram" caption="LDR voltage divider read through A0; D8 controls the LED." />
-<Figure src="./images/ldr-demo-poster.jpg" kind="photo" caption="The LDR and LED connected on the breadboard." />
-</Gallery>
+<Video src="./files/ldr-simulation.mp4" poster="./images/ldr-simulation-poster.jpg" title="Light Input · Circuit simulation" duration="0:09" />
+<Video src="./files/ldr-demo.mp4" poster="./images/ldr-demo-poster.jpg" title="Light Input · Breadboard test" duration="0:09" />
 <CodeBlock src="./files/04_ambient_light.ino" lang="Arduino" />
 <Gallery>
 <Figure src="./images/ldr-serial.jpg" kind="screen" caption="Light readings and LED states in the Serial Monitor." />
@@ -75,10 +71,8 @@ I connected red, yellow, and green LEDs to D8, D9, and D10 and turned them on on
 
 I aligned the components so wiring mistakes were easier to see, then changed delay() to test different flashing speeds.
 
-<Gallery>
-<Figure src="./images/three-led-circuit.jpg" kind="diagram" caption="Three LEDs on D8, D9 and D10, each with its own resistor." />
-<Figure src="./images/three-led-demo-poster.jpg" kind="photo" caption="The three-light breadboard sequence." />
-</Gallery>
+<Video src="./files/three-led-simulation.mp4" poster="./images/three-led-simulation-poster.jpg" title="Three-LED Sequence · Circuit simulation" duration="0:05" />
+<Video src="./files/three-led-demo.mp4" poster="./images/three-led-demo-poster.jpg" title="Three-LED Sequence · Breadboard test" duration="0:05" />
 <CodeBlock src="./files/05_led_sequence.ino" lang="Arduino" />
 <Gallery>
 <Figure src="./images/three-led-serial.jpg" kind="screen" caption="The Serial Monitor reports which LED is on." />
