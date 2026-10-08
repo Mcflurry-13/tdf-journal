@@ -8,7 +8,7 @@ import { WeekHeader } from '../components/WeekHeader';
 /** Multi-week PDF: cover + contents + every published week of one type, oldest first. */
 export function PrintBundlePage({ typeId }: { typeId: string }) {
   const type = typeById(typeId)!;
-  const list = [...weeksOfType(typeId)].reverse().filter((w) => w.status !== 'pending');
+  const list = weeksOfType(typeId).filter((w) => w.status !== 'pending');
 
   return (
     <div className="page bundle">

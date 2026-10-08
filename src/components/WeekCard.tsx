@@ -24,7 +24,7 @@ export function WeekCard({ week }: { week: Week }) {
         <div className="placeholder card-cover">No cover image yet</div>
       )}
       <h3 className="card-title">
-        <Link to={week.path}>{week.title}</Link>
+        <Link to={week.path}>Week {week.week}: {week.title}</Link>
       </h3>
       {week.summary && <p className="card-summary">{week.summary}</p>}
       {!!week.projects?.length && (

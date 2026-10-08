@@ -4,7 +4,7 @@ import { Link } from '../router';
 import { ProjectTag } from '../components/tags';
 import { WeekCard } from '../components/WeekCard';
 
-/** Level 1: choose a type, then that type’s weeks (newest first). */
+/** Level 1: choose a type, then that type’s weeks in chronological order. */
 export function ArchivePage({ typeId }: { typeId: string }) {
   const type = typeById(typeId)!;
   const list = weeksOfType(typeId);
@@ -75,7 +75,7 @@ export function ArchivePage({ typeId }: { typeId: string }) {
 
         <main>
           <div className="section-head">
-            <span className="mono muted">Newest first</span>
+            <span className="mono muted">Chronological order</span>
           </div>
           <nav className="week-chips" aria-label="Jump to week">
             {list.map((w) => (

@@ -78,11 +78,11 @@ function toWeek(path: string, mod: MdxModule): Week | null {
 
 const isVisible = (w: Week) => IS_DEV || (w.status !== 'draft' && !w.sample);
 
-/** All visible weeks, newest first. */
+/** All visible weeks in course order, earliest first. */
 export const weeks: Week[] = Object.entries(modules)
   .map(([path, mod]) => toWeek(path, mod))
   .filter((w): w is Week => w !== null && isVisible(w))
-  .sort((a, b) => b.week - a.week);
+  .sort((a, b) => a.week - b.week || a.dateStart.localeCompare(b.dateStart) || a.path.localeCompare(b.path));
 
 export const firstType = types.find((t) => !t.reserved) ?? types[0];
 
@@ -97,7 +97,7 @@ export const findWeek = (typeId: string, slug: string) =>
 export function neighbours(week: Week) {
   const list = weeksOfType(week.type);
   const i = list.indexOf(week);
-  return { newer: i > 0 ? list[i - 1] : undefined, older: list[i + 1] };
+  return { older: i > 0 ? list[i - 1] : undefined, newer: list[i + 1] };
 }
 
 /** The same calendar week in the other type(s). */

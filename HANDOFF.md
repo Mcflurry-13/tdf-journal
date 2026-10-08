@@ -20,7 +20,7 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 
 ## Week 2 source import (October 8, 2026)
 
-`content/physical-computing/w02/index.mdx` is the Physical Computing Week 2 record, titled **Week 2**. Source: [26FALL-TDF, Week 2 · Arduino Journal](https://www.figma.com/design/TZMQOkNx0EGp1sZYJ48oKf/26FALL-TDF?node-id=64-131). September 3, 2026 is the date printed in that source; it renders as Week 2. The six entries preserve the Figma narratives and code: Serial Communication, Onboard LED, Hello World, External LED, LDR, and Three-LED Sequence. The serial setup is explicitly labeled as a setup snippet, not a complete sketch. Code files are selectable, expandable where needed, copyable and downloadable through the existing CodeBlock component.
+`content/physical-computing/w02/index.mdx` is the Physical Computing Week 2 record, titled **Arduino Basics**. Source: [26FALL-TDF, Week 2 · Arduino Journal](https://www.figma.com/design/TZMQOkNx0EGp1sZYJ48oKf/26FALL-TDF?node-id=64-131). September 3, 2026 is the date printed in that source; it renders as Week 2. The six entries preserve the Figma narratives and code: Serial Communication, Onboard LED, Hello World, External LED, LDR, and Three-LED Sequence. The serial setup is explicitly labeled as a setup snippet, not a complete sketch. Code files are selectable, expandable where needed, copyable and downloadable through the existing CodeBlock component.
 
 Reuse existing Entry, Gallery, Figure and CodeBlock styles; do not import Figma's rounded cards or shadows. Original classroom photographs were matched to the source and read from `UCB/TDF-Design-Journal/Week-02-Arduino/photos/`, then exported upright at a 2400px long edge, JPEG quality 82, without cropping. Circuit diagrams, Serial Monitor captures and demonstration stills were exported from the Figma source assets. Six playable recordings now replace the simulation and breadboard stills. Source: the owner's `Downloads/week2 视频/` folder. `1.mp4` is byte-identical to `a595fb727f60c0773b85f33405ed8be9_raw.mp4`, so it is included only once. Simulation sources map to external LED (`a595…`, 12.37s), LDR (`7949…`, 9.17s), and three LEDs (`232e…`, 5.33s); physical sources map to external LED (`0d35…`, 4.13s), LDR (`6100…`, 8.83s), and three LEDs (`bb9a…`, 4.83s). The simulations are losslessly remuxed; physical recordings retain 2160×2160 resolution with H.264 CRF 23 and their original audio. All retain full duration and uncropped frames, with fast-start metadata and posters at 0.2s. Use the existing Video block with native controls, no autoplay, full-size links and print posters. The Serial Monitor captures remain still images. The original source files and Figma document are unchanged.
 
@@ -45,7 +45,7 @@ Archives group records by class. Expressive Mechanics is one combined article; `
 
 ```
 /                          Archive (first type selected)
-/physical-computing        Archive → choose type → that type’s weeks, newest first
+/physical-computing        Archive → choose type → that type’s weeks, earliest first
 /physical-computing/w05    Week page “PC — W05” (one class, one week)
   #<date>-<entry-title>    Entry anchor (contents links)
 /physical-computing/print  All weeks of one type in one printable page (multi-week PDF)
@@ -226,7 +226,7 @@ Accessibility: real links/buttons, 2px focus ring, ≥44px touch targets on mobi
 
 1. **Project work outside class** — inside the nearest type’s week (current), or a separate “Project” track?
 2. **Week numbering** — assumed shared calendar weeks (PC-W05 and DF-W05 = same week).
-3. **Archive order** — newest first (current) or W01 first?
+3. **Archive order** — earliest course week first (confirmed October 8).
 4. **Fonts** — provisional; replace with the owner’s existing Journal fonts once provided.
 5. **Site details** — title, name, course, term in `content/site.json`.
 6. **Hosting** — not chosen; nothing is deployed.
@@ -296,3 +296,6 @@ The archive masthead and return links use Design Journal. Removed numbered Type/
 
 ### October 8 course weeks and fixed sketch pair
 Visible making dates now use course weeks, with Monday–Sunday weeks anchored to September 24 = Week 5, October 1 = Week 6, and October 8 = Week 7. Existing September 20 records are Week 4; September 22–24 records are Week 5. The project and interaction end dates are corrected to September 24, the final presentation. Update metadata is separate. The original hand sketch and exploded illustration use their own `<Gallery pair>` to remain side by side at all widths, without cropping; the generated concept sketch remains above them. Section accepts weekLabel for the final presentation marker.
+
+### October 8 unified card titles and chronological ordering
+All journal cards use `Week N: Topic`, generated centrally by WeekCard from `week` and `title`. Store only the topic in frontmatter: `Arduino Basics` and `Expressive Mechanics` render as `Week 2: Arduino Basics` and `Week 5: Expressive Mechanics`. The separate making-period label can span weeks (Week 4–5); the title uses the assignment week, preserving Week 5 as the final presentation. New records inherit this convention. All category and project lists, sidebar week links, mobile week chips, and print bundles use ascending course weeks, then making date and route for stable ties. Previous/next links keep their earlier/later meaning. Do not reverse print ordering or reintroduce Newest first.
