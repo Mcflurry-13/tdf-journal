@@ -1,5 +1,5 @@
 import { resolveAsset } from '../content';
-import { formatRange } from '../format';
+import { formatCourseWeeks } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
 import { Status } from './blocks';
@@ -11,7 +11,7 @@ export function WeekCard({ week }: { week: Week }) {
   return (
     <article className="card">
       <div className="card-top">
-        <span className="mono muted">{formatRange(week.dateStart, week.dateEnd)}</span>
+        <span className="mono muted">{formatCourseWeeks(week.dateStart, week.dateEnd)}</span>
       </div>
       {pending ? (
         <div className="card-pending">

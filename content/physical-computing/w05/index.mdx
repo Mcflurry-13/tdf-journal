@@ -3,7 +3,7 @@ type: physical-computing
 relatedTypes: [digital-fabrication]
 week: 5
 dateStart: 2026-09-20
-dateEnd: 2026-10-01
+dateEnd: 2026-09-24
 title: "Expressive Mechanics"
 summary: "Inviting interaction with a quiet ceramic object — from printed mechanisms to deliberate gestures and projected patterns."
 cover: "./images/projection-demo.png"
@@ -20,6 +20,8 @@ A visitor's gesture becomes a projected pattern on a turning vessel. The axisymm
 
 <Gallery>
 <Figure wide src="./images/concept-pencil-sketch.png" kind="diagram" caption="Concept sketch: a pinch becomes a drawing, then a projected pattern on the rotating vessel." />
+</Gallery>
+<Gallery pair>
 <Figure src="./images/original-hand-drawn-concept.jpg" kind="photo" caption="Original hand-drawn sketch of the vessel and rotating base." />
 <Figure src="./images/vessel-exploded-transparent.png" kind="diagram" caption="Exploded concept overview: vessel, tray, drive gear and bearing-supported base." />
 </Gallery>
@@ -83,7 +85,7 @@ The browser sends R to rotate and S to stop. An eight-second timeout stops the m
 <CodeBlock src="./files/turntable_serial_servo.ino" lang="Arduino" />
 </Entry>
 
-<Entry date="2026-09-24" dateEnd="2026-09-29" title="Interaction · Pinch to Draw">
+<Entry date="2026-09-24" dateEnd="2026-09-24" title="Interaction · Pinch to Draw">
 
 The first version tracked the torso and limbs to detect a person in view. I then switched to MediaPipe Holistic so face and hand tracking could work together, with p5.js drawing the marks.
 
@@ -105,6 +107,6 @@ I tried cloud motifs and Chinese ink-painting prompts, then simplified the decor
 </Gallery>
 </Entry>
 
-<Section id="prototype-in-use" title="Prototype" intro="The final prototype demonstration.">
+<Section id="prototype-in-use" weekLabel="Week 5 · Final presentation" title="Prototype" intro="The final prototype demonstration.">
 <Video src="./files/prototype-demo-final.mp4" poster="./images/prototype-demo-final-poster.jpg" title="Prototype demonstration" duration="1:00" />
 </Section>

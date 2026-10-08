@@ -21,6 +21,18 @@ export function formatRange(start: string, end: string): string {
   return `${formatDate(start)} – ${formatDate(end)}`;
 }
 
+/** Fall 2026 teaching weeks run Monday–Sunday; Sep 24 is in Week 5. */
+export function courseWeek(date: string | undefined): number | null {
+  if (!isKnownDate(date)) return null;
+  return 5 + Math.floor((Date.parse(`${date}T00:00:00Z`) - Date.UTC(2026, 8, 21)) / (7 * 86400000));
+}
+
+export function formatCourseWeeks(start: string, end: string = start): string {
+  const first = courseWeek(start), last = courseWeek(end);
+  if (first === null || last === null) return 'Week TBC';
+  return first === last ? `Week ${first}` : `Week ${first}–${last}`;
+}
+
 export function pad2(n: number): string {
   return String(n).padStart(2, '0');
 }

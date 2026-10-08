@@ -20,7 +20,7 @@ export function ProjectPage({ id }: { id: string }) {
         <h1 className="label project-title">↳ {project?.name ?? id}</h1>
         <span className="mono muted">{list.length} journal sections · Week 5</span>
       </div>
-      {id === "expressive-mechanics" && <div className="project-intro"><p>A ceramic-shaped vessel responds through gesture, projection and rotation. These dated journals collect the mechanical iterations and the development of its interaction.</p><p className="mono muted">20 September – 1 October 2026 · From fitting the mechanism to shaping the interaction</p></div>}
+      {id === "expressive-mechanics" && <div className="project-intro"><p>A ceramic-shaped vessel responds through gesture, projection and rotation. These dated journals collect the mechanical iterations and the development of its interaction.</p><p className="mono muted">Week 4–5 · Final presentation in Week 5</p></div>}
       {list.length === 0 ? (
         <p className="empty">No weeks tagged with this project yet.</p>
       ) : (

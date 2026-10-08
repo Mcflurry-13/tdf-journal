@@ -10,7 +10,7 @@ import { FrontendStudy } from './FrontendStudy';
  */
 import { Children, isValidElement, type ReactNode } from 'react';
 import { IS_DEV, resolveAsset } from '../content';
-import { absoluteUrl, formatDate, formatRange, formatShortDate, slugify } from '../format';
+import { absoluteUrl, formatCourseWeeks, slugify } from '../format';
 import type { StatusValue } from '../types';
 import { useWeekDir } from '../week-context';
 import { CodeBlock, Pre } from './CodeBlock';
@@ -58,12 +58,14 @@ function splitChildren(children: ReactNode) {
  */
 export function Section({
   id,
+  weekLabel,
   title,
   intro,
   lead,
   children,
 }: {
   id?: string;
+  weekLabel?: string;
   title: string;
   intro?: string;
   /** Larger reading size on the right, for Reflection. */
@@ -71,11 +73,12 @@ export function Section({
   children?: ReactNode;
 }) {
   return (
-    <section className={`row row-section${lead ? ' row-lead' : ''}`} id={id ?? slugify(title)} data-toc={title}>
+    <section className={`row row-section${lead ? ' row-lead' : ''}`} id={id ?? slugify(title)} data-toc={title} data-toc-date={weekLabel}>
       <div className="row-text">
         <header className="row-head">
           <span className="row-meta mono">
             <span className="row-num" aria-hidden="true" />
+            {weekLabel && <><span aria-hidden="true">·</span>{weekLabel}</>}
           </span>
           <h2 className="h2">{title}</h2>
         </header>
@@ -104,7 +107,7 @@ interface EntryProps {
 /** One dated record. Appears in the numbered contents automatically. */
 export function Entry({ date, dateEnd, title, kind, project, draft, children }: EntryProps) {
   if (draft && !IS_DEV) return null;
-  const full = dateEnd && dateEnd !== date ? formatRange(date, dateEnd) : formatDate(date);
+  const full = formatCourseWeeks(date, dateEnd ?? date);
   const { left, right } = splitChildren(children);
   const hasEvidence = right.length > 0;
   return (
@@ -112,7 +115,7 @@ export function Entry({ date, dateEnd, title, kind, project, draft, children }: 
       className="row row-entry"
       id={slugify(`${date}-${title}`)}
       data-toc={title}
-      data-toc-date={dateEnd && dateEnd !== date ? `${formatShortDate(date)}–${formatShortDate(dateEnd)}` : formatShortDate(date) ?? 'Date TBC'}
+      data-toc-date={full}
     >
       <div className="row-text">
         <header className="row-head">

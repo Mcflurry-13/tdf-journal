@@ -1,5 +1,5 @@
 import { site, typeById, weeksOfType } from '../content';
-import { formatRange } from '../format';
+import { formatCourseWeeks } from '../format';
 import { Link } from '../router';
 import { WeekContext } from '../week-context';
 import { mdxComponents } from '../components/mdx-components';
@@ -36,7 +36,7 @@ export function PrintBundlePage({ typeId }: { typeId: string }) {
             <li key={w.path}>
               <span className="mono">{w.code}</span>
               <span>{w.title}</span>
-              <span className="mono muted">{formatRange(w.dateStart, w.dateEnd)}</span>
+              <span className="mono muted">{formatCourseWeeks(w.dateStart, w.dateEnd)}</span>
             </li>
           ))}
         </ol>

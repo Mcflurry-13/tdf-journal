@@ -1,5 +1,5 @@
 import { projects, site, typeById, types, weeksOfType } from '../content';
-import { formatRange } from '../format';
+import { formatCourseWeeks } from '../format';
 import { Link } from '../router';
 import { ProjectTag } from '../components/tags';
 import { WeekCard } from '../components/WeekCard';
@@ -55,7 +55,7 @@ export function ArchivePage({ typeId }: { typeId: string }) {
             {list.map((w) => (
               <Link key={w.path} to={w.path} className="week-row">
                 <span className="mono muted">
-                  {formatRange(w.dateStart, w.dateEnd)}
+                  {formatCourseWeeks(w.dateStart, w.dateEnd)}
                   {w.status === 'pending' ? ' · pending' : ''}
                 </span>
               </Link>
@@ -80,7 +80,7 @@ export function ArchivePage({ typeId }: { typeId: string }) {
           <nav className="week-chips" aria-label="Jump to week">
             {list.map((w) => (
               <Link key={w.path} to={w.path} className="week-chip">
-                {formatRange(w.dateStart, w.dateEnd)}
+                {formatCourseWeeks(w.dateStart, w.dateEnd)}
               </Link>
             ))}
           </nav>
