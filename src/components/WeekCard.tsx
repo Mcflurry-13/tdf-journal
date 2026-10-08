@@ -1,4 +1,4 @@
-import { resolveAsset, typeById } from '../content';
+import { resolveAsset } from '../content';
 import { formatRange } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
@@ -11,7 +11,6 @@ export function WeekCard({ week }: { week: Week }) {
   return (
     <article className="card">
       <div className="card-top">
-        <span className="display card-code">{[week.type, ...(week.relatedTypes ?? [])].map(id => typeById(id)?.short).join(' / ')}</span>
         <span className="mono muted">{formatRange(week.dateStart, week.dateEnd)}</span>
       </div>
       {pending ? (

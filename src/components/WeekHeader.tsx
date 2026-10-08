@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { sameWeekElsewhere, typeById } from '../content';
-import { formatDate, formatRange, pad2 } from '../format';
+import { formatRange, pad2 } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
 import { ProjectTag, TypeTag } from './tags';
@@ -17,11 +17,9 @@ export function WeekHeader({ week, children }: { week: Week; children?: ReactNod
           {week.relatedTypes?.length ? 'Project' : type.short} — W{pad2(week.week)}
         </p>
         <span className="mono">{formatRange(week.dateStart, week.dateEnd)}</span>
-        <span className="mono muted">Updated {formatDate(week.updatedAt) ?? 'TBC'}</span>
       </div>
       <div className="week-head-main">
         <h1 className="week-title">{week.title}</h1>
-        {week.summary && <p className="week-summary">{week.summary}</p>}
         {!!week.projects?.length && (
           <div className="card-tags">
             {week.projects.map((p) => (

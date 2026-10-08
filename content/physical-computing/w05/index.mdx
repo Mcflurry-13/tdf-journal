@@ -12,7 +12,7 @@ status: published
 updatedAt: 2026-10-08
 ---
 
-<Entry date="2026-09-20" title="From a family collection to an interaction">
+<Entry date="2026-09-20" title="Inspiration">
 
 My grandfather collects ceramic crafts, and our home is filled with them. Quiet, fragile and still, they can become easy to overlook. I wanted interaction to bring these objects back into attention and invite associations with family and memory.
 
@@ -25,7 +25,7 @@ A visitor's gesture becomes a projected pattern on a turning vessel. The axisymm
 </Gallery>
 </Entry>
 
-<Entry date="2026-09-20" dateEnd="2026-09-24" title="Iterating the servo mount">
+<Entry date="2026-09-20" dateEnd="2026-09-24" title="Iteration · Servo Mount">
 
 I printed about four mount variants. The early pocket trapped the cable; opening the side helped insertion but reduced support. I revised the walls and added a top-open cable slot so the servo and its wires could lower into place together.
 
@@ -37,7 +37,7 @@ I printed about four mount variants. The early pocket trapped the cable; opening
 <CadViewer src="./files/servo-mount-top-slot.stl" poster="./images/clean-top-slot-trimmed.jpg" caption="Revised mount coupon: supporting walls with a top-open cable slot." />
 </Entry>
 
-<Entry date="2026-09-22" dateEnd="2026-09-24" title="Supporting stable bearing rotation">
+<Entry date="2026-09-22" dateEnd="2026-09-24" title="Iteration · Bearing Support">
 
 The open base let me inspect how the tray was supported. I arranged three upper bearings with three corresponding vertical bearing supports below to guide rotation and keep the tray stable.
 
@@ -54,7 +54,7 @@ The brackets left too much sideways play. Adding spacers and stepped locating pi
 </CadGroup>
 </Entry>
 
-<Entry date="2026-09-22" dateEnd="2026-09-24" title="Fitting the gear to the servo horn">
+<Entry date="2026-09-22" dateEnd="2026-09-24" title="Iteration · Gear Coupling">
 
 The pinion's recess needs to fit the servo arm closely so they rotate together. The first printed pocket jammed at the sharp internal corners; adding rounded relief allowed the arm to seat properly.
 
@@ -72,7 +72,7 @@ I also checked the pinion against the tray gear during assembly, because the hor
 </CadGroup>
 </Entry>
 
-<Entry date="2026-09-24" title="Testing Arduino control">
+<Entry date="2026-09-24" title="Control · Arduino">
 
 The browser sends R to rotate and S to stop. An eight-second timeout stops the motor if no stop command arrives.
 
@@ -83,7 +83,7 @@ The browser sends R to rotate and S to stop. An eight-second timeout stops the m
 <CodeBlock src="./files/turntable_serial_servo.ino" lang="Arduino" />
 </Entry>
 
-<Entry date="2026-09-24" dateEnd="2026-09-29" title="From presence to a deliberate brushstroke">
+<Entry date="2026-09-24" dateEnd="2026-09-29" title="Interaction · Pinch to Draw">
 
 The first version tracked the torso and limbs to detect a person in view. I then switched to MediaPipe Holistic so face and hand tracking could work together, with p5.js drawing the marks.
 
@@ -105,6 +105,6 @@ I tried cloud motifs and Chinese ink-painting prompts, then simplified the decor
 </Gallery>
 </Entry>
 
-<Section title="Prototype in use" intro="The final prototype demonstration.">
+<Section id="prototype-in-use" title="Prototype" intro="The final prototype demonstration.">
 <Video src="./files/prototype-demo-final.mp4" poster="./images/prototype-demo-final-poster.jpg" title="Prototype demonstration" duration="1:00" />
 </Section>

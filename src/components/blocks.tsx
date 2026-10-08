@@ -57,11 +57,13 @@ function splitChildren(children: ReactNode) {
  * Left: title (+ optional intro line). Right: the content.
  */
 export function Section({
+  id,
   title,
   intro,
   lead,
   children,
 }: {
+  id?: string;
   title: string;
   intro?: string;
   /** Larger reading size on the right, for Reflection. */
@@ -69,7 +71,7 @@ export function Section({
   children?: ReactNode;
 }) {
   return (
-    <section className={`row row-section${lead ? ' row-lead' : ''}`} id={slugify(title)} data-toc={title}>
+    <section className={`row row-section${lead ? ' row-lead' : ''}`} id={id ?? slugify(title)} data-toc={title}>
       <div className="row-text">
         <header className="row-head">
           <span className="row-meta mono">

@@ -282,3 +282,6 @@ The final Prototype in use section now plays the user-supplied `01_Prototype Dem
 
 ### October 8 editorial revision
 Removed “edited demo” from the pinch-recording display title at the user’s request; the media edit provenance above remains unchanged. Removed the entire “One frontend for the prototype” entry, including its text and FrontendStudy image. Prototype in use now follows section 06 directly; its final video is unchanged.
+
+### October 8 journal navigation and headings
+The archive masthead and return links use Design Journal. Removed numbered Type/journal headings, category abbreviations from category tiles and journal cards, the About sidebar, and Dated records by class. Week headers omit the visible Updated label and summary; dates remain in source metadata. Week 5 uses short process/topic titles: Inspiration; Iteration · Servo Mount; Iteration · Bearing Support; Iteration · Gear Coupling; Control · Arduino; Interaction · Pinch to Draw; Prototype. Contents derive from those titles. Section supports an optional explicit id to retain the existing prototype-in-use link.

@@ -57,7 +57,7 @@ function NotFound() {
     <div className="page">
       <p className="mono muted">Not found</p>
       <p>
-        <Link to="/">← Back to the Archive</Link>
+        <Link to="/">← Back to Design Journal</Link>
       </p>
     </div>
   );

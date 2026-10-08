@@ -20,7 +20,7 @@ export function WeekPage({ week }: { week: Week }) {
     <div className="week-page">
       <div className="topbar no-print">
         <nav aria-label="Breadcrumb" className="mono crumbs">
-          <Link to="/">Archive</Link>
+          <Link to="/">Design Journal</Link>
           <span className="muted">/</span>
           <Link to={`/${type.id}`}>{type.name}</Link>
           <span className="muted">/</span>

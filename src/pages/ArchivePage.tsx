@@ -21,21 +21,14 @@ export function ArchivePage({ typeId }: { typeId: string }) {
           </Link>
           <span className="mono muted">{site.author}</span>
         </div>
-        <h1 className="display masthead-word">Archive</h1>
+        <h1 className="display masthead-word">Design Journal</h1>
       </header>
 
-      <section className="type-picker" aria-labelledby="type-heading">
-        <div className="section-head">
-          <h2 id="type-heading" className="label">
-            1 · Type
-          </h2>
-          <span className="mono muted">Dated records by class</span>
-        </div>
+      <section className="type-picker" aria-label="Journal categories">
         <nav className="type-tiles" aria-label="Types">
           {types.map((t) =>
             t.reserved ? (
               <div key={t.id} className="type-tile is-reserved" aria-disabled="true">
-                <span className="mono">{t.short} · reserved</span>
                 <span className="type-tile-name">{t.name}</span>
                 <span className="mono muted type-tile-blurb">{t.blurb}</span>
               </div>
@@ -47,7 +40,6 @@ export function ArchivePage({ typeId }: { typeId: string }) {
                 aria-current={t.id === typeId ? 'page' : undefined}
                 style={t.id === typeId ? { background: t.tint } : undefined}
               >
-                <span className="mono muted">{t.short}</span>
                 <span className="type-tile-name">{t.name}</span>
                 <span className="mono muted type-tile-blurb">{t.blurb}</span>
               </Link>
@@ -58,15 +50,10 @@ export function ArchivePage({ typeId }: { typeId: string }) {
 
       <div className="archive-body">
         <aside className="archive-side">
-          <section>
-            <h2 className="side-head">About</h2>
-            <p>{site.about}</p>
-          </section>
           <nav aria-label={`${type.name} weeks`} className="side-weeks">
             <h2 className="side-head">{type.name}</h2>
             {list.map((w) => (
               <Link key={w.path} to={w.path} className="week-row">
-                <span className="mono">{type.short}</span>
                 <span className="mono muted">
                   {formatRange(w.dateStart, w.dateEnd)}
                   {w.status === 'pending' ? ' · pending' : ''}
@@ -88,7 +75,6 @@ export function ArchivePage({ typeId }: { typeId: string }) {
 
         <main>
           <div className="section-head">
-            <h2 className="label">2 · {type.name} — journal</h2>
             <span className="mono muted">Newest first</span>
           </div>
           <nav className="week-chips" aria-label="Jump to week">

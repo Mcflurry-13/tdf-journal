@@ -11,7 +11,7 @@ export function ProjectPage({ id }: { id: string }) {
       <div className="masthead">
         <div className="masthead-id">
           <Link to="/" className="mono">
-            ← Archive
+            ← Design Journal
           </Link>
           <span className="mono muted">Project</span>
         </div>
