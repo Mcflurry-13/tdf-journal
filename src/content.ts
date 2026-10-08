@@ -3,6 +3,7 @@
  * Pages never hard-code weeks: adding a folder is enough.
  */
 import type { MDXContent } from 'mdx/types';
+import legacyRoutes from '../content/legacy-routes.json';
 import siteJson from '../content/site.json';
 import typesJson from '../content/types.json';
 import projectsJson from '../content/projects.json';
@@ -91,7 +92,8 @@ export const projectById = (id: string) => projects.find((p) => p.id === id);
 export const weeksOfType = (typeId: string) => weeks.filter((w) => w.type === typeId || w.relatedTypes?.includes(typeId));
 export const weeksOfProject = (id: string) => weeks.filter((w) => w.projects?.includes(id));
 export const findWeek = (typeId: string, slug: string) =>
-  weeks.find((w) => (w.type === typeId || w.relatedTypes?.includes(typeId)) && w.slug === slug);
+  weeks.find((w) => (w.type === typeId || w.relatedTypes?.includes(typeId)) && w.slug === slug) ??
+  weeks.find((w) => w.path === (legacyRoutes as Record<string, string>)[`/${typeId}/${slug}`]);
 
 /** Newer / older week within the same type. */
 export function neighbours(week: Week) {
@@ -100,7 +102,7 @@ export function neighbours(week: Week) {
   return { older: i > 0 ? list[i - 1] : undefined, newer: list[i + 1] };
 }
 
-/** The same calendar week in the other type(s). */
+/** The same course-content week in the other type(s). */
 export const sameWeekElsewhere = (week: Week) =>
   weeks.filter((w) => w.week === week.week && w.type !== week.type);
 

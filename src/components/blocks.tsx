@@ -10,9 +10,9 @@ import { FrontendStudy } from './FrontendStudy';
  */
 import { Children, isValidElement, type ReactNode } from 'react';
 import { IS_DEV, resolveAsset } from '../content';
-import { absoluteUrl, formatCourseWeeks, slugify } from '../format';
+import { absoluteUrl, formatWeek, slugify } from '../format';
 import type { StatusValue } from '../types';
-import { useWeekDir } from '../week-context';
+import { useWeekDir, useWeekNumber } from '../week-context';
 import { CodeBlock, Pre } from './CodeBlock';
 import { Figure, Gallery, BeforeAfter } from './Gallery';
 import { CadViewer, CadGroup } from './CadViewer';
@@ -92,7 +92,7 @@ export function Section({
 }
 
 interface EntryProps {
-  /** Real making date, YYYY-MM-DD. Unknown → "TBD" (shown as “Date TBC”). */
+  /** Real making date for provenance and anchors; visible week comes from WeekContext. */
   date: string;
   dateEnd?: string;
   title: string;
@@ -105,9 +105,9 @@ interface EntryProps {
 }
 
 /** One dated record. Appears in the numbered contents automatically. */
-export function Entry({ date, dateEnd, title, kind, project, draft, children }: EntryProps) {
+export function Entry({ date, title, kind, project, draft, children }: EntryProps) {
+  const full = formatWeek(useWeekNumber());
   if (draft && !IS_DEV) return null;
-  const full = formatCourseWeeks(date, dateEnd ?? date);
   const { left, right } = splitChildren(children);
   const hasEvidence = right.length > 0;
   return (

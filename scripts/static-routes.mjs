@@ -8,6 +8,8 @@ export function staticRoutesPlugin() {
   const types=JSON.parse(await readFile(path.join(root,'content/types.json'),'utf8'));
   const projects=JSON.parse(await readFile(path.join(root,'content/projects.json'),'utf8'));
   const routes=new Set(projects.map(p=>`project/${p.id}`));
+  const legacyRoutes=JSON.parse(await readFile(path.join(root,'content/legacy-routes.json'),'utf8'));
+  for(const route of Object.keys(legacyRoutes))routes.add(route.slice(1));
   const slugs=new Set();
   for(const t of types.filter(t=>!t.reserved)) {
    routes.add(t.id);routes.add(`${t.id}/print`);

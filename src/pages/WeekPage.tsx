@@ -51,7 +51,7 @@ export function WeekPage({ week }: { week: Week }) {
         </WeekHeader>
         <ContentsToggle items={toc} />
 
-        <WeekContext.Provider value={{ dir: week.dir }}>
+        <WeekContext.Provider value={{ dir: week.dir, week: week.week }}>
           <div className="week-body" ref={bodyRef}>
             <Content components={mdxComponents} />
           </div>

@@ -9,7 +9,7 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 ## 0 · Ground rules (read first)
 
 1. **Never invent content.** No made-up dates, test results, learning outcomes or photos. Everything under `content/` marked `sample: true` is placeholder structure only.
-2. **Dates:** each entry has its own real making date. Unknown → `TBD` (renders “Date TBC”). Never use the upload / file date. The page update date (`updatedAt`) is a separate field.
+2. **Dates:** each entry has its own real making date. Unknown → `TBD`. Visible labels use the explicit course-content week, not the date. Never use the upload / file date. The page update date (`updatedAt`) is a separate field.
 3. **Status** (`verified`, `to-test`, `unresolved`) comes only from the owner’s own words. Never infer “verified” from a photo. A CAD check is not physical verification.
 4. **Image kinds** must be correct: `photo` (real object), `cad` (CAD preview), `concept` (render), `screen`, `diagram`. Never present a concept render or CAD view as a finished physical prototype.
 5. **Drafts and samples never ship.** `status: draft`, `<Entry draft>` and `sample: true` are visible in `npm run dev` only.
@@ -18,9 +18,9 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 
 ---
 
-## Week 2 source import (October 8, 2026)
+## Arduino source import (October 8, 2026)
 
-`content/physical-computing/w02/index.mdx` is the Physical Computing Week 2 record, titled **Arduino Basics**. Source: [26FALL-TDF, Week 2 · Arduino Journal](https://www.figma.com/design/TZMQOkNx0EGp1sZYJ48oKf/26FALL-TDF?node-id=64-131). September 3, 2026 is the date printed in that source; it renders as Week 2. The six entries preserve the Figma narratives and code: Serial Communication, Onboard LED, Hello World, External LED, LDR, and Three-LED Sequence. The serial setup is explicitly labeled as a setup snippet, not a complete sketch. Code files are selectable, expandable where needed, copyable and downloadable through the existing CodeBlock component.
+`content/physical-computing/w01/index.mdx` is the Physical Computing Week 1 record, titled **Arduino Basics**. Source: [26FALL-TDF, Week 2 · Arduino Journal](https://www.figma.com/design/TZMQOkNx0EGp1sZYJ48oKf/26FALL-TDF?node-id=64-131). September 3, 2026 is the date printed in that source; the owner’s course-content numbering now assigns this exercise to Week 1. The source’s original Week 2 label is retained only here for provenance. The six entries preserve the Figma narratives and code: Serial Communication, Onboard LED, Hello World, External LED, LDR, and Three-LED Sequence. The serial setup is explicitly labeled as a setup snippet, not a complete sketch. Code files are selectable, expandable where needed, copyable and downloadable through the existing CodeBlock component.
 
 Reuse existing Entry, Gallery, Figure and CodeBlock styles; do not import Figma's rounded cards or shadows. Original classroom photographs were matched to the source and read from `UCB/TDF-Design-Journal/Week-02-Arduino/photos/`, then exported upright at a 2400px long edge, JPEG quality 82, without cropping. Circuit diagrams, Serial Monitor captures and demonstration stills were exported from the Figma source assets. Six playable recordings now replace the simulation and breadboard stills. Source: the owner's `Downloads/week2 视频/` folder. `1.mp4` is byte-identical to `a595fb727f60c0773b85f33405ed8be9_raw.mp4`, so it is included only once. Simulation sources map to external LED (`a595…`, 12.37s), LDR (`7949…`, 9.17s), and three LEDs (`232e…`, 5.33s); physical sources map to external LED (`0d35…`, 4.13s), LDR (`6100…`, 8.83s), and three LEDs (`bb9a…`, 4.83s). The simulations are losslessly remuxed; physical recordings retain 2160×2160 resolution with H.264 CRF 23 and their original audio. All retain full duration and uncropped frames, with fast-start metadata and posters at 0.2s. Use the existing Video block with native controls, no autoplay, full-size links and print posters. The Serial Monitor captures remain still images. The original source files and Figma document are unchanged.
 
@@ -35,24 +35,24 @@ npm run build      # type-check + production build into dist/ (drafts & samples 
 npm run preview    # serve dist/
 ```
 
-Node 18+ (tested on Node 24). Hosting: any static host. Because routes are real paths (`/physical-computing/w05`), the host must fall back to `index.html` for unknown paths (Netlify `_redirects`, Vercel rewrites, GitHub Pages `404.html` copy). For a sub-path, set `base` in `vite.config.ts`.
+Node 18+ (tested on Node 24). Hosting: any static host. Because routes are real paths (`/physical-computing/w03`), the host must fall back to `index.html` for unknown paths (Netlify `_redirects`, Vercel rewrites, GitHub Pages `404.html` copy). For a sub-path, set `base` in `vite.config.ts`.
 
 ---
 
 ## 2 · Information architecture
 
-Archives group records by class. Expressive Mechanics is one combined article; `relatedTypes: [digital-fabrication]` makes both Week 5 routes and the project route resolve to it.
+Archives group records by class. Expressive Mechanics is one combined article; `relatedTypes: [digital-fabrication]` makes both Week 3 routes and the project route resolve to it.
 
 ```
 /                          Archive (first type selected)
 /physical-computing        Archive → choose type → that type’s weeks, earliest first
-/physical-computing/w05    Week page “PC — W05” (one class, one week)
+/physical-computing/w03    Week page “PC — W03” (one class, one week)
   #<date>-<entry-title>    Entry anchor (contents links)
 /physical-computing/print  All weeks of one type in one printable page (multi-week PDF)
 /project/expressive-mechanics   Weeks tagged with a project, across types
 ```
 
-Week page: breadcrumb · prev/next **within the same type** · link to the **same week in the other type** (PC-W05 ↔ DF-W05) · numbered contents grid (desktop) / collapsed “Contents” (mobile) · header · body · prev/next.
+Week page: breadcrumb · prev/next **within the same type** · link to the **same week in the other type** (PC-W03 ↔ DF-W03) · numbered contents grid (desktop) / collapsed “Contents” (mobile) · header · body · prev/next.
 
 Types are data (`content/types.json`). Computational Design is already listed as `reserved: true` (dashed, not clickable). Remove `reserved` when the module starts.
 
@@ -105,7 +105,7 @@ Layout never contains copy; content never contains layout. Adding a week never n
 ```yaml
 ---
 type: physical-computing      # must match the folder
-week: 5                       # calendar week number, shared across types
+week: 3                       # explicit course-content unit number, shared across types
 dateStart: "2026-10-12"       # quote dates; or TBD
 dateEnd: "2026-10-18"
 title: "Camera trigger and servo response"
@@ -225,7 +225,7 @@ Accessibility: real links/buttons, 2px focus ring, ≥44px touch targets on mobi
 ## 9 · Open decisions (ask the owner)
 
 1. **Project work outside class** — inside the nearest type’s week (current), or a separate “Project” track?
-2. **Week numbering** — assumed shared calendar weeks (PC-W05 and DF-W05 = same week).
+2. **Week numbering** — shared course-content weeks (PC-W03 and DF-W03 = same week).
 3. **Archive order** — earliest course week first (confirmed October 8).
 4. **Fonts** — provisional; replace with the owner’s existing Journal fonts once provided.
 5. **Site details** — title, name, course, term in `content/site.json`.
@@ -257,7 +257,7 @@ Accessibility: real links/buttons, 2px focus ring, ≥44px touch targets on mobi
 Install `Pillow` and `pillow-heif`, then run:
 
 ```sh
-python scripts/prepare_media.py source.HEIC content/physical-computing/w05/images/descriptive-name.jpg --kind photo
+python scripts/prepare_media.py source.HEIC content/physical-computing/w03/images/descriptive-name.jpg --kind photo
 ```
 
 The script applies EXIF orientation, exports a maximum 2400px long edge at JPEG quality 82, strips metadata and preserves the source. Real photos are never trimmed. For `cad`, `screen` or `diagram`, it removes enclosing white/near-white margins (threshold 240), then adds an even padding of 4% of the trimmed long edge. Use `photo` for documentary photographs even when their background is white. Animated GIFs must not go through this still-image converter. Never bake labels into photographs automatically; use the caption.
@@ -268,13 +268,13 @@ The script applies EXIF orientation, exports a maximum 2400px long edge at JPEG 
 
 ### Verification
 
-Run `node scripts/gallery-layout.test.mjs` and `npm run build`. At 1440px and 390px, inspect both Week 5 routes: shared caption tops, equal image heights, filled multi-image row edges, singleton height caps, no overflow, no cropped photos and no missing metadata. Confirm that the two URLs display the same source article. Capture the screenshots outside the published content folder.
+Run `node scripts/gallery-layout.test.mjs` and `npm run build`. At 1440px and 390px, inspect both Week 3 routes: shared caption tops, equal image heights, filled multi-image row edges, singleton height caps, no overflow, no cropped photos and no missing metadata. Confirm that the two URLs display the same source article. Capture the screenshots outside the published content folder.
 
 ## Inline recordings and readable code
 
 Use `<Video src="./files/clip.mp4" poster="./images/poster.jpg" title="…" duration="0:30" />` for a local recording. It shows native controls, never autoplays, preserves the full frame, and prints its poster. Keep excerpts focused; retain the original recording outside the site.
 
-Use `<CodeBlock src="./files/sketch.ino" lang="Arduino" />` to preview, expand, copy and download the actual source. Source comments and interface labels are English. Serial illustrations use “Serial response example” and identify firmware-derived content; never describe them as recorded hardware results. Fabrication iterations in Week 5 end on September 24; later capture dates are not fabrication dates.
+Use `<CodeBlock src="./files/sketch.ino" lang="Arduino" />` to preview, expand, copy and download the actual source. Source comments and interface labels are English. Serial illustrations use “Serial response example” and identify firmware-derived content; never describe them as recorded hardware results. Fabrication iterations in Week 3 end on September 24; later capture dates are not fabrication dates.
 
 ### Direct CAD previews
 `<CadViewer>` loads the actual STL immediately, with rotation, zoom, keyboard arrows and reset. Static posters are print-only. Wrap related models in `<CadGroup>` for two equal columns on desktop, one column below 640px; keep each model and caption together in print.
@@ -292,10 +292,13 @@ The final Prototype in use section now plays the user-supplied `01_Prototype Dem
 Removed “edited demo” from the pinch-recording display title at the user’s request; the media edit provenance above remains unchanged. Removed the entire “One frontend for the prototype” entry, including its text and FrontendStudy image. Prototype in use now follows section 06 directly; its final video is unchanged.
 
 ### October 8 journal navigation and headings
-The archive masthead and return links use Design Journal. Removed numbered Type/journal headings, category abbreviations from category tiles and journal cards, the About sidebar, and Dated records by class. Week headers omit the visible Updated label and summary; dates remain in source metadata. Week 5 uses short process/topic titles: Inspiration; Iteration · Servo Mount; Iteration · Bearing Support; Iteration · Gear Coupling; Control · Arduino; Interaction · Pinch to Draw; Prototype. Contents derive from those titles. Section supports an optional explicit id to retain the existing prototype-in-use link.
+The archive masthead and return links use Design Journal. Removed numbered Type/journal headings, category abbreviations from category tiles and journal cards, the About sidebar, and Dated records by class. Week headers omit the visible Updated label and summary; dates remain in source metadata. Week 3 uses short process/topic titles: Inspiration; Iteration · Servo Mount; Iteration · Bearing Support; Iteration · Gear Coupling; Control · Arduino; Interaction · Pinch to Draw; Prototype. Contents derive from those titles. Section supports an optional explicit id to retain the existing prototype-in-use link.
 
 ### October 8 course weeks and fixed sketch pair
-Visible making dates now use course weeks, with Monday–Sunday weeks anchored to September 24 = Week 5, October 1 = Week 6, and October 8 = Week 7. Existing September 20 records are Week 4; September 22–24 records are Week 5. The project and interaction end dates are corrected to September 24, the final presentation. Update metadata is separate. The original hand sketch and exploded illustration use their own `<Gallery pair>` to remain side by side at all widths, without cropping; the generated concept sketch remains above them. Section accepts weekLabel for the final presentation marker.
+Visible week labels use the explicit `week` field in frontmatter, shared with Entry through WeekContext. Do not calculate course units from dates. The owner’s current mapping supersedes the earlier calendar-based mapping: Week 1 = Arduino lights + laser-cut ring; Week 2 = Arduino sensors/servo + 3D-printed ring; Week 3 = Expressive Mechanics; Week 4 = upcoming ESP32. Real making dates stay unchanged in source metadata; September 24 remains the Expressive Mechanics final presentation. Publish only supplied, documented work, not empty or invented exercises. The original hand sketch and exploded illustration use their own `<Gallery pair>` to remain side by side at all widths, without cropping; the generated concept sketch remains above them. Section accepts weekLabel for the final presentation marker.
 
 ### October 8 unified card titles and chronological ordering
-All journal cards use `Week N: Topic`, generated centrally by WeekCard from `week` and `title`. Store only the topic in frontmatter: `Arduino Basics` and `Expressive Mechanics` render as `Week 2: Arduino Basics` and `Week 5: Expressive Mechanics`. The separate making-period label can span weeks (Week 4–5); the title uses the assignment week, preserving Week 5 as the final presentation. New records inherit this convention. All category and project lists, sidebar week links, mobile week chips, and print bundles use ascending course weeks, then making date and route for stable ties. Previous/next links keep their earlier/later meaning. Do not reverse print ordering or reintroduce Newest first.
+All journal cards use `Week N: Topic`, generated centrally by WeekCard from `week` and `title`. Store only the topic in frontmatter: `Arduino Basics` and `Expressive Mechanics` render as `Week 1: Arduino Basics` and `Week 3: Expressive Mechanics`. Cards, page headers, entries, contents and print labels all use the same explicit course week. New records inherit this convention. All category and project lists, sidebar week links, mobile week chips, and print bundles use ascending course weeks, then making date and route for stable ties. Previous/next links keep their earlier/later meaning. Do not reverse print ordering or reintroduce Newest first.
+
+
+Legacy URLs are listed in `content/legacy-routes.json` and emitted as static pages. A real current content route always takes precedence over a legacy alias (important when a future Arduino sensors article uses physical-computing/w02). The old physical-computing/w02 link currently opens Arduino Basics; both old w05 links open Expressive Mechanics at Week 3.
