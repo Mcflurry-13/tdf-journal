@@ -279,3 +279,6 @@ The edited demo now uses original 87–99s for drawing, 101.4–102.05s for the 
 
 ### October 2 final prototype video
 The final Prototype in use section now plays the user-supplied `01_Prototype Demo Video.mp4` in full (60.1 seconds), replacing the GIF. The web copy retains its 3840×2160 resolution and 30 fps with H.264 CRF 23 and fast-start metadata; no scenes are trimmed or reordered. The source has no audio track. Poster is taken at 3 seconds. The exploded illustration remains the corrected transparent version with matching left and right bearing supports, beside the original hand sketch.
+
+### October 8 editorial revision
+Removed “edited demo” from the pinch-recording display title at the user’s request; the media edit provenance above remains unchanged. Removed the entire “One frontend for the prototype” entry, including its text and FrontendStudy image. Prototype in use now follows section 06 directly; its final video is unchanged.
