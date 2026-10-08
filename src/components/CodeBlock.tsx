@@ -57,7 +57,7 @@ export function CodeBlock({ code, src, lang, file }: Props) {
         </span>
         <span className="code-actions no-print">
           {fileUrl && (
-            <a className="mono" href={fileUrl} download>
+            <a className="mono" href={fileUrl} download={name || true}>
               Download
             </a>
           )}
