@@ -92,7 +92,6 @@ export function Section({
 }
 
 interface EntryProps {
-  layout?: "experiment";
   /** Real making date for provenance and anchors; visible week comes from WeekContext. */
   date: string;
   dateEnd?: string;
@@ -106,14 +105,14 @@ interface EntryProps {
 }
 
 /** One dated record. Appears in the numbered contents automatically. */
-export function Entry({ date, title, kind, project, draft, children, layout }: EntryProps) {
+export function Entry({ date, title, kind, project, draft, children }: EntryProps) {
   const full = formatWeek(useWeekNumber());
   if (draft && !IS_DEV) return null;
   const { left, right } = splitChildren(children);
   const hasEvidence = right.length > 0;
   return (
     <section
-      className={`row row-entry${layout === "experiment" ? " row-experiment" : ""}`}
+      className="row row-entry"
       id={slugify(`${date}-${title}`)}
       data-toc={title}
       data-toc-date={full}
