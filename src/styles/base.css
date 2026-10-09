@@ -1070,5 +1070,20 @@ a.type-tile:hover,
 .recording-pair-experiment { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:start; }
 .experiment-docs, .experiment-videos { display:flex; flex-direction:column; gap:24px; min-width:0; }
 .experiment-videos video { max-height:440px; object-fit:contain; object-position:left center; }
-.experiment-docs .code-block { margin:0; }
+/* Keep the lab source readable inside the evidence column. */
+.experiment-docs .code { margin:0; }
+.experiment-docs .code-head { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; padding:12px 14px; }
+.experiment-docs .code-head > .mono { font-size:11px; letter-spacing:0; }
+.experiment-docs .code-actions { gap:16px; font-size:11px; }
+.experiment-docs .code-actions .btn { min-height:0; border:0; background:none; padding:0; font-size:11px; text-decoration:underline; text-underline-offset:3px; }
+.experiment-docs .code-body { padding:14px; font-size:11.5px; line-height:1.55; white-space:pre-wrap; overflow-wrap:anywhere; }
+.experiment-docs .code-toggle { min-height:34px; font-size:11px; }
+.circuit-snapshot { border-top:1px solid var(--rule-soft); padding-top:10px; font-size:12px; }
+.circuit-snapshot summary { cursor:pointer; color:var(--ink-2); }
+.circuit-snapshot[open] summary { margin-bottom:12px; }
+.experiment-videos .recording .video-meta > .mono { display:none; }
+.experiment-videos .recording .video-meta { padding-top:8px; }
+.experiment-videos .recording .video-title { font-size:13px; font-weight:400; }
+.experiment-videos .recording .video-title::before { content:"▲"; font-size:9px; margin-right:8px; }
+.experiment-videos .recording .video-meta > a { font-size:11px; color:var(--ink-2); }
 @media (max-width:639px) { .recording-pair-experiment { grid-template-columns:minmax(0,1fr); gap:28px; } }
