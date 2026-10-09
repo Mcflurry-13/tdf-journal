@@ -1,0 +1,59 @@
+---
+type: physical-computing
+week: 2
+dateStart: TBD
+dateEnd: TBD
+title: "More Arduino"
+summary: "Exploring servo motion through a knob, timed movement and ultrasonic distance."
+cover: "./images/distance-demo.jpg"
+coverKind: photo
+projects: []
+status: published
+updatedAt: 2026-10-09
+---
+
+<Entry date="TBD" title="Input · Knob Control">
+
+I used a potentiometer to control the servo, mapping the A0 reading to an angle on D9. Adding serial output helped me separate input problems from motor problems: I could check the knob value and the commanded angle together.
+
+These experiments build on the [class Arduino tutorial](https://github.com/loopstick/ArduinoTutorial#servo-motors).
+
+<Gallery>
+<Figure src="./images/knob-simulation.jpg" kind="diagram" caption="Knob circuit: wiper to A0, outer pins to 5V and GND; servo signal to D9." />
+</Gallery>
+<Video src="./files/knob-demo.mp4" poster="./images/knob-demo.jpg" title="Turning the knob to control the servo" duration="0:11" />
+<CodeBlock src="./files/servo_knob.ino" lang="Arduino" />
+<Attachments>
+<Attachment src="./files/knob-simulation.mp4" kind="MP4" label="Knob control · circuit simulation" />
+</Attachments>
+</Entry>
+
+<Entry date="TBD" title="Motion · Sweep and Position">
+
+I tested automatic movement with the Sweep example. On the physical MG90S, I encountered continuous rotation during the wider-range tests. I then isolated the motor and confirmed that it could move to and stop at 60°, 90° and 120°. This became the smaller range for the sensor experiment.
+
+<VideoGroup layout="mixed">
+<Video src="./files/servo-motion-demo.mp4" poster="./images/servo-motion-demo.jpg" title="Servo movement on the breadboard" duration="0:13" />
+<CodeBlock src="./files/servo_sweep_simulation.ino" lang="Arduino · simulation" />
+</VideoGroup>
+<Attachments>
+<Attachment src="./files/sweep-simulation.mp4" kind="MP4" label="Automatic sweep · circuit simulation" />
+</Attachments>
+</Entry>
+
+<Entry date="TBD" title="Interaction · Distance to Motion">
+
+I combined the ultrasonic sensor with the servo, moving from a distance threshold to a continuous angle mapping. The sensor uses TRIG on D7 and ECHO on D6; the servo stays on D9, with a shared ground.
+
+The 5–200 cm mapping made small hand movements barely visible. The latest code narrows the input to 10–30 cm and the output to 120–60°, changes the command by at most 2° per cycle, and holds its position when no echo is received. Serial values show commands, not measured motor angles.
+
+<VideoGroup layout="mixed">
+<Video src="./files/distance-demo.mp4" poster="./images/distance-demo.jpg" title="Testing distance input with hand movements" duration="0:20" />
+<Figure src="./images/distance-simulation.jpg" kind="diagram" caption="Ultrasonic and servo circuit in Tinkercad." />
+</VideoGroup>
+<CodeBlock src="./files/distance_servo.ino" lang="Arduino · 10–30 cm mapping" />
+<Attachments>
+<Attachment src="./files/ultrasonic_distance.ino" kind="Arduino" label="Ultrasonic sensor · standalone test" />
+<Attachment src="./files/distance-simulation.mp4" kind="MP4" label="Distance control · circuit simulation" />
+</Attachments>
+</Entry>

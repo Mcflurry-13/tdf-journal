@@ -1061,3 +1061,7 @@ a.type-tile:hover,
 /* Short portrait workshop clips, kept uncropped at a readable height. */
 .recording-pair { display:grid; grid-template-columns:repeat(2,minmax(0,270px)); gap:12px; }
 @media (max-width:639px) { .recording-pair { grid-template-columns:minmax(0,270px); gap:24px; } }
+
+/* Pair a portrait recording with its circuit or code without stretching the video. */
+.recording-pair-mixed { grid-template-columns:minmax(0,270px) minmax(0,1fr); align-items:start; }
+@media (max-width:639px) { .recording-pair-mixed { grid-template-columns:minmax(0,1fr); } .recording-pair-mixed > .recording { max-width:270px; } }

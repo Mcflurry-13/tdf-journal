@@ -79,11 +79,14 @@ function toWeek(path: string, mod: MdxModule): Week | null {
 
 const isVisible = (w: Week) => IS_DEV || (w.status !== 'draft' && !w.sample);
 
+/** Hardware precedes fabrication within each course-content week. */
+const trackOrder = (w: Week) => w.type === 'physical-computing' ? 0 : w.type === 'digital-fabrication' ? 1 : 2;
+
 /** All visible weeks in course order, earliest first. */
 export const weeks: Week[] = Object.entries(modules)
   .map(([path, mod]) => toWeek(path, mod))
   .filter((w): w is Week => w !== null && isVisible(w))
-  .sort((a, b) => a.week - b.week || a.dateStart.localeCompare(b.dateStart) || a.path.localeCompare(b.path));
+  .sort((a, b) => a.week - b.week || trackOrder(a) - trackOrder(b) || a.dateStart.localeCompare(b.dateStart) || a.path.localeCompare(b.path));
 
 export const topTypes = types.filter((t) => !t.parentId);
 export const firstType = topTypes.find((t) => !t.reserved) ?? topTypes[0];

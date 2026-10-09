@@ -229,8 +229,8 @@ export function Attachment({ src, kind, label }: { src: string; kind?: string; l
   );
 }
 
-export function VideoGroup({children}:{children?:ReactNode}) {
-  return <div className="recording-pair">{children}</div>;
+export function VideoGroup({children, layout}:{children?:ReactNode; layout?: "mixed"}) {
+  return <div className={`recording-pair${layout === "mixed" ? " recording-pair-mixed" : ""}`}>{children}</div>;
 }
 
 const PlayIcon = () => (
