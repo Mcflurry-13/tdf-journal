@@ -14,7 +14,9 @@ updatedAt: 2026-10-09
 
 <Entry date="TBD" title="Input · Knob Control">
 
-When the servo did not respond as expected, I needed to know whether the problem came from the knob or the motor. I printed the potentiometer reading and target angle together. Comparing those values with the physical movement helped me check the input and mapping separately from the servo itself.
+I connected a potentiometer to Arduino A0 and an MG90S servo to D9 so that turning the knob would control the servo's position. This introduced analog input and mapping: converting a reading of 0–1023 into a target angle.
+
+Printing the reading and target angle together let me compare the code with the physical movement and check the input before troubleshooting the motor.
 
 These experiments build on the [class Arduino tutorial](https://github.com/loopstick/ArduinoTutorial#servo-motors).
 
@@ -37,7 +39,9 @@ These experiments build on the [class Arduino tutorial](https://github.com/loops
 
 <Entry date="TBD" title="Motion · Sweep and Position">
 
-The wider-range tests sometimes made the MG90S keep rotating, so I tested the motor on its own before adding the sensor back. I sent fixed commands at 60°, 90° and 120° and checked whether it stopped at each position. Those tests worked, so I used that smaller range for the next experiment.
+Next, I used the Servo library to make the motor sweep automatically, without turning a knob. The simulation steps through 0–180° and back; changing the angle step and delay showed me how code controls the pace of movement.
+
+My physical MG90S sometimes kept rotating during wider-range tests. I isolated it and checked fixed commands at 60°, 90° and 120°. It stopped at those positions, so I kept that smaller range for the sensor experiment.
 
 <VideoGroup layout="experiment">
 <div className="experiment-docs">
@@ -56,7 +60,9 @@ The wider-range tests sometimes made the MG90S keep rotating, so I tested the mo
 
 <Entry date="TBD" title="Interaction · Distance to Motion">
 
-The distance readings changed as I moved my hand, but the servo barely moved. Checking the Serial Monitor showed why: mapping 5–200 cm across only 60° gave small hand movements almost the same target angle. I narrowed the input to 10–30 cm and limited movement to 2° per cycle, then compared distance, target and command values to check the response.
+I then replaced the knob with an ultrasonic sensor, using hand distance to set the MG90S servo's angle. This linked sensing to physical movement and taught me how the chosen input range affects the response.
+
+At first, the readings changed but the movement was barely visible. Comparing distance and target angle in the Serial Monitor revealed that 5–200 cm was too broad. I narrowed it to 10–30 cm, mapped to 120–60°, and limited each movement step to 2° to soften the transitions.
 
 <VideoGroup layout="experiment">
 <div className="experiment-docs">

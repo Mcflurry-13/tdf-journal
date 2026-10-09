@@ -358,3 +358,6 @@ All three short paragraphs now explain the observed problem, diagnostic check an
 
 ### October 9 · Disclosure control and final clip start
 Removed the external-link arrow from all Circuit snapshot toggles. A single plus/minus indicator now replaces the native disclosure marker, with fixed spacing, so it cannot collide with the figure's triangle caption. The owner also requested the final physical video start at source second 5. Re-exported IMG_7151.MOV seconds 5–12 as a seven-second landscape clip, keeping the previous repetition-removing endpoint and corrected Hable colour conversion; regenerated its poster from the new first frame. Earlier source and exports remain untouched.
+
+### October 9 · Restore experimental context before troubleshooting
+The owner clarified that troubleshooting must supplement, not replace, the explanation of each experiment. Each entry now first identifies the task, components/control method and learning, then briefly describes validation or a problem/change. Knob introduces Arduino analog input and angle mapping with the MG90S; Sweep introduces programmed motion through the Servo library; distance introduces sensing-to-motion and range sensitivity. Preserve this balance in future edits rather than converting all prose to debugging narratives.
