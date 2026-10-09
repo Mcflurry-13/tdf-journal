@@ -1082,7 +1082,11 @@ a.type-tile:hover,
 .experiment-docs .attachment > svg { display:none; }
 .experiment-docs .attachment-name { grid-column:1 / -1; font-size:11px; }
 .circuit-snapshot { border-top:1px solid var(--rule-soft); padding-top:10px; font-size:12px; }
-.circuit-snapshot summary { cursor:pointer; color:var(--ink-2); }
+.circuit-snapshot summary { display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--ink-2); list-style:none; }
+.circuit-snapshot summary::-webkit-details-marker { display:none; }
+.circuit-snapshot summary::marker { content:""; }
+.circuit-snapshot summary::before { content:"+"; display:inline-block; flex:0 0 12px; text-align:center; }
+.circuit-snapshot[open] summary::before { content:"−"; }
 .circuit-snapshot[open] summary { margin-bottom:12px; }
 .experiment-videos .recording .video-meta > .mono { display:none; }
 .experiment-videos .recording .video-meta { padding-top:8px; }
