@@ -1065,3 +1065,12 @@ a.type-tile:hover,
 /* Pair a portrait recording with its circuit or code without stretching the video. */
 .recording-pair-mixed { grid-template-columns:minmax(0,270px) minmax(0,1fr); align-items:start; }
 @media (max-width:639px) { .recording-pair-mixed { grid-template-columns:minmax(0,1fr); } .recording-pair-mixed > .recording { max-width:270px; } }
+
+/* Lab notes: documentation on the left, original demonstrations on the right. */
+.row.row-experiment { grid-template-columns:minmax(0,1fr); gap:24px; }
+.row-experiment > .row-text { position:static; max-width:850px; }
+.recording-pair-experiment { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:32px; align-items:start; }
+.experiment-docs, .experiment-videos { display:flex; flex-direction:column; gap:24px; min-width:0; }
+.experiment-videos video { max-height:440px; object-fit:contain; object-position:left center; }
+.experiment-docs .code-block { margin:0; }
+@media (max-width:639px) { .recording-pair-experiment { grid-template-columns:minmax(0,1fr); gap:28px; } }
