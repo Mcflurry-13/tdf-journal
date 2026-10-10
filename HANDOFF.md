@@ -361,3 +361,6 @@ Removed the external-link arrow from all Circuit snapshot toggles. A single plus
 
 ### October 9 · Restore experimental context before troubleshooting
 The owner clarified that troubleshooting must supplement, not replace, the explanation of each experiment. Each entry now first identifies the task, components/control method and learning, then briefly describes validation or a problem/change. Knob introduces Arduino analog input and angle mapping with the MG90S; Sweep introduces programmed motion through the Servo library; distance introduces sensing-to-motion and range sensitivity. Preserve this balance in future edits rather than converting all prose to debugging narratives.
+
+### October 9 · Preserve the distance video's portrait framing
+The owner explicitly corrected the last clip's orientation: distance input stays in its original portrait framing, while the second Sweep clip remains landscape. Exported IMG_7151.MOV seconds 5–12 without transpose, preserving the full 2160×3840 frame, corrected HDR-to-SDR colour and audio. Its inline player is naturally portrait with a maximum 270px width; all other layout and balanced explanatory prose remain unchanged. Do not infer that every video should be rotated from a request concerning one clip.

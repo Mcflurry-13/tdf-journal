@@ -1070,6 +1070,8 @@ a.type-tile:hover,
 .recording-pair-experiment { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:start; }
 .experiment-docs, .experiment-videos { display:flex; flex-direction:column; gap:24px; min-width:0; }
 .experiment-videos video { max-height:440px; object-fit:contain; object-position:left center; }
+.experiment-videos-portrait .recording { max-width:270px; }
+.experiment-videos-portrait video { max-height:none; }
 /* Keep the lab source readable inside the evidence column. */
 .experiment-docs .code { margin:0; }
 .experiment-docs .code-head { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; padding:12px 14px; }
