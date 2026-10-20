@@ -6,6 +6,66 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 
 ---
 
+## 长期制作标准（用户确认于 2026-10-20；更新前必读）
+
+本节是当前制作标准的唯一维护入口。每次更新先读本节，再读相关页面的记录与源码。用户的新指示优先；局部修改只作用于指定对象，保留此前已确认的整体要求。后文带日期的修改记录用于追溯素材与版本，其中已被后续修订取代的方案不能作为当前规范。不要要求用户重复确认已经明确的偏好。
+
+### 1. 保留结构，灵活组织素材
+
+- 桌面端保留左侧固定／sticky 的文字说明、右侧素材的基本结构。增加素材不能把说明变成横跨整页的文字条。
+- 在右侧按内容关系安排阅读顺序。例如 Arduino 实验：左列代码，下面接真实反馈输出；右列实物视频和模拟录屏。相关证据放在一起，避免视频、录屏、代码交叉穿插。
+- 这是一种适合该实验的布局，不是所有页面必须套用的模板。根据素材数量、比例、比较关系安排；手机端合理堆叠，桌面最大宽度也要检查。
+- 草图与爆炸图保持已确认的并排关系；相关 3D 模型在桌面并列、直接展示可交互模型，避免再铺一组重复静态图。
+
+### 2. 简短但完整地解释作品
+
+- 每节先说清楚：在做什么、用了什么元件／材料／方法、如何工作，以及有证据支持的学习收获；再用短段落补充必要的排查和迭代。
+- 排查应交代“观察到的现象 → 如何判断 → 做了什么调整”，但不能取代实验介绍。没有真实问题的部分无需硬编故障。
+- 通常以一至两小段为起点，按内容调整，不强求固定字数。避免流水账、重复图注、冗长背景和把每段写成测试报告。
+- 页面正文沿用英文，标题简短且具体，例如 `Input · Knob Control`、`Motion · Sweep and Position`、`Interaction · Distance to Motion`。阶段与主题应帮助理解，不能只剩笼统编号。
+- 不编造学习经历、元件型号、尺寸、测试动作或成功结果。区分设计意图、模拟、CAD、真实实物与已验证结果；无法确认的内容不下结论。
+- 灵感参考简短说明它启发了什么，附有依据的来源；不要让参考资料挤占用户作品的主要篇幅。
+
+### 3. 每份素材承担明确作用
+
+- 有素材支持时，Arduino 记录应包含实际代码、实物演示、模拟电路演示、电路截图、实时反馈输出。缺少某一种证据时不伪造补齐。
+- 同一内容不要通过截图、录屏、视频反复大幅展示。动态变化用精简录屏／GIF；静态接线图可收进可展开项。去重不等于随意删除用户要求保留的证据。
+- 代码使用现有 CodeBlock，支持阅读、展开、复制和下载；窄列中标题、按钮和长代码行都要可读。输出应紧邻对应代码，保持真实数值。
+- 图注简短，描述图中内容和必要差异。图片说明用小三角 ▲，不加 PHOTO、SCREEN、CAD、DIAGRAM 等可见前缀；素材类型保留为元数据。
+
+### 4. 视频方向和剪辑服从观看内容
+
+- 默认保留原始、自然可读的方向与完整画面。只旋转用户指定或已确认的片段，不能把“第二条横屏”扩展为“全部横屏”。
+- 剪掉无关准备、长时间等待、重复动作；保留能解释输入、响应与结果的完整过程。用户指定的起始秒数、方向、排除画面必须逐条核对。
+- 原始素材保持不变，导出独立版本并记录源文件、起止时间、方向与必要的合成处理。海报应与新视频一致。
+- 不为统一尺寸裁掉手、传感器、舵机或界面；不拉伸画面。检查色彩与曝光，HDR 转 SDR 后与原片对照，不能让画面过曝。
+- 当前 More Arduino 的明确例外：第二节 Sweep 为横屏；最后一节距离感应视频为原始竖屏，取 IMG_7151.MOV 的第 5–12 秒，共 7 秒；第一节旋钮视频从原片第 5 秒开始。不得因通用布局规则覆盖这些选择。
+
+### 5. 统一且有含义的视觉语言
+
+- 延续现有暖白底、细线、克制配色与文字层级。局部修改优先复用现有组件和样式，不擅自改整站风格。
+- 图注三角、展开指示、外链箭头含义不同。折叠控件只保留一个清晰指示：当前 Circuit snapshot 用 ＋／−，关闭原生三角，不再附加 ↗。图标与文字保留间距。
+- 代码、下载项和图注也属于设计的一部分：避免多重按钮框、拥挤操作、文件名单字断行和图标重叠。
+
+### 6. 按课程内容组织网站
+
+- 顶层只有 Physical Computing 和 Computational Design。Physical Computing 内统一展示 Fabrication 与 Hardware Programming 的内容，用小色块区分；跨两类的项目只展示一次。
+- 卡片统一为 `Week N: Topic`；按课程周数正序，禁止恢复 Newest first。同周硬件内容在 fabrication 前。
+- Week 1：Arduino 灯光与 Laser-Cut Ring；Week 2：Arduino 感应／舵机与 3D-Printed Ring；Week 3：Expressive Mechanics；Week 4：ESP32。未提供内容的周不凭空补作业。
+- 周数按课程内容，不按上传日期推算；真实制作日期另存，未知用 TBD。保留已确认的 Design Journal 名称，不恢复 About、编号分类标题、卡片 PC／DF／CD 前缀或可见 Updated 标签。
+
+### 交付前检查（按本次改动执行）
+
+- [ ] 修改对象与范围正确，既有结构、文案信息和用户此前要求没有被最新一句话覆盖。
+- [ ] 每节能让读者理解“做什么、怎么做、学到什么”；排查是补充，文字简短且有依据。
+- [ ] 素材和文字对应，没有重复铺陈、虚构结果、错误图注或遗漏已有证据。
+- [ ] 实际查看桌面（含宽屏）和手机布局；左侧说明、素材顺序、并排关系、代码、下载项、图标与展开状态正常。
+- [ ] 涉及视频时实际播放：核对方向、起止时间、时长、曝光、完整画面、音频及海报。不要只检查文件名或尺寸。
+- [ ] 涉及实现改动时完成构建及相关检查；已获授权发布后核对线上版本与链接，保存能说明结果的截图。纯文档更新无需重跑媒体或布局测试。
+- [ ] 新确认的长期偏好更新本节；具体素材处理写入后文版本记录。只报告已经完成和验证的事项。
+
+---
+
 ## 0 · Ground rules (read first)
 
 1. **Never invent content.** No made-up dates, test results, learning outcomes or photos. Everything under `content/` marked `sample: true` is placeholder structure only.
@@ -177,7 +237,7 @@ Code blocks collapse above 15 lines (web), have a Copy button and, for `src`, a 
 
 **Replace an image** — overwrite the file with the same name, or change `src`. Check `kind` and caption still match what the photo actually shows.
 
-**Owner sends loose material** (photos, code, a paragraph, a date): put it in the right `<type>/wNN/` by its real date; ask when the date or type is unclear (use `TBD`, don’t guess); write captions that describe, not judge; mark status only from their words.
+**Owner sends loose material** (photos, code, a paragraph, a date): put it in the right `<type>/wNN/` by its confirmed course-content week; keep real making dates as separate metadata (use `TBD` when unknown); write captions that describe, not judge; mark status only from their words.
 
 **Add a type** — add an object to `content/types.json` (and a `--tint-*` in `tokens.css` if needed), create `content/<id>/`.
 
@@ -222,14 +282,14 @@ Accessibility: real links/buttons, 2px focus ring, ≥44px touch targets on mobi
 
 ---
 
-## 9 · Open decisions (ask the owner)
+## 9 · Current decisions and remaining configuration
 
-1. **Project work outside class** — inside the nearest type’s week (current), or a separate “Project” track?
+1. **Project work** — keep the current course-category structure and project links; do not add a top-level track without a request.
 2. **Week numbering** — shared course-content weeks (PC-W03 and DF-W03 = same week).
 3. **Archive order** — earliest course week first (confirmed October 8).
 4. **Fonts** — provisional; replace with the owner’s existing Journal fonts once provided.
 5. **Site details** — title, name, course, term in `content/site.json`.
-6. **Hosting** — not chosen; nothing is deployed.
+6. **Hosting** — GitHub Pages at https://mcflurry-13.github.io/tdf-journal/; pushes to main run `.github/workflows/pages.yml`.
 
 ## 10 · Known gaps / next steps
 
@@ -264,7 +324,7 @@ The script applies EXIF orientation, exports a maximum 2400px long edge at JPEG 
 
 ### STL previews and motion
 
-`<CadViewer src="./files/part.stl" poster="./images/part.jpg" caption="…" />` keeps an accessible static image until the reader chooses Explore 3D. Drag rotates, scroll zooms, arrow keys rotate, and Reset view restores the initial camera. The STL download remains available if WebGL fails. `flip` shows a part from below; `color` sets the mesh colour. Print always uses the poster and its caption; the original part file is unchanged.
+`<CadViewer src="./files/part.stl" poster="./images/part.jpg" caption="…" />` loads the actual STL directly; the poster is reserved for print (see Direct CAD previews below). Drag rotates, scroll zooms, arrow keys rotate, and Reset view restores the initial camera. The STL download remains available if WebGL fails. `flip` shows a part from below; `color` sets the mesh colour. Print always uses the poster and its caption; the original part file is unchanged.
 
 ### Verification
 

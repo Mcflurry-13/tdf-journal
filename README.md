@@ -1,6 +1,8 @@
 # TDF Journal
 
-A React + MDX journal for Physical Computing and Digital Fabrication.
+A React + MDX journal for Physical Computing and Computational Design. Fabrication and Hardware Programming are tracks within Physical Computing.
+
+Before updating the site, read the current production standards at the top of [HANDOFF.md](HANDOFF.md). [AGENTS.md](AGENTS.md) makes this the required entry point for future work.
 
 ## Run locally
 
@@ -13,7 +15,9 @@ Open `http://127.0.0.1:8792/project/expressive-mechanics`.
 
 ## Update content
 
-Edit `content/physical-computing/w05/index.mdx` for the combined Expressive Mechanics journal. Both course categories and the project link open this one article. Related problems are grouped into short dated entries, with photographs and CAD comparisons. Photos and attachments live in the same entry folder. Each numbered row pairs short text with its images; captions retain their media kind labels. Week 5 is the course project grouping; the pages display actual record dates. Image links open the full-size file.
+Edit the relevant `content/<type>/wNN/index.mdx`. Expressive Mechanics is `content/physical-computing/w03/index.mdx`; More Arduino is `content/physical-computing/w02/index.mdx`. Course-content weeks determine placement and chronological order; real making dates remain separate metadata. Cards use `Week N: Topic`.
+
+Preserve the sticky left prose column and organize evidence on the right. Keep explanations concise but complete, with troubleshooting as supporting detail. Captions use a small triangle without visible media-kind prefixes. Photos and attachments live with their article. Follow HANDOFF.md for media orientation, trimming, evidence and review requirements.
 
 ## Build and print
 
