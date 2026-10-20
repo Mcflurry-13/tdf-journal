@@ -1,0 +1,4 @@
+TEST: 1500 us for 1.5 seconds.
+Test ended. PWM OFF; servo power is still connected.
+
+SWEEP ON: 1200 <-> 1800 us, 2s travel + 1s hold. x stops PWM.
