@@ -3,7 +3,7 @@ import { resolveAsset } from '../content';
 import { useWeekDir } from '../week-context';
 import { imageDimensions } from './Gallery';
 
-export function CadViewer({src,poster,caption,flip=false,color='#b4c3ca'}:{src:string;poster:string;caption:string;flip?:boolean;color?:string}) {
+export function CadViewer({src,poster,caption,flip=false,color='#b4c3ca',view='isometric'}:{src:string;poster:string;caption:string;flip?:boolean;color?:string;view?:'isometric'|'top'}) {
   const dir=useWeekDir(), url=resolveAsset(dir,src), image=resolveAsset(dir,poster), size=imageDimensions(dir,poster);
   const host=useRef<HTMLDivElement>(null), reset=useRef<()=>void>();
   const [status,setStatus]=useState(''),[ready,setReady]=useState(false);
@@ -26,7 +26,7 @@ export function CadViewer({src,poster,caption,flip=false,color='#b4c3ca'}:{src:s
       const lamp=new THREE.DirectionalLight(0xffffff,3);lamp.position.set(3,5,4);scene.add(lamp);
       const controls=new OrbitControls(camera,renderer.domElement);controls.enablePan=false;controls.minDistance=radius*1.2;controls.maxDistance=radius*12;
       const render=()=>{renderer.render(scene,camera);renderer.domElement.dataset.view=String(camera.position.x.toFixed(3))+','+camera.position.z.toFixed(3);};
-      const fit=()=>{const aspect=node.clientWidth/node.clientHeight;camera.aspect=aspect;camera.updateProjectionMatrix();const distance=radius/Math.sin(Math.min(camera.fov*Math.PI/360,Math.atan(Math.tan(camera.fov*Math.PI/360)*aspect)))*1.15;camera.position.set(distance*.7,distance*.55,distance*.8);camera.lookAt(0,0,0);controls.target.set(0,0,0);controls.update();render();};
+      const fit=()=>{const aspect=node.clientWidth/node.clientHeight;camera.aspect=aspect;camera.updateProjectionMatrix();const distance=radius/Math.sin(Math.min(camera.fov*Math.PI/360,Math.atan(Math.tan(camera.fov*Math.PI/360)*aspect)))*1.15;if(view==='top')camera.position.set(0,distance,.001);else camera.position.set(distance*.7,distance*.55,distance*.8);camera.lookAt(0,0,0);controls.target.set(0,0,0);controls.update();render();};
       node.appendChild(renderer.domElement);
       const resize=()=>{renderer.setSize(node.clientWidth,node.clientHeight);fit();};resize();
       const observer=new ResizeObserver(resize);observer.observe(node);controls.addEventListener('change',render);reset.current=fit;
@@ -36,7 +36,7 @@ export function CadViewer({src,poster,caption,flip=false,color='#b4c3ca'}:{src:s
       setReady(true);setStatus('Drag to rotate · Scroll to zoom');
     })().catch(()=>{if(!disposed)setStatus('Preview unavailable. Download the STL to open it locally.');});
     return()=>{disposed=true;cleanup();};
-  },[url,flip,color]);
+  },[url,flip,color,view]);
   return <figure className="figure cad-viewer">
     <div className="cad-stage" ref={host}>
       <img className="cad-poster print-only" src={image} width={size?.width} height={size?.height} alt={caption}/>

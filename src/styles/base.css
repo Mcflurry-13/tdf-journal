@@ -1096,3 +1096,6 @@ a.type-tile:hover,
 .experiment-videos .recording .video-title::before { content:"▲"; font-size:9px; margin-right:8px; }
 .experiment-videos .recording .video-meta > a { font-size:11px; color:var(--ink-2); }
 @media (max-width:639px) { .recording-pair-experiment { grid-template-columns:minmax(0,1fr); gap:28px; } }
+
+/* Standalone portrait evidence stays fully readable within a desktop viewport. */
+.recording-portrait { max-width: 405px; }

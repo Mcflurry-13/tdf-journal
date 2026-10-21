@@ -1,3 +1,4 @@
+import { AmbientSystem, AmbientMapping, AmbientFrontend, AmbientStudies } from './AmbientDisplay';
 import { FrontendStudy } from './FrontendStudy';
 /**
  * Content blocks available inside week MDX files.
@@ -241,13 +242,13 @@ const PlayIcon = () => (
 );
 
 /** Local recordings play inline; external demonstrations remain links. */
-export function Video({ href, src, title, duration, poster }: { href?: string; src?: string; title: string; duration?: string; poster?: string }) {
+export function Video({ href, src, title, duration, poster, portrait = false }: { href?: string; src?: string; title: string; duration?: string; poster?: string; portrait?: boolean }) {
   const dir = useWeekDir();
   const img = resolveAsset(dir, poster);
   const local = src ? resolveAsset(dir, src) : undefined;
   const url = local ?? href;
   return (
-    <figure className={local ? 'recording' : 'video'}>
+    <figure className={local ? `recording${portrait ? ' recording-portrait' : ''}` : 'video'}>
       {local ? <>
         <video className="no-print" controls playsInline preload="none" poster={img} aria-label={title}>
           <source src={local} type="video/mp4" />
@@ -269,6 +270,7 @@ export function Video({ href, src, title, duration, poster }: { href?: string; s
 
 /** Blocks that go to the right-hand column of an Entry. Everything else is text (left). */
 const EVIDENCE = new Set<unknown>([
+  AmbientSystem, AmbientMapping, AmbientFrontend, AmbientStudies,
   Figure,
   CadViewer,
   CadGroup,

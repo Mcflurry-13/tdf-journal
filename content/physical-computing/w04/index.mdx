@@ -4,9 +4,9 @@ relatedTypes: [digital-fabrication]
 week: 4
 dateStart: TBD
 dateEnd: "2026-10-15"
-title: "ESP32 · Sunset Flower"
-summary: "Turning Berkeley's sunset forecast into a flower's opening and light, from paper studies to an ESP32-controlled prototype."
-cover: "./images/paper-open.jpg"
+title: "Ambient Display · Sunset in Bloom"
+summary: "Translating Berkeley’s sunset forecast into a printed flower’s movement and light."
+cover: "./images/demo.jpg"
 coverKind: photo
 projects: [sunset-flower]
 status: published
@@ -15,46 +15,63 @@ updatedAt: "2026-10-20"
 
 <Entry date="TBD" title="Concept · A Physical Forecast">
 
-Sunset Flower turns Berkeley's sunset-quality forecast into movement and light. A positional MG90S servo moves a wire linkage to open the petals, while two RGB NeoPixel sticks illuminate the flower. The aim is to make a number noticeable as a small physical change.
+Sunset in Bloom is an ambient display that turns Berkeley's sunset-quality forecast into movement and light. A positional MG90S servo moves a wire linkage to open the petals, while two RGB NeoPixel sticks illuminate the flower. The aim is to make a number noticeable as a small physical change.
 
-The Adafruit Feather ESP32 V2 controls the outputs. After direct HTTPS requests on the campus network failed, the data request moved to a Python service on the Mac, which sends a validated forecast over USB. This separated internet access from physical control; the browser is only a supporting control panel.
+The Adafruit Feather ESP32 V2 controls the outputs. After direct HTTPS requests on the campus network failed, the data request moved to a Python service on the Mac, which sends a validated forecast over USB. This separated internet access from physical control; the browser makes the relationship between the forecast and the flower visible.
 
-<Figure src="./images/system-connections.svg" kind="diagram" caption="System analysis: forecast and command paths, LED data chaining, external power and shared ground." />
+<AmbientSystem />
 </Entry>
 
-<Entry date="TBD" title="Motion · From Paper to Petals">
+<Entry date="TBD" title="Motion · Printed Petals">
 
-We first tested a two-layer paper flower by hand. The layers meet near the petal tips; changing the distance between their centers changes the opening. Cutouts and thinner stems let the lower layer bend.
+We began with two thin, 3D-printed petal layers joined near their tips. Pulling their centers apart opens the flower. The lower layer has cutouts that allow its stems to bend; its center was later revised into a round hub.
 
-We tried a sideways pull before turning the flower upward, with the servo below and to one side. Testing the motion before designing the case helped us choose the orientation and see how the linkage moved the petals.
+We tested the pull by hand, then placed the flower upright with the servo below and to one side. This let us work out the movement before building the enclosure.
 
 <Gallery pair>
-<Figure src="./images/paper-closed.jpg" kind="photo" caption="Two paper layers brought closer together." />
-<Figure src="./images/paper-open.jpg" kind="photo" caption="Moving the centers apart opens the petals." />
+<Figure src="./images/printed-closed.jpg" kind="photo" caption="Two printed layers, linked at the tips." />
+<Figure src="./images/printed-open.jpg" kind="photo" caption="Separating the centers opens the petals." />
 </Gallery>
+<CadGroup>
+<CadViewer view="top" color="#81958b" src="./files/lower-earlier.stl" poster="./images/lower-earlier.png" caption="Earlier lower layer · cutout petals." />
+<CadViewer view="top" color="#81958b" src="./files/lower-round.stl" poster="./images/lower-round.png" caption="Revised lower layer · round central hub." />
+</CadGroup>
 <VideoGroup>
-<Video src="./files/horizontal.mp4" poster="./images/horizontal.jpg" title="Sideways pull · early hand test" duration="0:06" />
-<Video src="./files/vertical.mp4" poster="./images/vertical.jpg" title="Upright flower · servo motion test" duration="0:10" />
+<Video src="./files/horizontal.mp4" poster="./images/horizontal.jpg" title="Sideways pull · hand test" duration="0:06" />
+<Video src="./files/vertical.mp4" poster="./images/vertical.jpg" title="Upright flower · servo test" duration="0:10" />
 </VideoGroup>
 </Entry>
 
-<Entry date="TBD" title="Fabrication · Housing the Motion">
+<Entry date="TBD" title="Material · Testing the Bend">
 
-A cardboard box held the mechanism while we tested the whole movement. We then developed the housing from a square box into a round case with curved openings, and widened it to make room for the components. The openings echo the petals and let light through.
+We also tried laser-cut wood, using repeated cuts to make the petals more flexible. In the bending tests, the wood still could not curve enough for the opening motion, so we set that route aside and continued with the printed petals. The useful comparison was how far the material could move, not just how the flat outline looked.
 
-The selected 199 mm housing has a removable lid for access. A rigid bridge supports the flower and LED sticks; the paper diffuser only spreads light. This separates structural support from the soft lighting surface. The final model set also includes two 0.38 mm petal sheets.
-
-<VideoGroup layout="mixed">
-<Figure src="./images/box-loop.gif" kind="photo" caption="Cardboard prototype: testing the assembled movement before shaping the case." />
-<Gallery>
-<Figure src="./images/cad-square.png" kind="cad" caption="Square enclosure study." />
-<Figure src="./images/cad-round.png" kind="cad" caption="Round shell with curved openings." />
-<Figure src="./images/cad-wide.png" kind="cad" caption="Wider 199 mm housing. CAD study, not an assembled-product photograph." />
+<Gallery pair>
+<Figure src="./images/wood-cutouts.jpg" kind="photo" caption="Laser-cut petals with repeated flexure cuts." />
+<Figure src="./images/wood-bending.jpg" kind="photo" caption="The wood did not bend far enough for the mechanism." />
 </Gallery>
-</VideoGroup>
+</Entry>
+
+<Entry date="TBD" title="Fabrication · Light Through the Form">
+
+A cardboard box let us test the whole mechanism. We cut a slot in its side to hold the servo, keeping the horn outside so it could pull the wire toward the flower.
+
+The enclosure then evolved into a round shell. Its flowing openings echo the petals and let the warm light spill out, connecting the form to the sunset theme. A removable lid gives access to the mechanism; a rigid bridge supports the flower and LEDs, while a separate diffuser softens the light.
+
+<Gallery pair>
+<Figure src="./images/box-loop.gif" kind="photo" caption="Testing the assembled motion in a cardboard enclosure." />
+<Figure src="./images/servo-support.jpg" kind="photo" caption="The servo fits through a slot in the side wall." />
+</Gallery>
+<AmbientStudies>
+<Gallery>
+<Figure src="./images/cad-square.png" kind="cad" caption="A simple box to contain the mechanism." />
+<Figure src="./images/cad-round.png" kind="cad" caption="Curved openings let light through." />
+<Figure src="./images/cad-wide.png" kind="cad" caption="A flowing shell around the flower." />
+</Gallery>
+</AmbientStudies>
 <CadGroup>
-<CadViewer src="./files/body.stl" poster="./images/body-preview.png" caption="Selected housing · outer shell and base." />
-<CadViewer src="./files/lid.stl" poster="./images/lid-preview.png" caption="Selected lid · integrated support bridge and LED slots. Shown in its print orientation." />
+<CadViewer src="./files/body.stl" poster="./images/body-preview.png" caption="Round shell · openings for light." />
+<CadViewer src="./files/lid.stl" poster="./images/lid-preview.png" caption="Removable lid · support for the flower and LEDs." />
 </CadGroup>
 </Entry>
 
@@ -82,11 +99,11 @@ I redistributed the crowded power and ground connections, repaired the LED wirin
 
 <Entry date="2026-10-15" title="Control · Forecast and Motion">
 
-Hold sets the opening from the sunset forecast, reaching its maximum command at 60/100. Breathe is a separate motion demonstration: it cycles through 5–150° regardless of the score. Light color follows forecast quality in both modes, while brightness changes with the opening.
+Hold translates the sunset-quality score into a still opening. During roughly a week of testing, the new forecast samples mostly stayed below 60. Using the full 0–100 range made those everyday differences less visible, so we mapped 60 to full opening. This makes the score-to-motion relationship clearer in a demonstration; scores above 60 share the same maximum.
 
-Hold was stable, but Breathe shook at its highest point. Reducing only Breathe's upper limit to 150° kept the demonstrated motion working; Hold retained its data mapping. The final pacing is three seconds per movement and a 1.5-second pause. I learned to test each mode against the physical linkage, rather than treating one angle range as suitable for everything.
+Breathe demonstrates motion independently of the score. It shook at the highest point, so we reduced only its upper limit to 150°, keeping Hold’s mapping intact. Each movement takes three seconds, followed by a 1.5-second pause. Color follows forecast quality in both modes, and the light brightens as the flower opens.
 
-<Figure src="./images/mode-mapping.svg" kind="diagram" caption="Behavior analysis: Hold encodes forecast quality; Breathe demonstrates movement. The 39/100 example is the recorded October 15 forecast, not live data." />
+<AmbientMapping />
 <CodeBlock src="./files/control-excerpt.cpp" lang="Firmware excerpt" />
 <Specs rows={[
   ['Real data', 'October 15: Sunsethue returned quality 0.39; the ESP32 acknowledged the 109° target.'],
@@ -96,4 +113,21 @@ Hold was stable, but Breathe shook at its highest point. Reducing only Breathe's
 <Attachments>
 <Attachment src="./files/sunset-flower-source.zip" kind="ZIP" label="Project files · firmware, app and six selected STL models" />
 </Attachments>
+</Entry>
+
+
+<Entry date="2026-10-15" title="Interface · Reading the Forecast">
+
+We built the frontend to make the connection between today's sunset quality and the flower's movement easier to read. The score sits beside an animated flower, so a visitor can relate the number to its opening and light at a glance.
+
+Hold shows the forecast as a still position; Breathe makes the motion easy to demonstrate; Stop ends the output. The animation illustrates the commanded movement rather than measuring the physical petals. This embedded version uses our recorded October 15 sample so the interface can be explored in the journal.
+
+<AmbientFrontend />
+</Entry>
+
+<Entry date="TBD" title="Prototype · Sunset in Bloom">
+
+The assembled display brings the printed petals, wire linkage and warm light into one object. Here the flower opens and closes beside the frontend, showing the physical movement that the screen helps explain.
+
+<Video portrait src="./files/ambient-display-demo.mp4" poster="./images/demo.jpg" title="Ambient Display · flower in motion" duration="0:19" />
 </Entry>

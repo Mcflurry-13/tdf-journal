@@ -46,6 +46,8 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 - 延续现有暖白底、细线、克制配色与文字层级。局部修改优先复用现有组件和样式，不擅自改整站风格。
 - 图注三角、展开指示、外链箭头含义不同。折叠控件只保留一个清晰指示：当前 Circuit snapshot 用 ＋／−，关闭原生三角，不再附加 ↗。图标与文字保留间距。
 - 代码、下载项和图注也属于设计的一部分：避免多重按钮框、拥挤操作、文件名单字断行和图标重叠。
+- 机制图按软件／代码、电子硬件、机械结构区分颜色，并配文字标签；框内细节用 bullet points，避免用 +、/ 堆词。图表优先用可读的 HTML／矢量内容，必要时加入有意义的互动，不能编造数据。
+- 建模图注突出设计决定和作用，不堆尺寸或重复免责声明。旧方案可收进次要展示，实物、关键安装细节应有足够阅读空间。
 
 ### 6. 按课程内容组织网站
 
@@ -443,3 +445,26 @@ Analytical diagrams respond to the prior feedback “Missing a diagrammatic anal
 The downloadable project ZIP contains final firmware/backend/frontend (including built frontend), six selected STLs, model notes and credits. Excludes node_modules, cache files, machine state and credentials. The selected housing and lid are also directly interactive side by side. Original source files remain unchanged.
 
 Validation: build passes; all160 existing gallery cases pass. Browser checks at1920px/1440px confirm sticky prose left/evidence right;390px stacks without horizontal overflow. All images load; both videos play at their stated6s/10s duration in720×1280. Two CAD previews load. No browser runtime errors. Archive remains Week1→2→3→4, hardware before fabrication. Screenshots and inspection scripts are in TDF `work/journal-sunset/`. Remaining evidence gap: supplied videos show paper/cardboard motion, not a new complete final API-driven assembled-prototype demonstration. Do not relabel them as that final demo.
+
+
+## Ambient Display · Sunset in Bloom — owner corrections (2026-10-20)
+
+This revision supersedes the material descriptions and evidence gap in the preceding Sunset Flower entry. **The white petal layers were 3D printed from the start, not paper.** Earlier filenames and documentation called them paper incorrectly. Only the separate light diffuser is paper; the cardboard housing was an actual test enclosure. Use the owner’s explicit correction, not visual inference, in future edits.
+
+Week 4 route and `sunset-flower` internal project ID remain stable. Public title is **Ambient Display · Sunset in Bloom** and tag is **Ambient Display**. Preserve sticky left narrative/right evidence. Eight short sections cover concept, printed motion, wood bending, housing, diagnosis, mapping, frontend and final motion video.
+
+New evidence and provenance:
+- `Downloads/过程记录/levy/IMG_8854.HEIC` → wood-cutouts.jpg; IMG_8856.HEIC → wood-bending.jpg. Full-frame upright JPEGs, max1800px, no exposure edits. Owner reports the laser-cut wood could not bend enough, so this direction was abandoned.
+- `outputs/four-petal-print-v4/lower_cutouts_0.38mm.stl` and `outputs/four-petal-print-v5/lower_round_hub_0.38mm.stl` → earlier and round-hub lower models. Interactive top views show the changed hub. Do not invent a measured mechanical improvement. Posters are captured from the actual loaded models.
+- `outputs/sunset-flower-iteration/assets/box-side.jpg` → servo-support.jpg: side slot holds the servo with its horn outside. Shown beside the cardboard motion GIF. The three earlier CAD shell studies are a secondary disclosure, not crowded beside the GIF. Body/lid viewers remain side by side.
+- `Downloads/过程记录/levy/IMG_8979.MOV` → ambient-display-demo.mp4: full18.9s, upright720×1280,30fps,H.264CRF21,AAC128k,faststart. Original is SDR bt709; no tone mapping, cropping, rotation or exposure adjustment. Poster at1s. Shows the assembled flower moving and lighting beside the frontend; does not establish the forecast acquisition time. This is the journal’s last content block.
+
+Owner’s mapping rationale: after about a week of testing, newly fetched samples mostly did not exceed60. The upper opening threshold is60 to make everyday score differences more visible in a demonstration. This is an observation from that week, not a claimed long-term distribution. There is no fabricated sample series/histogram. Actual Hold mapping and Breathe limit/timing remain unchanged.
+
+`AmbientSystem` uses labeled lavender software, green electronics and peach mechanics, with bullet lists and separate command/power relationships. `AmbientMapping` replaces the static diagram with the actual Hold curve, score slider, reused frontend flower geometry, Breathe illustration and pause. Original frontend screen colors are #F2C14E/#EF8A45/#E05A42; these illustrate firmware yellow/orange/red tiers, not calibrated photographic colors. They differ from earlier pink/green wiring-test photos; never relabel those tests as final mapping.
+
+`demos/ambient-display/` contains the reproducible frontend preview source. `public/demos/ambient-display/` is its static build. It reuses the original full interface with a journal-only historical sample adapter (October15,39/100), zero API/hardware requests. Hold/Breathe/Stop remain usable; current-data wording is corrected to recorded-data wording in this copy. The original operational frontend, firmware and downloadable source ZIP are unchanged. Its sunset banner is an AI-edited illustration, as the image alt text states. The page explains why the UI makes the relationship between score, opening and light more legible.
+
+Implementation / inspection intermediates: TDF `work/ambient-revision/`. Original user media and operational project files remain unchanged.
+
+Validation: production build and160 existing gallery checks pass. Browser checks at1920,1440,1135 and390px confirm sticky desktop prose, stacked mobile layout, no overflow, all images and four models loaded. Checked Hold mapping at0/39/60/100, Breathe pause and reduced-motion endpoint, full frontend Hold/Breathe/Stop and zero API requests. Iframe height follows content across widths. The19s final portrait video plays at720×1280 and is capped to405px display width for complete viewing. The embedded frontend has a print-only screenshot. No new physical hardware test was performed for this editorial update.
