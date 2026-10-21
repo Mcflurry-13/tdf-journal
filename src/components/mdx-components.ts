@@ -1,4 +1,4 @@
-import { AmbientMapping, AmbientStudies } from './AmbientDisplay';
+import { AmbientMapping, AmbientStudies, AmbientWiring } from './AmbientDisplay';
 import { FrontendStudy } from './FrontendStudy';
 import { CadViewer, CadGroup } from './CadViewer';
 import { InteractionFlow } from './RecordArchive';
@@ -24,7 +24,7 @@ import { CodeBlock, Pre } from './CodeBlock';
 
 /** Everything a week MDX file may use without importing. */
 export const mdxComponents: MDXComponents = {
-  AmbientMapping, AmbientStudies,
+  AmbientMapping, AmbientStudies, AmbientWiring,
   InteractionFlow,
   CadViewer,
   CadGroup,

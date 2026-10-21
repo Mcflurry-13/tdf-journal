@@ -7,3 +7,8 @@
 
 .ambient-studies > .figure {max-width:520px;}
 .ambient-studies > .code + .code {margin-top:20px;}
+
+.ambient-wiring iframe{display:block;width:100%;height:auto;aspect-ratio:1;min-height:460px;border:1px solid #d8d5cd;background:#f7f8fa}
+.ambient-wiring > img.wiring-print{display:none}
+.ambient-wiring .wiring-open{display:inline-block;margin-top:10px;font-size:14px}
+@media print{.ambient-wiring iframe,.ambient-wiring .wiring-open{display:none}.ambient-wiring > img.wiring-print{display:block;width:100%;height:auto}}

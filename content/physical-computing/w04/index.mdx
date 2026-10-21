@@ -13,36 +13,43 @@ status: published
 updatedAt: "2026-10-20"
 ---
 
-<Entry date="TBD" title="Concept · A Physical Forecast">
+<Entry date="TBD" title="Concept · Anticipating Sunset">
 
-Sunset in Bloom turns Berkeley's sunset-quality forecast into a flower's opening and warm light. A positional MG90S servo pulls a wire linkage between two printed petal layers; two NeoPixel sticks light the flower from below.
+We wanted a small, everyday reason to look forward to Berkeley's sunset. Instead of leaving the forecast as a number on a screen, we imagined a flower that quietly opens and fills with warm light—an invitation to pause and look outside.
 
-The computer brings in the forecast, and a Feather ESP32 V2 controls the physical response. A companion webpage places the score beside a motion illustration, making the connection between the weather and the object easier to read.
+Sunset in Bloom makes that anticipation tangible. Its opening and glow reflect the sunset forecast, bringing a little of the changing sky into the room.
 
 <Figure fullWidth src="./images/concept-system.svg" kind="diagram" caption="The computer handles the forecast; electronics inside the base produce movement and light above it." />
 </Entry>
 
 <Entry date="TBD" title="Material Testing · Finding the Flex">
 
-Before printing the flower, we explored petal shapes in sketches and tested how far different samples could bend. Repeated laser cuts made the wood more flexible, but it still could not curve enough for the opening motion.
+We first tested laser-cut wood. Repeated slots made it more flexible, but it still could not bend far enough to open the flower. We then sketched cutout petals and tested a thin 3D-printed sample for flex and recovery.
 
-The hand-bending test helped us compare flex and recovery before committing to a flower shape. We set the wood option aside and moved to thin printed petals: the material needed to support repeated movement, not just hold an attractive outline.
+In the printed model, we changed the lower layer's narrow center into a round hub. It supported bending better, and its larger contact area made the push and pull steadier. Testing the material and the shape together helped us find a structure that could move repeatedly.
 
 <Gallery pair>
-<Figure src="./images/petal-sketch.jpg" kind="photo" caption="Exploring cutouts, narrow stems and the central support." />
-<Figure src="./images/wood-cutouts.jpg" kind="photo" caption="Laser-cut samples: repeated slots allow some flex." />
+<Figure src="./images/wood-cutouts.jpg" kind="photo" caption="Laser-cut wood · repeated slots introduce flex." />
+<Figure src="./images/wood-bending.jpg" kind="photo" caption="Bending test · the wood still resisted the curve we needed." />
 </Gallery>
 <VideoGroup>
-<Figure src="./images/wood-bending.jpg" kind="photo" caption="The wood still resisted the curve we needed." />
-<Video src="./files/material-bend.mp4" poster="./images/material-bend.jpg" title="Bending and releasing a thin sample" duration="0:10" />
+<Figure src="./images/petal-sketch.jpg" kind="photo" caption="Sketching cutout petals and a wider central support." />
+<Video src="./files/material-bend.mp4" poster="./images/material-bend.jpg" title="Printed sample · flex and recovery" duration="0:10" />
 </VideoGroup>
+<CadGroup>
+<CadViewer view="top" color="#81958b" src="./files/lower-earlier.stl" poster="./images/lower-earlier.png" caption="Earlier center · a narrow junction between the stems." />
+<CadViewer view="top" color="#81958b" src="./files/lower-round.stl" poster="./images/lower-round.png" caption="Round hub · more contact and a steadier pull." />
+</CadGroup>
+<AmbientStudies title="Printing the petal layers">
+<Video portrait src="./files/petal-printing.mp4" poster="./images/petal-printing.jpg" title="Printing the thin lower petal layer" duration="0:06" />
+</AmbientStudies>
 </Entry>
 
-<Entry date="TBD" title="Motion Testing · A Steadier Pull">
+<Entry date="TBD" title="Motion Testing · From Pull to Bloom">
 
 Two thin, 3D-printed layers meet near the petal tips. Separating their centers opens the flower. We first pulled the linkage by hand, then tested it upright with the MG90S below and to one side, before designing the enclosure.
 
-We changed the lower layer's narrow center into a round hub. In our tests, it flexed more readily and supported bending better; the larger contact area at the base also made the push and pull steadier. This showed us that the center needed as much attention as the petals.
+Testing the movement outside the enclosure let us see how the wire pulled each layer and choose the servo's position before committing to the case.
 
 <Gallery pair>
 <Figure src="./images/printed-closed.jpg" kind="photo" caption="Two printed layers joined near the tips." />
@@ -52,10 +59,6 @@ We changed the lower layer's narrow center into a round hub. In our tests, it fl
 <Video src="./files/horizontal.mp4" poster="./images/horizontal.jpg" title="Sideways pull · hand test" duration="0:06" />
 <Video src="./files/vertical.mp4" poster="./images/vertical.jpg" title="Upright flower · servo test" duration="0:10" />
 </VideoGroup>
-<CadGroup>
-<CadViewer view="top" color="#81958b" src="./files/lower-earlier.stl" poster="./images/lower-earlier.png" caption="Earlier center · a narrow junction between the stems." />
-<CadViewer view="top" color="#81958b" src="./files/lower-round.stl" poster="./images/lower-round.png" caption="Round hub · more contact and a steadier pull." />
-</CadGroup>
 <AmbientStudies title="Early linkage sketch">
 <Figure src="./images/linkage-sketch.jpg" kind="photo" caption="Planning the servo below the flower and the wire linking them." />
 </AmbientStudies>
@@ -65,7 +68,9 @@ We changed the lower layer's narrow center into a round hub. In our tests, it fl
 
 A cardboard box let us test the whole mechanism. We cut a slot in its side to hold the servo, keeping the horn outside so it could pull the wire toward the flower.
 
-The enclosure then evolved into a round shell. Its flowing openings echo the petals and let the warm light spill out, connecting the form to the sunset theme. A removable lid gives access to the mechanism; a rigid bridge supports the flower and LEDs, while a separate diffuser softens the light.
+The enclosure then evolved into a round shell. Its flowing openings echo the petals and let the warm light spill out, connecting the form to the sunset theme. A removable lid gives access to the mechanism; a rigid bridge supports the flower and LEDs.
+
+We added a parchment-like layer to the milky translucent sheet inside the openings. Together, the layers made the transmitted light softer and concealed the wiring, so the shell reads as a glowing surface rather than a view into the electronics.
 
 <Gallery pair>
 <Figure src="./images/box-loop.gif" kind="photo" caption="Testing the assembled motion in a cardboard enclosure." />
@@ -82,6 +87,10 @@ The enclosure then evolved into a round shell. Its flowing openings echo the pet
 <CadViewer src="./files/body.stl" poster="./images/body-preview.png" caption="Round shell · openings for light." />
 <CadViewer src="./files/lid.stl" poster="./images/lid-preview.png" caption="Removable lid · support for the flower and LEDs." />
 </CadGroup>
+<Gallery pair>
+<Figure src="./images/diffuser-study.jpg" kind="photo" caption="Adding a parchment-like layer to diffuse the light." />
+<Figure src="./images/diffuser-installed.jpg" kind="photo" caption="Layered inserts behind the openings soften light and hide wiring." />
+</Gallery>
 </Entry>
 
 <Entry date="2026-10-15" title="Testing · Isolate, Then Reconnect">
@@ -90,7 +99,7 @@ The servo moved intermittently, and the LEDs were not responding reliably. I tes
 
 I spread out the crowded power and ground connections, repaired the LED wiring, then tested the two sticks on their own. Once the lights responded, I reconnected the servo and finally the flower linkage. Separate 5 V power for the loads and a shared ground kept the control wiring clear.
 
-<Figure fullWidth src="./images/tested-circuit.svg" kind="diagram" caption="Documented prototype wiring: parallel 5 V power, common ground and a separate LED data chain." />
+<AmbientWiring />
 <Specs rows={[
   ['Drawing reference', <a href="https://github.com/loopstick/ArduinoTutorial" target="_blank" rel="noreferrer">Class ArduinoTutorial circuit examples ↗</a>],
   ['For a more robust rebuild', <>The tested LEDs received 3.3 V data directly. A 74AHCT125 logic-level buffer and a 500–1000 µF capacitor rated 6.3 V or higher are recommended additions, not parts documented in this build. <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices" target="_blank" rel="noreferrer">Adafruit wiring guidance ↗</a></>]
@@ -99,10 +108,7 @@ I spread out the crowded power and ground connections, repaired the LED wiring, 
 <Figure src="./images/test-wiring.jpg" kind="photo" caption="Checking the breadboard, supply and shared connections." />
 <Figure src="./images/test-solder.jpg" kind="photo" caption="Repairing the LED-stick wiring before retesting." />
 </Gallery>
-<VideoGroup>
-<Video src="./files/led-test.mp4" poster="./images/led-test.jpg" title="LED-only test · checking color response" duration="0:09" />
-<Video src="./files/combined-test.mp4" poster="./images/combined-test.jpg" title="Assembly check · linkage in the shell" duration="0:10" />
-</VideoGroup>
+<Video portrait src="./files/led-test.mp4" poster="./images/led-test.jpg" title="LED-only test · checking color response" duration="0:09" />
 <AmbientStudies title="Test code and recorded output">
 <CodeBlock src="./files/servo-test-excerpt.cpp" lang="Arduino excerpt" />
 <CodeBlock src="./files/servo-test-output.txt" lang="Recorded serial output" />

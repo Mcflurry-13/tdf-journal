@@ -1,4 +1,4 @@
-import { AmbientMapping, AmbientStudies } from './AmbientDisplay';
+import { AmbientMapping, AmbientStudies, AmbientWiring } from './AmbientDisplay';
 import { FrontendStudy } from './FrontendStudy';
 /**
  * Content blocks available inside week MDX files.
@@ -270,7 +270,7 @@ export function Video({ href, src, title, duration, poster, portrait = false }: 
 
 /** Blocks that go to the right-hand column of an Entry. Everything else is text (left). */
 const EVIDENCE = new Set<unknown>([
-  AmbientMapping, AmbientStudies,
+  AmbientMapping, AmbientStudies, AmbientWiring,
   Figure,
   CadViewer,
   CadGroup,

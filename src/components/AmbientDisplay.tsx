@@ -1,3 +1,5 @@
+import { resolveAsset } from '../content';
+import { useWeekDir } from '../week-context';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { FlowerFigure, TIER_COLOR } from './ambient/FlowerFigure';
 import { lightLevel, peakFromQuality, smoothstep, tierFromQuality, visualOpen } from './ambient/mapping';
@@ -52,4 +54,15 @@ export function AmbientMapping() {
 
 export function AmbientStudies({children,title="Earlier enclosure studies"}:{children:ReactNode;title?:string}) {
   return <details className="ambient-studies"><summary>{title}</summary>{children}</details>;
+}
+
+export function AmbientWiring() {
+  const url = `${import.meta.env.BASE_URL}demos/flower-wiring/wiring.html`;
+  const poster = resolveAsset(useWeekDir(), './images/wiring-guide.png');
+  return <figure className="figure ambient-wiring">
+    <iframe src={`${url}?embed`} title="Ambient Display interactive wiring guide" loading="lazy" sandbox="allow-scripts" />
+    <img className="wiring-print" src={poster} alt="Feather ESP32 V2 breadboard wiring with MG90S, two NeoPixel sticks and external 5 V power" />
+    <figcaption><span className="caption-pointer" aria-hidden="true">▲</span>Select a wire to trace its connections. Zoom in to read the breadboard positions.</figcaption>
+    <a className="wiring-open" href={url} target="_blank" rel="noreferrer">Open the complete wiring guide ↗</a>
+  </figure>;
 }

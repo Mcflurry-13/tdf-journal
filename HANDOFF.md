@@ -48,8 +48,8 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 - 代码、下载项和图注也属于设计的一部分：避免多重按钮框、拥挤操作、文件名单字断行和图标重叠。
 - 机制图按软件／代码、电子硬件、机械结构区分颜色，并配文字标签；框内细节用 bullet points，避免用 +、/ 堆词。图表优先用可读的 HTML／矢量内容，必要时加入有意义的互动，不能编造数据。
 - 建模图注突出设计决定和作用，不堆尺寸或重复免责声明。旧方案可收进次要展示，实物、关键安装细节应有足够阅读空间。
-- Concept 先说明作品与系统关系，实践细节放到对应测试章节。架构图用对齐模块和明确连线表达关系，不把流程框拼成装饰性的电脑／花朵外形；颜色区分软件、电子和机械。详细引脚与供电另放电路图。
-- Ambient Display：Material Testing 在 Motion Testing 前；运动照片和视频连续展示，模型比较随后说明修改原因。Interface 只展示一张完整横向网页图，不嵌入重复交互。Control 的解释性映射图可保留互动。
+- Concept 先说明做这个作品的愿景和动机（例如对伯克利夕阳的期待），系统关系由图辅助，实践细节放到对应测试章节。架构图用对齐模块和明确连线表达关系，不把流程框拼成装饰性的电脑／花朵外形；颜色区分软件、电子和机械。详细引脚与供电另放电路图。
+- Ambient Display：Material Testing 在 Motion Testing 前，素材顺序为木板切割／弯曲测试 → 手绘花瓣 → 3D 打印柔软度测试 → 花瓣模型比较 → 打印过程（可折叠）。Motion 保持运动照片和视频连续展示。Interface 只展示一张完整横向网页图，不嵌入重复交互；Testing 可嵌入用户提供的交互接线 HTML，并提供独立网页链接。Control 的解释性映射图可保留互动。
 
 ### 6. 按课程内容组织网站
 
@@ -495,3 +495,18 @@ The original repair conversation `01a137c3-f7d3-7e63-b6f4-77bf9e206af7` was read
 Interface is now one 1440×900 desktop screenshot of the journal demo in Hold at recorded score39/100, with no iframe or duplicate print image. The underlying standalone demo source is retained. Removed unused AmbientSystem/AmbientFrontend components and CSS. Control's interactive mapping remains unchanged.
 
 Validation: build and 160 existing gallery scenarios passed; browser inspection at1920,1440,1135 and390px confirmed sticky desktop prose, no horizontal overflow, reordered contents, all image loads and a single static interface image. New and retained videos were played with correct portrait dimensions and durations; source/processed contact sheets were inspected for direction and exposure. Work files and verification captures: `TDF/work/ambient-refine/`.
+
+
+## Ambient Display follow-up — materials, diffusion and HTML wiring (2026-10-20)
+
+Concept now introduces the wish to anticipate Berkeley sunsets, with the existing colored system diagram explaining architecture. Material evidence follows the owner's latest order: wood samples and bend test, petal sketch and printed-sample flexibility clip, earlier/round-hub CAD comparison, then a secondary printing-process disclosure. Motion keeps its physical photos and recordings together. This supersedes the earlier instruction placing models after motion evidence.
+
+The owner clarified the diffuser change: a parchment-like layer was **added to** the existing milky translucent, plastic-like sheet, not substituted for it. The added layer softened the transmitted light and concealed internal wiring. Do not assert an exact polymer or paper product. Two photos follow the enclosure models: `Downloads/过程记录/IMG_7473.jpeg` → `diffuser-study.jpg`, and `IMG_7476.jpeg` → `diffuser-installed.jpg`. Upright full frames, max1600px, JPEG89, no exposure/color adjustment. Similar IMG_7474/7475 photos were inspected but omitted to avoid repetition.
+
+`IMG_7388.MOV` → `petal-printing.mp4`, source seconds2–8 (6s), upright720×1280,H.264CRF23,AAC96k,faststart; original framing/exposure/audio retained, poster at1s. The existing IMG_7387 bend recording is now explicitly identified as the printed-sample flexibility test following the owner's description.
+
+The user's `TDF/outputs/flower-wiring/wiring.html` is preserved unchanged. A journal copy lives at `public/demos/flower-wiring/wiring.html`; its embedded raster was extracted to adjacent `diagram.png` for loading efficiency. `?embed` provides a compact layout inside the journal; the full-page link opens the standalone guide. Seventeen selectable wire paths, endpoint descriptions, zoom and fit remain functional. AmbientWiring belongs to the right evidence column, with a print-only image fallback. No local file URL, API key or hardware endpoint is published. This wiring-guide interaction does not reverse the separate request for a static frontend image in Interface.
+
+Removed the Assembly check / linkage-in-shell clip from Testing as requested; retained its file for provenance. LED-only footage remains. Awaiting the owner's replacement testing video and sunset photograph; neither has been fabricated or replaced with unrelated media. The final close-angle flower demonstration remains the last block.
+
+Validation: production build and160 gallery scenarios passed. Browser checks at1920,1440,1218 and390px confirmed sticky desktop prose, mobile fit, no horizontal overflow, material order, two models in Material and none in Motion, and removal of the rejected assembly video. Verified embedded and standalone wire selection, keyboard activation, zoom/fit/show-all,6s printing playback, screen/print fallback visibility and absence of runtime errors. Work files: `TDF/work/ambient-followup/`.
