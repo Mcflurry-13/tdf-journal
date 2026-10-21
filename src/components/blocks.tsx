@@ -230,7 +230,7 @@ export function Attachment({ src, kind, label }: { src: string; kind?: string; l
   );
 }
 
-export function VideoGroup({children, layout}:{children?:ReactNode; layout?: "mixed" | "experiment"}) {
+export function VideoGroup({children, layout}:{children?:ReactNode; layout?: "mixed" | "experiment" | "process"}) {
   return <div className={`recording-pair${layout ? ` recording-pair-${layout}` : ""}`}>{children}</div>;
 }
 

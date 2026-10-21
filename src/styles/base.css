@@ -1099,3 +1099,18 @@ a.type-tile:hover,
 
 /* Standalone portrait evidence stays fully readable within a desktop viewport. */
 .recording-portrait { max-width: 405px; }
+
+/* One sketch and two portrait clips: proportional columns keep full frames equally tall. */
+.recording-pair-process { grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,3fr); max-width:900px; align-items:start; }
+.recording-pair-process > .figure { margin:0; min-width:0; }
+.recording-pair-process .figure img { max-height:none; }
+.recording-pair-process .video-meta { display:flex; flex-direction:column; gap:6px; padding-top:8px; }
+.recording-pair-process .video-meta > .mono { display:none; }
+.recording-pair-process .video-title { font-weight:400; }
+.recording-pair-process .video-title::before { content:"▲"; display:inline-block; font-size:10px; margin-right:9px; vertical-align:2px; }
+.recording-pair-process .video-meta > a { font-size:11px; }
+@media (max-width:639px) {
+  .recording-pair-process { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .recording-pair-process > .figure { max-width:360px; }
+  .recording-pair-process > .recording { max-width:270px; }
+}

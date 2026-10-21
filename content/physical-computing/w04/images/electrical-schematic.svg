@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 810" role="img" aria-labelledby="title desc"><title id="title">Ambient Display electrical schematic</title><desc id="desc">External 5 volt DC power supplies the MG90S and two NeoPixel modules in parallel. The Feather is powered by computer USB. All grounds join. GPIO14 controls the servo; GPIO27 passes through a 330 ohm resistor to stick A DIN; A DOUT connects to B DIN. B DOUT is unconnected.</desc><rect width="1160" height="810" fill="#fcfbf8"/><style>text{font-family:Arial,Helvetica,sans-serif;fill:#242825}.wire{fill:none;stroke:#343b37;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.part{fill:#fcfbf8;stroke:#343b37;stroke-width:2.2}.note{fill:#606961}</style>
+<text x="32" y="42" font-size="25" font-weight="600" text-anchor="start" class="">Electrical schematic</text>
+<text x="32" y="73" font-size="13" font-weight="400" text-anchor="start" class="note">AMBIENT DISPLAY · TESTED CONNECTIONS</text>
+<path class="wire" d="M60 464 V130 H1015 M60 536 V580 H1015"/>
+<circle class="part" cx="60" cy="500" r="36"/>
+<path class="wire" d="M52 484 H68 M60 476 V492 M52 516 H68"/>
+<text x="20" y="638" font-size="20" font-weight="600" text-anchor="start" class="">5 V DC</text>
+<text x="20" y="663" font-size="15" font-weight="400" text-anchor="start" class="note">External supply</text>
+<text x="780" y="112" font-size="17" font-weight="400" text-anchor="start" class="">+5 V · parallel power branches</text>
+<rect class="part" x="160" y="250" width="240" height="250"/>
+<text x="183" y="280" font-size="14" font-weight="400" text-anchor="start" class="note">U1</text>
+<text x="183" y="315" font-size="22" font-weight="600" text-anchor="start" class="">Feather</text>
+<text x="183" y="342" font-size="22" font-weight="600" text-anchor="start" class="">ESP32 V2</text>
+<text x="382" y="383" font-size="15" font-weight="400" text-anchor="end" class="">GPIO14</text>
+<text x="382" y="433" font-size="15" font-weight="400" text-anchor="end" class="">GPIO27</text>
+<text x="280" y="485" font-size="14" font-weight="400" text-anchor="middle" class="">GND</text>
+<text x="280" y="185" font-size="18" font-weight="600" text-anchor="middle" class="">Mac USB</text>
+<text x="280" y="211" font-size="15" font-weight="400" text-anchor="middle" class="note">board power and data</text>
+<path class="wire" d="M280 225 V250 M280 500 V580"/>
+<rect class="part" x="490" y="250" width="170" height="170"/>
+<text x="508" y="279" font-size="20" font-weight="600" text-anchor="start" class="">M1 · MG90S</text>
+<text x="508" y="307" font-size="15" font-weight="400" text-anchor="start" class="note">Positional servo</text>
+<text x="589" y="237" font-size="14" font-weight="400" text-anchor="start" class="">+5 V</text>
+<text x="505" y="383" font-size="14" font-weight="400" text-anchor="start" class="">PWM</text>
+<text x="575" y="408" font-size="14" font-weight="400" text-anchor="middle" class="">GND</text>
+<path class="wire" d="M575 130 V250 M400 390 H490"/>
+<text x="443" y="375" font-size="14" font-weight="400" text-anchor="middle" class="note">50 Hz</text>
+<path class="wire" d="M575 420 V430 C590 430 590 450 575 450 V580"/>
+<rect class="part" x="740" y="380" width="150" height="120"/>
+<text x="815" y="405" font-size="18" font-weight="600" text-anchor="middle" class="">U2 · Stick A</text>
+<text x="815" y="426" font-size="14" font-weight="400" text-anchor="middle" class="note">8 RGB pixels</text>
+<rect x="795" y="450" width="12" height="12" rx="2" fill="#F2C14E"/>
+<rect x="812" y="450" width="12" height="12" rx="2" fill="#EF8A45"/>
+<rect x="829" y="450" width="12" height="12" rx="2" fill="#E05A42"/>
+<text x="829" y="365" font-size="14" font-weight="400" text-anchor="start" class="">+5 V</text>
+<text x="748" y="462" font-size="13" font-weight="400" text-anchor="start" class="">DIN</text>
+<text x="882" y="462" font-size="13" font-weight="400" text-anchor="end" class="">DOUT</text>
+<text x="815" y="488" font-size="13" font-weight="400" text-anchor="middle" class="">GND</text>
+<path class="wire" d="M815 130 V380 M815 500 V580"/>
+<rect class="part" x="940" y="380" width="150" height="120"/>
+<text x="1015" y="405" font-size="18" font-weight="600" text-anchor="middle" class="">U3 · Stick B</text>
+<text x="1015" y="426" font-size="14" font-weight="400" text-anchor="middle" class="note">8 RGB pixels</text>
+<rect x="995" y="450" width="12" height="12" rx="2" fill="#F2C14E"/>
+<rect x="1012" y="450" width="12" height="12" rx="2" fill="#EF8A45"/>
+<rect x="1029" y="450" width="12" height="12" rx="2" fill="#E05A42"/>
+<text x="1029" y="365" font-size="14" font-weight="400" text-anchor="start" class="">+5 V</text>
+<text x="948" y="462" font-size="13" font-weight="400" text-anchor="start" class="">DIN</text>
+<text x="1082" y="462" font-size="13" font-weight="400" text-anchor="end" class="">DOUT</text>
+<text x="1015" y="488" font-size="13" font-weight="400" text-anchor="middle" class="">GND</text>
+<path class="wire" d="M1015 130 V380 M1015 500 V580"/>
+<path class="wire" d="M400 440 H625 M695 440 H740 M890 440 H940 M1090 440 H1120"/>
+<rect class="part" x="625" y="432" width="70" height="16"/>
+<text x="660" y="478" font-size="15" font-weight="400" text-anchor="middle" class="">R1 · 330 Ω</text>
+<path class="wire" d="M1115 435 L1125 445 M1115 445 L1125 435"/>
+<text x="1120" y="478" font-size="13" font-weight="400" text-anchor="middle" class="">NC</text>
+<circle cx="575" cy="130" r="4" fill="#343b37"/>
+<circle cx="815" cy="130" r="4" fill="#343b37"/>
+<circle cx="280" cy="580" r="4" fill="#343b37"/>
+<circle cx="575" cy="580" r="4" fill="#343b37"/>
+<circle cx="815" cy="580" r="4" fill="#343b37"/>
+<path class="wire" d="M280 580 V599 M262 599 H298 M268 606 H292 M274 613 H286"/>
+<text x="320" y="611" font-size="17" font-weight="400" text-anchor="start" class="">GND · shared by the board, servo and both sticks</text>
+<text x="320" y="654" font-size="15" font-weight="400" text-anchor="start" class="note">External +5 V stays separate from the Feather’s USB, 3V and BAT pins.</text>
+<text x="320" y="677" font-size="15" font-weight="400" text-anchor="start" class="note">Dots mark junctions. The curved crossing is not connected. B DOUT is unused.</text>
+<path d="M32 710 H1128" fill="none" stroke="#d8d5cd"/>
+<text x="32" y="749" font-size="16" font-weight="600" text-anchor="start" class="">LIGHT · SCORE / 100</text>
+<circle cx="340" cy="742" r="10" fill="#F2C14E"/>
+<text x="362" y="749" font-size="18" font-weight="400" text-anchor="start" class="">Yellow · below 33</text>
+<circle cx="605" cy="742" r="10" fill="#EF8A45"/>
+<text x="627" y="749" font-size="18" font-weight="400" text-anchor="start" class="">Orange · 33 to &lt;67</text>
+<circle cx="880" cy="742" r="10" fill="#E05A42"/>
+<text x="902" y="749" font-size="18" font-weight="400" text-anchor="start" class="">Red · 67–100</text>
+<text x="340" y="785" font-size="16" font-weight="400" text-anchor="start" class="note">Both sticks share the same color. Brightness follows the flower’s opening.</text>
+</svg>

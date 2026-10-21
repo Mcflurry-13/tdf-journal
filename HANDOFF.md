@@ -49,7 +49,7 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 - 机制图按软件／代码、电子硬件、机械结构区分颜色，并配文字标签；框内细节用 bullet points，避免用 +、/ 堆词。图表优先用可读的 HTML／矢量内容，必要时加入有意义的互动，不能编造数据。
 - 建模图注突出设计决定和作用，不堆尺寸或重复免责声明。旧方案可收进次要展示，实物、关键安装细节应有足够阅读空间。
 - Concept 先说明做这个作品的愿景和动机（例如对伯克利夕阳的期待），系统关系由图辅助，实践细节放到对应测试章节。架构图用对齐模块和明确连线表达关系，不把流程框拼成装饰性的电脑／花朵外形；颜色区分软件、电子和机械。详细引脚与供电另放电路图。
-- Ambient Display：Material Testing 在 Motion Testing 前，素材顺序为木板切割／弯曲测试 → 手绘花瓣 → 3D 打印柔软度测试 → 花瓣模型比较 → 打印过程（可折叠）。Motion 保持运动照片和视频连续展示。Interface 只展示一张完整横向网页图，不嵌入重复交互；Testing 可嵌入用户提供的交互接线 HTML，并提供独立网页链接。Control 的解释性映射图可保留互动。
+- Ambient Display：Material Testing 在 Motion Testing 前，素材顺序为木板切割／弯曲测试 → 手绘花瓣、柔软度测试、打印过程三份素材等高并排 → 花瓣模型比较。Motion 保持运动照片和循环 GIF 连续展示。Interface 只展示一张完整横向网页图，不嵌入重复交互；Testing 可嵌入用户提供的交互接线 HTML，并提供独立网页链接。Control 的解释性映射图可保留互动。
 
 ### 6. 按课程内容组织网站
 
@@ -510,3 +510,20 @@ The user's `TDF/outputs/flower-wiring/wiring.html` is preserved unchanged. A jou
 Removed the Assembly check / linkage-in-shell clip from Testing as requested; retained its file for provenance. LED-only footage remains. Awaiting the owner's replacement testing video and sunset photograph; neither has been fabricated or replaced with unrelated media. The final close-angle flower demonstration remains the last block.
 
 Validation: production build and160 gallery scenarios passed. Browser checks at1920,1440,1218 and390px confirmed sticky desktop prose, mobile fit, no horizontal overflow, material order, two models in Material and none in Motion, and removal of the rejected assembly video. Verified embedded and standalone wire selection, keyboard activation, zoom/fit/show-all,6s printing playback, screen/print fallback visibility and absence of runtime errors. Work files: `TDF/work/ambient-followup/`.
+
+
+## Ambient Display — matched media, diffuser comparison and schematic (2026-10-20)
+
+The owner requested the printing recording be visible beside the sketch and bending clip, with equal media height. This supersedes its previous collapsed location after CAD. `VideoGroup layout="process"` uses proportional4:3:3 columns for the3:4 sketch and two9:16 recordings; complete frames remain uncropped, with a900px group cap and a single column on mobile. Only this opted-in group changes.
+
+Motion videos are now looping GIFs: `horizontal.mp4` → `sideways-motion.gif` (6s,60frames), `vertical.mp4` → `upright-motion.gif` (10s,100frames), both360×640,10fps,128-color palettes. No rotation/crop/exposure processing; GIF palette quantization only. Original MP4s remain available in source.
+
+Corrected diffuser evidence: IMG_7476 was the **before** view, not the finished layered result. It now appears first, followed by the owner's newly supplied after exterior and after interior photos. Exact attachment files: `0CCA0567-05DD-4DEA-949E-7C65869344FD_1_105_c.jpeg` → `diffuser-after-outside.jpg`; `1688EDD6-3F6F-4F6E-8E5D-52636817B19F_1_105_c.jpeg` → `diffuser-after-inside.jpg`. Both copied unchanged from the supplied Photos derivative paths,768×1024. The earlier handheld study is omitted from this comparison. The two new pictures are both after installation, not a before/after pair with each other.
+
+The owner rejected “parchment-like” wording as implying animal parchment. Current prose calls it a thin translucent paper layer, similar to tracing or baking paper. Amazon listing https://www.amazon.com/dp/B06Y24GZPG identifies a comparable product as white translucent vellum/tracing paper; verified its product title and description on2026-10-20. The link is a material-type reference only, not proof of the actual brand/product used. No exact paper composition or optical measurement is inferred. The added layer remains additive over the milky sheet.
+
+Removed the public Drawing reference / Class ArduinoTutorial row as requested. Added `electrical-schematic.svg` before the retained interactive breadboard guide. This is a module-level electrical schematic: DC source and ground symbols, IEC resistor, pin-labeled ESP32/three-terminal MG90S/NeoPixel modules, parallel5V loads, common ground and A-DOUT→B-DIN. No switch, AC supply or bare-lamp substitution from the user's stylistic example. Source is the existing final wiring.txt and firmware GPIO14/27. Curved crossing is unconnected; dots indicate joins. Direct3.3V pixel-data drive reflects the documented prototype; the existing separate robust-rebuild note stays distinct from the built circuit.
+
+Validation:160 gallery scenarios pass. Browser checks at1920,1440,1218 and390px verify no overflow; desktop media heights match within0.02px without cropping. Both inline videos play with original portrait framing/durations, Motion contains the two GIFs instead of videos, three diffuser views load, and the removed reference row is absent. GIFs verified as60/100frames with6/10-second loops. No page runtime errors. Work files and screenshots: `TDF/work/ambient-media-polish/`.
+
+Schematic polish: resistor and +5V pin labels sit clear of component edges/wires. Both NeoPixel symbols include yellow/orange/red swatches, with a separate score legend below the circuit: below33,33 to below67,67–100. These follow the existing firmware/UI thresholds and use its illustrative palette, not measured photographic colors; brightness follows opening.

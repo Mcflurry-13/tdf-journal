@@ -32,17 +32,15 @@ In the printed model, we changed the lower layer's narrow center into a round hu
 <Figure src="./images/wood-cutouts.jpg" kind="photo" caption="Laser-cut wood · repeated slots introduce flex." />
 <Figure src="./images/wood-bending.jpg" kind="photo" caption="Bending test · the wood still resisted the curve we needed." />
 </Gallery>
-<VideoGroup>
-<Figure src="./images/petal-sketch.jpg" kind="photo" caption="Sketching cutout petals and a wider central support." />
+<VideoGroup layout="process">
+<Figure fullWidth src="./images/petal-sketch.jpg" kind="photo" caption="Sketching cutout petals and a wider central support." />
 <Video src="./files/material-bend.mp4" poster="./images/material-bend.jpg" title="Printed sample · flex and recovery" duration="0:10" />
+<Video src="./files/petal-printing.mp4" poster="./images/petal-printing.jpg" title="Printing the thin lower petal layer" duration="0:06" />
 </VideoGroup>
 <CadGroup>
 <CadViewer view="top" color="#81958b" src="./files/lower-earlier.stl" poster="./images/lower-earlier.png" caption="Earlier center · a narrow junction between the stems." />
 <CadViewer view="top" color="#81958b" src="./files/lower-round.stl" poster="./images/lower-round.png" caption="Round hub · more contact and a steadier pull." />
 </CadGroup>
-<AmbientStudies title="Printing the petal layers">
-<Video portrait src="./files/petal-printing.mp4" poster="./images/petal-printing.jpg" title="Printing the thin lower petal layer" duration="0:06" />
-</AmbientStudies>
 </Entry>
 
 <Entry date="TBD" title="Motion Testing · From Pull to Bloom">
@@ -55,10 +53,10 @@ Testing the movement outside the enclosure let us see how the wire pulled each l
 <Figure src="./images/printed-closed.jpg" kind="photo" caption="Two printed layers joined near the tips." />
 <Figure src="./images/printed-open.jpg" kind="photo" caption="Pulling the centers apart opens the flower." />
 </Gallery>
-<VideoGroup>
-<Video src="./files/horizontal.mp4" poster="./images/horizontal.jpg" title="Sideways pull · hand test" duration="0:06" />
-<Video src="./files/vertical.mp4" poster="./images/vertical.jpg" title="Upright flower · servo test" duration="0:10" />
-</VideoGroup>
+<Gallery pair>
+<Figure src="./images/sideways-motion.gif" kind="photo" caption="Sideways pull · testing the linkage by hand." />
+<Figure src="./images/upright-motion.gif" kind="photo" caption="Upright flower · testing the servo-driven opening." />
+</Gallery>
 <AmbientStudies title="Early linkage sketch">
 <Figure src="./images/linkage-sketch.jpg" kind="photo" caption="Planning the servo below the flower and the wire linking them." />
 </AmbientStudies>
@@ -70,7 +68,7 @@ A cardboard box let us test the whole mechanism. We cut a slot in its side to ho
 
 The enclosure then evolved into a round shell. Its flowing openings echo the petals and let the warm light spill out, connecting the form to the sunset theme. A removable lid gives access to the mechanism; a rigid bridge supports the flower and LEDs.
 
-We added a parchment-like layer to the milky translucent sheet inside the openings. Together, the layers made the transmitted light softer and concealed the wiring, so the shell reads as a glowing surface rather than a view into the electronics.
+The milky sheet still revealed the wiring, so we added a thin translucent paper layer, similar to tracing or baking paper. This softened the transmitted light and hid the electronics behind a more even surface.
 
 <Gallery pair>
 <Figure src="./images/box-loop.gif" kind="photo" caption="Testing the assembled motion in a cardboard enclosure." />
@@ -87,10 +85,14 @@ We added a parchment-like layer to the milky translucent sheet inside the openin
 <CadViewer src="./files/body.stl" poster="./images/body-preview.png" caption="Round shell · openings for light." />
 <CadViewer src="./files/lid.stl" poster="./images/lid-preview.png" caption="Removable lid · support for the flower and LEDs." />
 </CadGroup>
-<Gallery pair>
-<Figure src="./images/diffuser-study.jpg" kind="photo" caption="Adding a parchment-like layer to diffuse the light." />
-<Figure src="./images/diffuser-installed.jpg" kind="photo" caption="Layered inserts behind the openings soften light and hide wiring." />
+<Gallery>
+<Figure src="./images/diffuser-installed.jpg" kind="photo" caption="Before · the original sheet leaves the interior visible." />
+<Figure src="./images/diffuser-after-outside.jpg" kind="photo" caption="After · the added paper layer conceals the interior." />
+<Figure src="./images/diffuser-after-inside.jpg" kind="photo" caption="Inside · translucent paper taped behind the opening." />
 </Gallery>
+<AmbientStudies title="Material reference">
+<p>Comparable paper: <a href="https://www.amazon.com/dp/B06Y24GZPG" target="_blank" rel="noreferrer">white translucent vellum / tracing paper ↗</a>. A reference for the material type; the brand used in our prototype was not recorded.</p>
+</AmbientStudies>
 </Entry>
 
 <Entry date="2026-10-15" title="Testing · Isolate, Then Reconnect">
@@ -99,9 +101,9 @@ The servo moved intermittently, and the LEDs were not responding reliably. I tes
 
 I spread out the crowded power and ground connections, repaired the LED wiring, then tested the two sticks on their own. Once the lights responded, I reconnected the servo and finally the flower linkage. Separate 5 V power for the loads and a shared ground kept the control wiring clear.
 
+<Figure fullWidth src="./images/electrical-schematic.svg" kind="diagram" caption="Circuit schematic · separate USB and 5 V supplies, shared ground, and a 330 Ω data resistor." />
 <AmbientWiring />
 <Specs rows={[
-  ['Drawing reference', <a href="https://github.com/loopstick/ArduinoTutorial" target="_blank" rel="noreferrer">Class ArduinoTutorial circuit examples ↗</a>],
   ['For a more robust rebuild', <>The tested LEDs received 3.3 V data directly. A 74AHCT125 logic-level buffer and a 500–1000 µF capacitor rated 6.3 V or higher are recommended additions, not parts documented in this build. <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices" target="_blank" rel="noreferrer">Adafruit wiring guidance ↗</a></>]
 ]} />
 <Gallery pair>
