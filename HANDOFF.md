@@ -48,6 +48,8 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 - 代码、下载项和图注也属于设计的一部分：避免多重按钮框、拥挤操作、文件名单字断行和图标重叠。
 - 机制图按软件／代码、电子硬件、机械结构区分颜色，并配文字标签；框内细节用 bullet points，避免用 +、/ 堆词。图表优先用可读的 HTML／矢量内容，必要时加入有意义的互动，不能编造数据。
 - 建模图注突出设计决定和作用，不堆尺寸或重复免责声明。旧方案可收进次要展示，实物、关键安装细节应有足够阅读空间。
+- Concept 先说明作品与系统关系，实践细节放到对应测试章节。架构图用对齐模块和明确连线表达关系，不把流程框拼成装饰性的电脑／花朵外形；颜色区分软件、电子和机械。详细引脚与供电另放电路图。
+- Ambient Display：Material Testing 在 Motion Testing 前；运动照片和视频连续展示，模型比较随后说明修改原因。Interface 只展示一张完整横向网页图，不嵌入重复交互。Control 的解释性映射图可保留互动。
 
 ### 6. 按课程内容组织网站
 
@@ -468,3 +470,28 @@ Owner’s mapping rationale: after about a week of testing, newly fetched sample
 Implementation / inspection intermediates: TDF `work/ambient-revision/`. Original user media and operational project files remain unchanged.
 
 Validation: production build and160 existing gallery checks pass. Browser checks at1920,1440,1135 and390px confirm sticky desktop prose, stacked mobile layout, no overflow, all images and four models loaded. Checked Hold mapping at0/39/60/100, Breathe pause and reduced-motion endpoint, full frontend Hold/Breathe/Stop and zero API requests. Iframe height follows content across widths. The19s final portrait video plays at720×1280 and is capped to405px display width for complete viewing. The embedded frontend has a print-only screenshot. No new physical hardware test was performed for this editorial update.
+
+
+## Ambient Display refinement — material evidence and system diagrams (2026-10-20)
+
+Reordered Week 4 to Concept → Material Testing → Motion Testing → Fabrication → Testing → Control → Interface → Prototype. Preserved desktop sticky prose and the existing journal structure. Concept is a concise input/controller/output topology with software, electronics and mechanics colors, bullet details and direct connections. The first diagram that combined flow boxes into a decorative computer/flower silhouette was rejected by the owner and replaced before this revision was committed. Detailed electrical wiring belongs in Testing, not the concept introduction.
+
+The round lower hub explanation comes from the owner's account: it flexed better, had more support contact and made the push/pull steadier. These are qualitative prototype observations, not quantified material properties. Motion photos and the two motion videos precede the paired models. Petal sketch is visible in Material Testing; linkage sketch is a secondary expandable item after the motion comparison.
+
+New media from `/Users/mcflurry/Downloads/过程记录/`:
+- `IMG_7387.MOV` → `material-bend.mp4`, source 2–12 seconds, 720×1280, original orientation and audio. Hand-bending and recovery of a thin sample; do not assign an unconfirmed polymer/material type.
+- `IMG_7482.jpeg` → `petal-sketch.jpg`; `IMG_7481.jpeg` → `linkage-sketch.jpg`, EXIF upright, long edge ≤1600, JPEG 89, no crop/color adjustment.
+- `levy/IMG_8880.HEIC` → `test-wiring.jpg`; `levy/IMG_8898.HEIC` → `test-solder.jpg`, same photo settings. These show wiring and repair, not a fabricated servo-only success photograph.
+- `IMG_7582.MOV` → `led-test.mp4`, source 0–9 seconds, LED-only color response; not final sunset color mapping.
+- `IMG_7584.MOV` → `combined-test.mp4`, source 0–10 seconds, hand checking the linkage in the assembled shell; caption does not claim this is proof of a completed electronic repair.
+- `IMG_7594.MOV` → `ambient-display-close.mp4`, complete 10.41-second closer-angle final demonstration, 900×1600, original orientation/audio. `demo-close.jpg` is from 3 seconds and is also the card cover. Previous final recording remains in the repository.
+- All new clips use H.264 CRF23, AAC96k, faststart; source BT.709 SDR is preserved with no exposure, rotation or crop changes. Other new posters are at 1 second into the exports.
+- `IMG_7388.MOV` is a printing-process recording, not the bending test; it was inspected but not duplicated alongside existing motion evidence. Original Photos JPEG thumbnails were superseded by the user's full-size exports.
+
+`concept-system.svg` and `tested-circuit.svg` are editable vectors. `Figure fullWidth` is an opt-in that bypasses the single-image 480px height cap for these diagrams and the desktop frontend image; other weeks retain their sizing. Wiring source: `TDF/outputs/sunset-flower/docs/wiring.txt` and final firmware. GPIO14 → MG90S PWM; GPIO27 → 330Ω → A DIN; A DOUT → B DIN. External regulated5V feeds servo and both sticks in parallel; common GND includes the Feather; computer USB powers the Feather. No external5V into Feather3V/BAT. Crossings without dots are not joins. Teacher reference: https://github.com/loopstick/ArduinoTutorial . Robust-rebuild buffer/capacitor guidance is explicitly separated from the tested build, based on https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices . No breadboard hole positions are invented.
+
+The original repair conversation `01a137c3-f7d3-7e63-b6f4-77bf9e206af7` was read for the actual sequence: intermittent response when wires moved, reconnecting power/ground, LED repairs and standalone test, then servo and linkage. Its historical clipboard photo no longer exists; available workbench photos were used instead. Test code, recorded Serial output and downloads remain accessible in one expandable block.
+
+Interface is now one 1440×900 desktop screenshot of the journal demo in Hold at recorded score39/100, with no iframe or duplicate print image. The underlying standalone demo source is retained. Removed unused AmbientSystem/AmbientFrontend components and CSS. Control's interactive mapping remains unchanged.
+
+Validation: build and 160 existing gallery scenarios passed; browser inspection at1920,1440,1135 and390px confirmed sticky desktop prose, no horizontal overflow, reordered contents, all image loads and a single static interface image. New and retained videos were played with correct portrait dimensions and durations; source/processed contact sheets were inspected for direction and exposure. Work files and verification captures: `TDF/work/ambient-refine/`.

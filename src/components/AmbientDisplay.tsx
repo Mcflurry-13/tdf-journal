@@ -1,30 +1,7 @@
-import { resolveAsset } from '../content';
-import { useWeekDir } from '../week-context';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { FlowerFigure, TIER_COLOR } from './ambient/FlowerFigure';
 import { lightLevel, peakFromQuality, smoothstep, tierFromQuality, visualOpen } from './ambient/mapping';
 import './ambient/ambient.css';
-
-function Node({tone,title,children}:{tone:string;title:string;children:ReactNode}) {
-  return <div className={`ambient-node ambient-${tone}`}><span className="ambient-category">{tone === 'code' ? 'Software' : tone === 'board' ? 'Electronics' : 'Mechanics'}</span><h3>{title}</h3><ul>{children}</ul></div>;
-}
-export function AmbientSystem() {
-  return <figure className="figure ambient-system">
-    <div className="ambient-system-grid">
-      <Node tone="code" title="Forecast service"><li>Sunsethue: Berkeley sunset</li><li>Quality score from 0 to 100</li><li>HTTPS request from the Mac</li></Node>
-      <Node tone="code" title="Browser interface"><li>Hold, Breathe and Stop</li><li>Illustrates the commanded motion</li><li>HTTP commands to the Mac</li></Node>
-      <div className="ambient-flow ambient-span">↓ Forecast data and user commands</div>
-      <div className="ambient-span"><Node tone="code" title="Python on the Mac"><li>Checks the forecast date and quality</li><li>Owns the USB connection</li><li>Sends commands and reads acknowledgments</li></Node></div>
-      <div className="ambient-flow ambient-span">↓ USB serial · command → device · acknowledgment → Mac</div>
-      <div className="ambient-span"><Node tone="board" title="Feather ESP32 V2"><li>Arduino firmware maps quality to motion and light</li><li>GPIO14 sends servo control pulses</li><li>GPIO27 sends NeoPixel data through a 330 Ω resistor</li></Node></div>
-      <div className="ambient-flow">↓ Servo pulses</div><div className="ambient-flow">↓ Pixel data</div>
-      <Node tone="motion" title="MG90S and petals"><li>Positional servo turns its horn</li><li>Wire pulls the printed lower layer</li><li>Linked petals open and close</li></Node>
-      <Node tone="board" title="Two NeoPixel sticks"><li>Eight RGB pixels on each stick</li><li>First stick’s output feeds the second</li><li>Color follows forecast quality</li></Node>
-    </div>
-    <div className="ambient-power"><strong>Power and ground</strong><ul><li>USB powers the ESP32 board.</li><li>External 5 V powers the servo and both LED sticks.</li><li>Supply, board, servo and LEDs share ground.</li></ul></div>
-    <figcaption><span className="caption-pointer" aria-hidden="true">▲</span>Software → electronics → physical movement and light.</figcaption>
-  </figure>;
-}
 
 export function AmbientMapping() {
   const [score,setScore]=useState(39), [mode,setMode]=useState<'hold'|'breathe'>('hold');
@@ -73,14 +50,6 @@ export function AmbientMapping() {
   </figure>;
 }
 
-export function AmbientFrontend() {
-  const poster=resolveAsset(useWeekDir(),'./images/frontend-preview.png');
-  const frame=useRef<HTMLIFrameElement>(null),[height,setHeight]=useState(850);
-  const url=`${import.meta.env.BASE_URL}demos/ambient-display/index.html`;
-  useEffect(()=>{const resize=(e:MessageEvent)=>{if(e.origin===location.origin&&e.source===frame.current?.contentWindow&&e.data?.type==='ambient-preview-height'&&Number.isFinite(e.data.height))setHeight(Math.max(600,Math.min(2400,e.data.height)));};window.addEventListener('message',resize);return()=>window.removeEventListener('message',resize);},[]);
-  return <figure className="figure ambient-frontend"><img className="ambient-print-preview" src={poster} alt="Ambient Display interface with the recorded 39/100 forecast and Hold selected"/><iframe ref={frame} src={url} title="Ambient Display frontend — historical sample preview" loading="lazy" style={{height}}/><figcaption><span className="caption-pointer" aria-hidden="true">▲</span>Full interface with the October 15 sample. Try Hold, Breathe and Stop.</figcaption><a className="ambient-open" href={url} target="_blank" rel="noreferrer">Open the interface ↗</a></figure>;
-}
-
-export function AmbientStudies({children}:{children:ReactNode}) {
-  return <details className="ambient-studies"><summary>Earlier enclosure studies</summary>{children}</details>;
+export function AmbientStudies({children,title="Earlier enclosure studies"}:{children:ReactNode;title?:string}) {
+  return <details className="ambient-studies"><summary>{title}</summary>{children}</details>;
 }

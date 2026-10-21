@@ -8,18 +8,18 @@ import type { FigureKind } from '../types';
 type Size = { width: number; height: number };
 export interface FigureProps {
   src?: string; kind?: FigureKind; caption?: string; alt?: string; label?: string;
-  wide?: boolean; focus?: string; ratio?: string;
+  wide?: boolean; fullWidth?: boolean; focus?: string; ratio?: string;
   /** Internal gallery layout, never written in MDX. */
   cell?: 'justified' | 'grid'; onSize?: (size: Size) => void;
 }
 export function imageDimensions(dir: string, src?: string): Size | undefined {
   return src ? sizes[`${dir}/${src.replace(/^\.\//, '')}`] : undefined;
 }
-export function Figure({ src, caption, alt, label, wide, focus='50% 50%', cell, onSize }: FigureProps) {
+export function Figure({ src, caption, alt, label, wide, fullWidth, focus='50% 50%', cell, onSize }: FigureProps) {
   const dir = useWeekDir(), url = resolveAsset(dir, src);
   const [natural, setNatural] = useState<Size>();
   const size = imageDimensions(dir, src) ?? natural;
-  const style: CSSProperties = !cell && size ? { maxWidth: Math.min(size.width/size.height*480, size.width) } : {};
+  const style: CSSProperties = !cell && !fullWidth && size ? { maxWidth: Math.min(size.width/size.height*480, size.width) } : {};
   return <figure className={`figure${cell === 'grid' ? ' figure-crop' : ''}`} style={style} data-wide={wide || undefined}>
     {url ? <a href={url} target="_blank" rel="noreferrer" aria-label="Open full-size image" className="figure-image-link">
       <img src={url} width={size?.width} height={size?.height} alt={alt ?? caption ?? ''} loading="lazy"

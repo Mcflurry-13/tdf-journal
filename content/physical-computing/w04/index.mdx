@@ -6,7 +6,7 @@ dateStart: TBD
 dateEnd: "2026-10-15"
 title: "Ambient Display · Sunset in Bloom"
 summary: "Translating Berkeley’s sunset forecast into a printed flower’s movement and light."
-cover: "./images/demo.jpg"
+cover: "./images/demo-close.jpg"
 coverKind: photo
 projects: [sunset-flower]
 status: published
@@ -15,41 +15,50 @@ updatedAt: "2026-10-20"
 
 <Entry date="TBD" title="Concept · A Physical Forecast">
 
-Sunset in Bloom is an ambient display that turns Berkeley's sunset-quality forecast into movement and light. A positional MG90S servo moves a wire linkage to open the petals, while two RGB NeoPixel sticks illuminate the flower. The aim is to make a number noticeable as a small physical change.
+Sunset in Bloom turns Berkeley's sunset-quality forecast into a flower's opening and warm light. A positional MG90S servo pulls a wire linkage between two printed petal layers; two NeoPixel sticks light the flower from below.
 
-The Adafruit Feather ESP32 V2 controls the outputs. After direct HTTPS requests on the campus network failed, the data request moved to a Python service on the Mac, which sends a validated forecast over USB. This separated internet access from physical control; the browser makes the relationship between the forecast and the flower visible.
+The computer brings in the forecast, and a Feather ESP32 V2 controls the physical response. A companion webpage places the score beside a motion illustration, making the connection between the weather and the object easier to read.
 
-<AmbientSystem />
+<Figure fullWidth src="./images/concept-system.svg" kind="diagram" caption="The computer handles the forecast; electronics inside the base produce movement and light above it." />
 </Entry>
 
-<Entry date="TBD" title="Motion · Printed Petals">
+<Entry date="TBD" title="Material Testing · Finding the Flex">
 
-We began with two thin, 3D-printed petal layers joined near their tips. Pulling their centers apart opens the flower. The lower layer has cutouts that allow its stems to bend; its center was later revised into a round hub.
+Before printing the flower, we explored petal shapes in sketches and tested how far different samples could bend. Repeated laser cuts made the wood more flexible, but it still could not curve enough for the opening motion.
 
-We tested the pull by hand, then placed the flower upright with the servo below and to one side. This let us work out the movement before building the enclosure.
+The hand-bending test helped us compare flex and recovery before committing to a flower shape. We set the wood option aside and moved to thin printed petals: the material needed to support repeated movement, not just hold an attractive outline.
 
 <Gallery pair>
-<Figure src="./images/printed-closed.jpg" kind="photo" caption="Two printed layers, linked at the tips." />
-<Figure src="./images/printed-open.jpg" kind="photo" caption="Separating the centers opens the petals." />
+<Figure src="./images/petal-sketch.jpg" kind="photo" caption="Exploring cutouts, narrow stems and the central support." />
+<Figure src="./images/wood-cutouts.jpg" kind="photo" caption="Laser-cut samples: repeated slots allow some flex." />
 </Gallery>
-<CadGroup>
-<CadViewer view="top" color="#81958b" src="./files/lower-earlier.stl" poster="./images/lower-earlier.png" caption="Earlier lower layer · cutout petals." />
-<CadViewer view="top" color="#81958b" src="./files/lower-round.stl" poster="./images/lower-round.png" caption="Revised lower layer · round central hub." />
-</CadGroup>
+<VideoGroup>
+<Figure src="./images/wood-bending.jpg" kind="photo" caption="The wood still resisted the curve we needed." />
+<Video src="./files/material-bend.mp4" poster="./images/material-bend.jpg" title="Bending and releasing a thin sample" duration="0:10" />
+</VideoGroup>
+</Entry>
+
+<Entry date="TBD" title="Motion Testing · A Steadier Pull">
+
+Two thin, 3D-printed layers meet near the petal tips. Separating their centers opens the flower. We first pulled the linkage by hand, then tested it upright with the MG90S below and to one side, before designing the enclosure.
+
+We changed the lower layer's narrow center into a round hub. In our tests, it flexed more readily and supported bending better; the larger contact area at the base also made the push and pull steadier. This showed us that the center needed as much attention as the petals.
+
+<Gallery pair>
+<Figure src="./images/printed-closed.jpg" kind="photo" caption="Two printed layers joined near the tips." />
+<Figure src="./images/printed-open.jpg" kind="photo" caption="Pulling the centers apart opens the flower." />
+</Gallery>
 <VideoGroup>
 <Video src="./files/horizontal.mp4" poster="./images/horizontal.jpg" title="Sideways pull · hand test" duration="0:06" />
 <Video src="./files/vertical.mp4" poster="./images/vertical.jpg" title="Upright flower · servo test" duration="0:10" />
 </VideoGroup>
-</Entry>
-
-<Entry date="TBD" title="Material · Testing the Bend">
-
-We also tried laser-cut wood, using repeated cuts to make the petals more flexible. In the bending tests, the wood still could not curve enough for the opening motion, so we set that route aside and continued with the printed petals. The useful comparison was how far the material could move, not just how the flat outline looked.
-
-<Gallery pair>
-<Figure src="./images/wood-cutouts.jpg" kind="photo" caption="Laser-cut petals with repeated flexure cuts." />
-<Figure src="./images/wood-bending.jpg" kind="photo" caption="The wood did not bend far enough for the mechanism." />
-</Gallery>
+<CadGroup>
+<CadViewer view="top" color="#81958b" src="./files/lower-earlier.stl" poster="./images/lower-earlier.png" caption="Earlier center · a narrow junction between the stems." />
+<CadViewer view="top" color="#81958b" src="./files/lower-round.stl" poster="./images/lower-round.png" caption="Round hub · more contact and a steadier pull." />
+</CadGroup>
+<AmbientStudies title="Early linkage sketch">
+<Figure src="./images/linkage-sketch.jpg" kind="photo" caption="Planning the servo below the flower and the wire linking them." />
+</AmbientStudies>
 </Entry>
 
 <Entry date="TBD" title="Fabrication · Light Through the Form">
@@ -77,24 +86,33 @@ The enclosure then evolved into a round shell. Its flowing openings echo the pet
 
 <Entry date="2026-10-15" title="Testing · Isolate, Then Reconnect">
 
-To check the MG90S independently, I disconnected the LEDs and flower linkage and used short pulse tests, followed by a repeating sweep. Serial output confirmed that commands were running, but the motor sometimes stopped; moving a wire could make it work again. That pointed to an intermittent connection rather than a missing command.
+The servo moved intermittently, and the LEDs were not responding reliably. I tested them separately so I could tell a wiring fault from a control or linkage problem. The servo commands appeared in Serial Monitor, but moving a wire changed its response—so I checked the connections first.
 
-I redistributed the crowded power and ground connections, repaired the LED wiring and tested the sticks on their own. After the light test worked, I added the servo back and confirmed that both outputs moved together. Separating these tests helped me distinguish software, wiring and mechanical problems.
+I spread out the crowded power and ground connections, repaired the LED wiring, then tested the two sticks on their own. Once the lights responded, I reconnected the servo and finally the flower linkage. Separate 5 V power for the loads and a shared ground kept the control wiring clear.
 
-<VideoGroup layout="experiment">
-<div className="experiment-docs">
+<Figure fullWidth src="./images/tested-circuit.svg" kind="diagram" caption="Documented prototype wiring: parallel 5 V power, common ground and a separate LED data chain." />
+<Specs rows={[
+  ['Drawing reference', <a href="https://github.com/loopstick/ArduinoTutorial" target="_blank" rel="noreferrer">Class ArduinoTutorial circuit examples ↗</a>],
+  ['For a more robust rebuild', <>The tested LEDs received 3.3 V data directly. A 74AHCT125 logic-level buffer and a 500–1000 µF capacitor rated 6.3 V or higher are recommended additions, not parts documented in this build. <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices" target="_blank" rel="noreferrer">Adafruit wiring guidance ↗</a></>]
+]} />
+<Gallery pair>
+<Figure src="./images/test-wiring.jpg" kind="photo" caption="Checking the breadboard, supply and shared connections." />
+<Figure src="./images/test-solder.jpg" kind="photo" caption="Repairing the LED-stick wiring before retesting." />
+</Gallery>
+<VideoGroup>
+<Video src="./files/led-test.mp4" poster="./images/led-test.jpg" title="LED-only test · checking color response" duration="0:09" />
+<Video src="./files/combined-test.mp4" poster="./images/combined-test.jpg" title="Assembly check · linkage in the shell" duration="0:10" />
+</VideoGroup>
+<AmbientStudies title="Test code and recorded output">
 <CodeBlock src="./files/servo-test-excerpt.cpp" lang="Arduino excerpt" />
 <CodeBlock src="./files/servo-test-output.txt" lang="Recorded serial output" />
-</div>
-<div className="experiment-videos">
 <CodeBlock src="./files/led-test-excerpt.cpp" lang="Arduino excerpt" />
 <Attachments>
 <Attachment src="./files/servo-test.ino" kind="Arduino" label="Servo-only test · full sketch" />
 <Attachment src="./files/led-test.ino" kind="Arduino" label="LED-only test · full sketch" />
 <Attachment src="./files/flower.ino" kind="Arduino" label="Final combined firmware" />
 </Attachments>
-</div>
-</VideoGroup>
+</AmbientStudies>
 </Entry>
 
 <Entry date="2026-10-15" title="Control · Forecast and Motion">
@@ -120,14 +138,14 @@ Breathe demonstrates motion independently of the score. It shook at the highest 
 
 We built the frontend to make the connection between today's sunset quality and the flower's movement easier to read. The score sits beside an animated flower, so a visitor can relate the number to its opening and light at a glance.
 
-Hold shows the forecast as a still position; Breathe makes the motion easy to demonstrate; Stop ends the output. The animation illustrates the commanded movement rather than measuring the physical petals. This embedded version uses our recorded October 15 sample so the interface can be explored in the journal.
+Hold shows the forecast as a still position; Breathe demonstrates the movement; Stop ends the output. The webpage illustrates the commanded motion. This view shows our recorded October 15 forecast of 39/100.
 
-<AmbientFrontend />
+<Figure fullWidth src="./images/frontend-desktop.png" kind="screen" caption="The desktop interface brings the sunset score, motion illustration and controls into one view." />
 </Entry>
 
 <Entry date="TBD" title="Prototype · Sunset in Bloom">
 
 The assembled display brings the printed petals, wire linkage and warm light into one object. Here the flower opens and closes beside the frontend, showing the physical movement that the screen helps explain.
 
-<Video portrait src="./files/ambient-display-demo.mp4" poster="./images/demo.jpg" title="Ambient Display · flower in motion" duration="0:19" />
+<Video portrait src="./files/ambient-display-close.mp4" poster="./images/demo-close.jpg" title="Ambient Display · flower in motion" duration="0:10" />
 </Entry>
