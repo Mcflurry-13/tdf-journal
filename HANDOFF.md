@@ -25,6 +25,7 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 - 页面正文沿用英文，标题简短且具体，例如 `Input · Knob Control`、`Motion · Sweep and Position`、`Interaction · Distance to Motion`。阶段与主题应帮助理解，不能只剩笼统编号。
 - 不编造学习经历、元件型号、尺寸、测试动作或成功结果。区分设计意图、模拟、CAD、真实实物与已验证结果；无法确认的内容不下结论。
 - 灵感参考简短说明它启发了什么，附有依据的来源；不要让参考资料挤占用户作品的主要篇幅。
+- 为确认材料名称而进行的商品查询只用于写作，不自动在网站加购物链接、Material reference 或品牌免责声明。用户指定删除的参考项不得恢复。
 
 ### 3. 每份素材承担明确作用
 
@@ -527,3 +528,10 @@ Removed the public Drawing reference / Class ArduinoTutorial row as requested. A
 Validation:160 gallery scenarios pass. Browser checks at1920,1440,1218 and390px verify no overflow; desktop media heights match within0.02px without cropping. Both inline videos play with original portrait framing/durations, Motion contains the two GIFs instead of videos, three diffuser views load, and the removed reference row is absent. GIFs verified as60/100frames with6/10-second loops. No page runtime errors. Work files and screenshots: `TDF/work/ambient-media-polish/`.
 
 Schematic polish: resistor and +5V pin labels sit clear of component edges/wires. Both NeoPixel symbols include yellow/orange/red swatches, with a separate score legend below the circuit: below33,33 to below67,67–100. These follow the existing firmware/UI thresholds and use its illustrative palette, not measured photographic colors; brightness follows opening.
+
+
+## Ambient Display — remove shopping reference and share diagrams (2026-10-20)
+
+Removed the entire public Material reference disclosure and Amazon link. The owner requested the lookup only to clarify the material name, not to add shopping references to the journal. The short translucent-paper description and three-photo comparison remain unchanged.
+
+A self-contained offline HTML diagram kit is delivered in `TDF/outputs/ambient-display-circuit-kit/`, with the current electrical schematic and interactive breadboard guide in one tabbed page. All artwork is embedded; no server, network access, account or hardware connection is required. It exports the schematic as editable SVG or2×PNG and the full-resolution breadboard base image as PNG. Companion SVG/PNG originals and the combined HTML are packaged together for the owner to forward; no message was sent to a teammate.
