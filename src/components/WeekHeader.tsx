@@ -8,7 +8,7 @@ import { ProjectTag, TypeTag, TrackTags } from './tags';
 /** Same two columns as the rows below: identity left, title + contents right. */
 export function WeekHeader({ week, children }: { week: Week; children?: ReactNode }) {
   const type = typeById(week.type)!;
-  const others = sameWeekElsewhere(week);
+  const others = week.type === 'computational-design' && week.week === 1 ? [] : sameWeekElsewhere(week);
   return (
     <header className="week-head">
       <div className="week-head-id">

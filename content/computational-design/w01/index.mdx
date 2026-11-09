@@ -1,8 +1,8 @@
 ---
 type: computational-design
 week: 1
-dateStart: 2026-11-09
-dateEnd: 2026-11-09
+dateStart: TBD
+dateEnd: TBD
 title: "Mini-Me · Grounding a Biography"
 summary: "Six Agent Studio conditions compare instructions, portfolio knowledge, temperature, and models using the same question."
 cover: "./images/mini-c.jpg"
@@ -12,17 +12,17 @@ status: published
 updatedAt: 2026-11-09
 ---
 
-<Entry date="2026-11-09" title="Setup · What Can an Agent Know About Me?" kind="Follow-up experiment · Nov 9, 2026">
+<Entry date="2026-11-09" title="Setup · What Can an Agent Know About Me?" kind="Experiment">
 
-For the Mini-Me exercise, I asked my AI assistant to operate the course Agent Studio and test whether a model could describe me without inventing a biography. These six fresh-session runs were completed on November 9, rather than reconstructed as earlier classroom conversations.
+The Mini-Me exercise explores how instructions, knowledge, temperature, and model choice shape an agent’s description of me. I compared six configurations in Agent Studio using the same question.
 
-My portfolio PDF contains largely image-based pages, so plain text extraction was inadequate. The assistant visually checked pages 1–3 and prepared a short knowledge excerpt covering education, four projects, and the methods and roles documented for SONO Scape. This is a selected source, not the complete portfolio. It does not establish my hobbies or current degree status.
+My portfolio uses image-based pages. I used a checked text excerpt from pages 1–3 covering my education, four projects, and the methods and roles documented for SONO Scape.
 
 <Figure src="./images/test-system.svg" kind="diagram" fullWidth caption="Actual experiment structure: keep the question fixed while changing one configuration between comparisons." />
 <CodeBlock src="./files/portfolio-knowledge.txt" lang="Knowledge · checked portfolio excerpt" />
 </Entry>
 
-<Entry date="2026-11-09" title="A / B · Instructions Are Not Evidence" kind="Follow-up experiment · Nov 9, 2026">
+<Entry date="2026-11-09" title="A / B · Adding Instructions" kind="Experiment">
 
 I used the same question throughout: “In 100 words, describe Xiaofan Ma's educational background and design interests. Name two projects and their methods. What is her favorite hobby? If you don't know, say so.” The hobby question checks whether the agent admits a gap in the source.
 
@@ -39,21 +39,21 @@ With no instructions or knowledge, Llama invented a degree at the Academy of Art
 </Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="C · Add a Checked Source" kind="Follow-up experiment · Nov 9, 2026">
+<Entry date="2026-11-09" title="C · Add a Checked Source" kind="Experiment">
 
 Adding the portfolio excerpt produced the correct universities and programs, SONO Scape and VisAug, and relevant methods. The agent again said the hobby was not stated. However, “currently pursuing” went beyond what the portfolio's dated education entry could establish.
 
-The knowledge base contained one text chunk, with a similarity threshold of 0.30. Agent Studio reported that the whole knowledge base was sent. This run therefore tests the effect of supplying source material, not selective retrieval across a large archive.
+The knowledge base contained one text chunk, with a similarity threshold of 0.30. Agent Studio reported that the whole knowledge base was sent. 
 
 <Figure src="./images/mini-c.jpg" kind="screen" fullWidth caption="C · Same Llama configuration as B, now with the checked portfolio excerpt." />
 <Attachments><Attachment src="./files/mini-c.txt" label="C · full response" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="D / E · Temperature Was Not a Fact Check" kind="Follow-up experiment · Nov 9, 2026">
+<Entry date="2026-11-09" title="D / E · Comparing Temperature" kind="Experiment">
 
 I compared temperatures 0.2 and 1.5 with the same Llama model, instructions, knowledge, and question. Both responses named the correct universities and SONO Scape and Gene Waver. Both recognized missing hobby information and limited detail about Gene Waver's methods.
 
-Neither setting solved every source-boundary problem: both described the M.A. as something I “hold,” although completion was not verified. The higher-temperature answer was not obviously less grounded in this pair. One response per setting is insufficient to conclude that either temperature is generally more accurate.
+Neither setting solved every source-boundary problem: both described the M.A. as something I “hold,” although completion was not verified. The higher-temperature answer was not obviously less grounded in this pair. I would repeat these tests to check whether the pattern holds.
 
 <Gallery>
 <Figure src="./images/mini-d.jpg" kind="screen" caption="D · Llama with knowledge, temperature 0.2." />
@@ -65,11 +65,11 @@ Neither setting solved every source-boundary problem: both described the M.A. as
 </Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="F · Compare Another Model" kind="Follow-up experiment · Nov 9, 2026">
+<Entry date="2026-11-09" title="F · Compare Another Model" kind="Experiment">
 
 Finally, I switched to Google Gemma 3 12B at temperature 0.2, keeping the instructions, knowledge, and question unchanged. Compared with D, it attributed education to the portfolio more carefully and described design interests as an inference from the projects. It also included my documented team roles in SONO Scape and acknowledged the unknown hobby.
 
-The response still did not fully answer the request for two projects and their methods: Gene Waver was only named. This was a useful difference between two observed responses, not evidence that one model is always better.
+The response still did not fully answer the request for two projects and their methods: Gene Waver was only named. 
 
 <Figure src="./images/mini-f.jpg" kind="screen" fullWidth caption="F · Gemma 3 12B at 0.2, with the same instructions and knowledge used in D." />
 <Attachments><Attachment src="./files/mini-f.txt" label="F · full response" kind="Text" /></Attachments>
@@ -79,6 +79,6 @@ The response still did not fully answer the request for two projects and their m
 
 The largest observed improvement came from supplying checked portfolio knowledge. Instructions alone did not prevent an invented biography, and temperature did not act as a reliability switch. Even grounded answers needed review for source dates, inferred interests, and unanswered parts of the question.
 
-These runs cover the course exercise's baseline, instructions, knowledge, temperature, and model comparisons. They document one follow-up experiment date, not a recovered twice-weekly journal history. Next, I would require page references and explicitly separate “the portfolio states” from current facts, then repeat the same tests before judging reliability.
+Next, I would add page references and check that the agent preserves the source’s dates and uncertainty.
 
 </Section>

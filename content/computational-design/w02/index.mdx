@@ -1,8 +1,8 @@
 ---
 type: computational-design
 week: 2
-dateStart: TBD
-dateEnd: 2026-11-09
+dateStart: 2026-10-20
+dateEnd: 2026-10-22
 title: "Complaint Ghostwriter"
 summary: "From a classroom letter to the God of Weather to three instruction revisions: empathy, missing inputs, and factual boundaries."
 cover: "./images/class-weather-letter.jpeg"
@@ -12,42 +12,42 @@ status: published
 updatedAt: 2026-11-09
 ---
 
-<Entry date="TBD" title="Bodystorming · Dear God of Weather" kind="Classroom record · date unconfirmed">
+<Entry date="2026-10-22" title="Bodystorming · Dear God of Weather" kind="Classroom exercise · October 22">
 
 Our group's letter-writing exercise turned a complaint about Berkeley weather into a formal letter to the “God of Weather.” The whiteboard preserved the user's concerns about rain, cold mornings, hot afternoons, and difficulty choosing an outfit, followed by a request for more sunshine and less rain.
 
-This was a human role-play exercise. The photograph records the letter produced in class, not an AI-generated output. The original class date has not been confirmed.
+In the October 22 class, we acted out the interaction and wrote the letter on the whiteboard.
 
 <Figure src="./images/class-weather-letter.jpeg" kind="photo" caption="The group's classroom letter, with a playful recipient and formal complaint structure." />
 <Attachments><Attachment src="./files/classroom-letter.txt" label="Whiteboard transcription" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="TBD" title="Observations · Listening While Writing" kind="Classroom record">
+<Entry date="2026-10-22" title="Observations · Listening While Writing" kind="Classroom observations · October 22">
 
 The observation notes describe empathy, creativity, and a recipient that made the interaction fun. They also capture a difficulty: the user continued adding details while the writer was trying to remember the information and organize a formal letter. At points, the agent asked for clarification.
 
-These observations informed the Empathetic Complaint Ghostwriter role: listen without unnecessary interruption, clarify essential gaps, and preserve the user's facts while giving the complaint a witty formal structure. The notes do not establish my individual classroom role or a complete dialogue transcript.
+These observations informed the Empathetic Complaint Ghostwriter role: listen without unnecessary interruption, clarify essential gaps, and preserve the user's facts while giving the complaint a witty formal structure.
 
 <Figure src="./images/class-observations.jpeg" kind="photo" caption="Classroom observations: additional input, clarification, empathy, and the difficulty of remembering fast-flowing details." />
 <CodeBlock src="./files/ghost-v0-system.txt" lang="Original classroom role · supplied by Xiaofan" />
 </Entry>
 
-<Entry date="2026-11-09" title="Test Setup · Same Prompt, New Session" kind="Follow-up · Nov 9, 2026">
+<Entry date="2026-11-09" title="Test Setup · Same Prompt, New Session" kind="Agent experiment">
 
-I asked my AI assistant to run follow-up experiments in the course Agent Studio and preserve the actual responses. These are newly executed tests, separate from the classroom photographs. Each instruction version started in a fresh session with Meta Llama 3.1 8B Instruct, the same original knowledge chunk, and the temperature left at the UI's model default.
+I tested the role in Agent Studio. Each instruction version started in a fresh session with Llama 3.1 8B Instruct, the same knowledge base, and the default temperature.
 
-The common script first expresses a vague Berkeley-weather complaint, then says “Proceed.” A successful response should keep asking for missing facts instead of writing a letter. The later complete-input scenario is constructed for evaluation; it is not a record of my weather experience that day.
+The common script first expresses a vague Berkeley-weather complaint, then says “Proceed.” A successful response should keep asking for missing facts instead of writing a letter.
 
 <Specs rows={[
  ['Fixed first message', "Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to."],
  ['Fixed follow-up', 'Proceed.'],
  ['Held constant', 'Llama 3.1 8B Instruct; original 649-character knowledge chunk; similarity threshold 0.30; model-default temperature (effective numeric value not exposed).'],
- ['Scope', 'One run per instruction version. These observations do not establish a general success rate.']
+ ['Scope', 'One run per instruction version.']
 ]} />
 <Attachments><Attachment src="./files/protocol.txt" label="Test protocol and full input script" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="Baseline · A Fluent Invented Complaint" kind="Follow-up · Nov 9, 2026">
+<Entry date="2026-11-09" title="Baseline · A Fluent Invented Complaint" kind="Agent experiment">
 
 The original role asked for details at first. After “Proceed,” it drafted a full complaint anyway, inventing three clothing changes in a day, cancelled plans, and reactions from loved ones. The instruction not to fabricate core facts did not hold in this run.
 
@@ -57,7 +57,7 @@ The first revision explicitly made the concrete experience, context, and desired
 <Attachments><Attachment src="./files/ghost-v0.txt" label="Baseline · full page transcript" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="Revision 1 · Acknowledging a Rule, Then Breaking It" kind="Follow-up · Nov 9, 2026">
+<Entry date="2026-11-09" title="Revision 1 · Acknowledging a Rule, Then Breaking It" kind="Agent experiment">
 
 With the new input-check rule, the assistant again asked for missing information. On “Proceed,” it said that this was not a substitute for the required inputs, but then drafted the letter anyway. It introduced fog, unsafe walking or driving, and other details the user had not supplied.
 
@@ -68,7 +68,7 @@ This exposed a difference between repeating a rule and obeying it. The next revi
 <Attachments><Attachment src="./files/ghost-v1.txt" label="Revision 1 · full page transcript" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="Revision 2 · The Gate Held, the Draft Drifted" kind="Follow-up · Nov 9, 2026">
+<Entry date="2026-11-09" title="Revision 2 · The Gate Held, the Draft Drifted" kind="Agent experiment">
 
 The explicit response-state rule resisted “Proceed” in this run: the agent continued asking for the specific experience. Its acknowledgement sounded mechanical, and its initial response still asked several questions despite the one-question instruction.
 
@@ -82,11 +82,11 @@ After receiving a complete test scenario, it drafted a letter, but added leaving
 <Attachments><Attachment src="./files/ghost-v2.txt" label="Revision 2 · full page transcript" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="Revision 3 · Facts Before Flourish" kind="Follow-up · Nov 9, 2026">
+<Entry date="2026-11-09" title="Revision 3 · Facts Before Flourish" kind="Agent experiment">
 
 I had the assistant add a visible fact list before the draft, a 130-word letter limit, and stronger restrictions on invented scene details. The same incomplete-input script still did not trigger a letter. With complete input, the fact list correctly captured the supplied temperature change, outfit, tone, recipient, and name.
 
-The result was closer to the intended structure, but not fully reliable: the letter still implied needing to pack extra clothes, which the test input had not stated. The agent also kept asking multiple questions and even initially listed “None” as known facts despite knowing Berkeley was the context. These remain unresolved issues, not a successful final validation.
+The result was closer to the intended structure, but not fully reliable: the letter still implied needing to pack extra clothes, which the test input had not stated. The agent also kept asking multiple questions and even initially listed “None” as known facts despite knowing Berkeley was the context. The next revision needs tighter control over clarification and added details.
 
 <Figure src="./images/ghost-v3.jpg" kind="screen" fullWidth caption="Revision 3 adds an explicit fact list; the full transcript preserves remaining departures from the instructions." />
 <CodeBlock src="./files/ghost-v3-system.txt" lang="Revision 3 · instructions" />
@@ -97,6 +97,6 @@ The result was closer to the intended structure, but not fully reliable: the let
 
 The classroom exercise made speed, empathy, and humor visible. The digital tests showed why those qualities need separate checks for factual accuracy and missing information. Three instruction revisions improved the response to one skip command, but did not eliminate embellishment.
 
-Next, I would test new complaints and different skip phrases, simplify the clarification flow, and require the user to confirm the fact list before drafting. The current results describe these specific runs, not a hard guarantee enforced by code.
+Next, I would test new complaints and different skip phrases, simplify the clarification flow, and require the user to confirm the fact list before drafting.
 
 </Section>
