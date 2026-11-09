@@ -1,0 +1,95 @@
+---
+type: computational-design
+week: 3
+dateStart: TBD
+dateEnd: TBD
+title: "An Inspiration Archive Agent"
+summary: "Defining a personal archive agent: design intent, a user journey, proposed behavior, and a first evaluation plan."
+cover: "./images/archive-system.svg"
+coverKind: diagram
+projects: []
+status: published
+updatedAt: 2026-11-08
+---
+
+<Entry date="TBD" title="Intent · Reuse What I Save" kind="Design exploration">
+
+I save useful posts, design cases, and portfolio advice across Xiaohongshu and other websites. My folders already have purposes, such as Resume, Portfolio, and UI/UX. I want these materials to become useful again when I begin a creative task, including when I work with an AI assistant.
+
+I initially considered transferring conversation memories between AI tools. Through discussion, I shifted toward a personal inspiration archive: keeping the resources I choose and helping me bring them into a new task.
+
+<Specs rows={[
+  ['Design intent', 'Help me find and reuse relevant material from my own collection during a creative task.'],
+  ['Course connection', 'DesComp 3: apply the agent-design process to a different design goal. This entry establishes the intent, journey, proposed instructions, and evaluation plan.'],
+  ['Current stage', 'Concept and behavior specification. No retrieval prototype or evaluation results yet.'],
+  ['Record date', 'Exact exploration dates were not recorded. Organized retrospectively; Week 3 identifies the course exercise, not the upload date.']
+]} />
+</Entry>
+
+<Entry date="TBD" title="References · A Library I Can Use" kind="Reference study">
+
+The collection-to-AI workflow in [Material](https://material.sc/guide) helped me clarify the direction. Its public guide describes saving material, organizing it in Spaces, and accessing it through AI tools. This is a reference for the workflow, rather than evidence that my idea is a unique product category.
+
+I want to focus my prototype on a specific moment: returning with a design task and deciding which saved materials are useful. I also decided against proactive recommendations and notifications because I do not want another stream of content to maintain.
+
+<Specs rows={[
+  ['Keep', 'Existing archive categories; new links, images, and notes; a path for bringing in older collections.'],
+  ['Focus', 'Task-based retrieval with a source and a concrete explanation of how each result might help.'],
+  ['Leave out', 'Push notifications, recommendation feeds, and a complex canvas.'],
+  ['Open question', 'Which parts of a saved item does the agent need: its title, full content, images, or my reason for saving it?']
+]} />
+</Entry>
+
+<Entry date="TBD" title="Journey · Return With a Task" kind="Proposed scenario">
+
+For a first scenario, I am preparing a portfolio case study and need references for structuring the story. I select my Portfolio archive and explain the task. The agent returns a small set of references, explains their relevance, and suggests what I could learn from each one. I choose what to carry into my next AI conversation.
+
+This is a proposed journey, not an observed user test. Importing an entire social-platform account and directly connecting every AI tool are outside the first experiment; a small manually supplied collection is enough to test the central behavior.
+
+<Specs rows={[
+  ['1 · Collect', 'Supply a small set of saved links, notes, or images and retain their sources.'],
+  ['2 · Ask', 'Choose an archive and describe the current task.'],
+  ['3 · Review', 'Read the references, relevance explanations, and suggested uses.'],
+  ['4 · Continue', 'Select references and copy a source-linked context pack into the next AI conversation.']
+]} />
+</Entry>
+
+<Entry date="TBD" title="Behavior · System Card v0" kind="Proposed instructions">
+
+The important behavior is deciding what is relevant to my task and explaining that decision. Saving and sorting files supports this behavior. I translated the concept into an initial system-card proposal so that the next prototype has something specific to follow and test.
+
+The card separates source content, my own notes, and AI suggestions. It also specifies what should happen when the task is vague or a saved link cannot be read.
+
+<CodeBlock src="./files/system-card-v0.txt" lang="System card · proposed" />
+</Entry>
+
+<Entry date="TBD" title="System · From Archive to Context" kind="Proposed architecture">
+
+The proposed system keeps original sources and user notes in an archive. A retrieval step selects candidate materials within the chosen scope; the agent then explains their relevance to the task. The user reviews the results before exporting selected references.
+
+This diagram describes intended responsibilities. The storage, retrieval method, model, and external AI integration have not been implemented or selected yet.
+
+<Figure src="./images/archive-system.svg" kind="diagram" fullWidth caption="Proposed system: the archive supplies evidence; the user chooses what moves into the next AI conversation." />
+</Entry>
+
+<Entry date="TBD" title="Evaluation · What I Will Test" kind="Test plan">
+
+I will use the same small collection and repeat the same prompts across revisions. For each run, I will keep the instructions and actual output, then note whether the sources are traceable, the selection helps the task, and the suggestions are specific enough to act on.
+
+The first comparison will examine how much context the agent needs: titles and tags alone, then source content and any notes I actually supplied. Further changes will respond to observed failures. These are planned comparisons; the required three rounds of modification and testing are still to be completed.
+
+<Specs rows={[
+  ['Clear task', '“From my Portfolio archive, find references that could help me structure a design case study.” Check whether each result supports this task and explains a specific use.'],
+  ['Vague task', '“Find me some inspiration.” Check whether the agent asks a focused question before selecting material.'],
+  ['Missing content', 'Provide a saved link whose content is unavailable. Check whether the agent reports the limitation instead of inventing a summary.'],
+  ['No relevant match', 'Ask for a topic absent from the test archive. Check whether the agent acknowledges the gap rather than forcing an unrelated result.']
+]} />
+</Entry>
+
+<Section title="Reflection · A Smaller First Prototype" lead>
+
+The discussion helped me narrow the project to the moment when a collection becomes useful again. Before adding more import formats or AI integrations, I need to find out whether the agent can help me choose a reference and understand how to use it.
+
+This entry covers the planning stage of the assignment. The next records need actual prototype outputs, repeated tests and revisions, followed by deployment checks and classmate feedback. Earlier prescribed exercises are not documented as completed here.
+
+</Section>
