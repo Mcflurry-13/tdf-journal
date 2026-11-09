@@ -548,3 +548,11 @@ Validation completed 2026-11-09: production build passed; 160 existing gallery-l
 ## Archive agent — remove public Material case study (2026-11-09)
 
 Removed the Material paragraph and link at the owner’s request. Renamed the reference section to Scope and retained the owner’s feature decisions. The existing record remains a planning entry; Agent Studio exercises and results have not been completed by this edit.
+
+## Computational Design follow-up experiments — November 9, 2026
+
+Added w01 Mini-Me (six real fresh-session conditions) and w02 Complaint Ghostwriter (original classroom role plus three actual instruction revisions) using the course Agent Studio UI. The user authorized assistant-operated follow-up tests. All digital tests are dated November 9; classroom photo dates remain TBD. Do not present these as historical classroom chatbot transcripts or claim twice-weekly cadence was recovered.
+
+Evidence originals and full UI transcripts: TDF `work/agent-experiments-20261109`. Classroom sources IMG_8232 and IMG_8228 copied intact from the user's supplied Photos temporary files. Whiteboard letter is human role-play, not model output. The Mini-Me knowledge excerpt is visually checked against portfolio pages 1–3; the whole personal portfolio is not published. Six screenshots and full responses accompany the fixed-question comparison. All models admitted the unknown hobby; knowledge improved biography grounding but did not eliminate unsupported degree-status claims. Gemma omitted the second project's methods. No statistical model-ranking claim.
+
+Complaint baseline and v1 invented events after “Proceed”; v2/v3 retained clarification but embellished the later constructed scenario. Three revisions are documented, not declared a reliable final agent. The complete-input weather scenario is synthetic and explicitly labeled. Original knowledge remained constant. Screenshots are genuine browser captures. No Material case study was restored. Public files contain experiment material only; instructions and transcripts are downloadable using existing components.

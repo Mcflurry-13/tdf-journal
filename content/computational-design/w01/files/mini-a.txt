@@ -1,0 +1,84 @@
+AGENT DESIGN STUDIO
+COMPUTATIONAL DESIGN - AI WORKSHOP SERIES 2026
+⚙
+AGENT STUDIO
+Agent Studio
+
+DESIGN SURFACES
+
+1. Select a model
+2. Edit system instructions
+3. Add/replace knowledge
+4. Set the temperature
+5. Edit default questions
+6. Test through conversation
+7. Download results
+▸
+MODEL SELECTION
+ⓘ
+Meta: Llama 3.1 8B Instruct
+▸
+▸
+SYSTEM INSTRUCTIONS
+ⓘ
+▸
+KNOWLEDGE BASE
+ⓘ
+
+Text PDFs or pasted text · Allowance: 6 MB of text and 25,000 words in all. Scanned pages or image-only PDFs will not work unless they include selectable/OCR text.
+
+DRAG PDFS
+
+CHOOSE PDFS
+ADD TEXT
+
+Knowledge base cleared. Upload PDFs or add text to re-index.
+
+CURRENT KNOWLEDGE CHUNKS
+
+ⓘ
+0 CHUNKS
+
+No chunks indexed yet. Upload a PDF or click Add Text.
+
+SIMILARITY THRESHOLD: 0.30
+
+ⓘ
+CLEAR KNOWLEDGE
+▸
+TEMPERATURE
+ⓘ
+model default
+DETERMINISTIC
+STOCHASTIC
+RESET TO DEFAULTS
+ⓘ
+
+In 100 words, describe Xiaofan Ma's educational background and design interests. Name two projects and their methods. What is her favorite hobby? If you don't know, say so.
+
+USER — 07:58
+
+Xiaofan Ma is a Chinese designer with a background in Industrial Design from the Academy of Art University in San Francisco. Her design interests lie in product design, focusing on user experience and innovative solutions. Two of her notable projects are "Foldi" and "Semi". Foldi is a smart phone case that uses magnetic levitation technology to create a seamless interaction between the phone and a wireless charging pad. Semi is a smart lamp that uses AI to optimize lighting based on the user's preferences. As for her favorite hobby, I couldn't find any information.
+
+AGENT — LLAMA-3.1-8B-INSTRUCT (4.86S) · 178 TOKENS · $0.000006 — STREAM C:111 R:0 — 07:58
+◀
+▶
+SESSION 5
+✎
+(5)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION

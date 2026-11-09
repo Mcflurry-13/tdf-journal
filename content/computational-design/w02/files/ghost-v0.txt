@@ -1,0 +1,71 @@
+Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to.
+
+USER — 07:48
+
+I'm so sorry to hear that the Berkeley weather is getting under your skin. Don't worry, I'm here to help you channel your frustration into a creative and formal complaint letter. Let's start by identifying the recipient. Since the weather is a bit of a wild card, we can frame it as a complaint to the "God of Weather" for now. Sound good?
+
+Please share your raw complaint with me. What's been driving you nuts about the Berkeley weather lately?
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.39
+AGENT — LLAMA-3.1-8B-INSTRUCT (6.79S) · 697 TOKENS · $0.000016 — STREAM C:95 R:0 — 07:48
+
+Proceed.
+
+USER — 07:48
+
+Let's get started.
+
+Complaint Letter Draft
+
+To the God of Weather,
+
+I am writing to express my utter frustration with the unpredictable and seemingly deliberate attempts to disrupt my daily life. As a resident of Berkeley, I have come to expect a certain level of weather-related chaos, but the recent onslaught of temperature fluctuations has pushed me to the brink.
+
+The Issue:
+
+It appears that the God of Weather has a personal vendetta against my wardrobe choices. One moment it's a chilly morning, and the next, I'm sweating bullets in the afternoon. The fog rolls in, only to be replaced by a blast of heat that makes me question my decision to wear layers. This constant temperature whiplash has left me feeling like a fashion victim, with no clear strategy for dressing for the day.
+
+The Evidence:
+
+On multiple occasions, I've had to change clothes not once, not twice, but three times in a single day due to the rapid temperature changes. My wardrobe is in shambles, and my social calendar is suffering as a result. I've had to cancel plans with friends, citing "unforeseen weather conditions" as the reason. My loved ones are starting to think I'm just making excuses.
+
+The Demands:
+
+I demand that the God of Weather take immediate action to stabilize the temperature in Berkeley. A consistent and predictable climate would be a welcome change, and I'm willing to make sacrifices in my wardrobe choices to accommodate this new reality. I request that the God of Weather consider the following:
+
+A 30-day notice period for any temperature changes
+A ban on foggy mornings that make me feel like I'm walking through a damp cloud
+A heat wave warning system, so I can plan my outfit accordingly
+
+The Sign-off:
+
+Sincerely, [Your Name]
+
+How does this draft look? Would you like to add or modify anything?
+
+AGENT — LLAMA-3.1-8B-INSTRUCT (18.72S) · 1,095 TOKENS · $0.00003 — STREAM C:385 R:0 — 07:48
+◀
+▶
+SESSION 1
+✎
+(1)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION
