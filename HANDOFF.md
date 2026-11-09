@@ -52,6 +52,8 @@ This folder is a working starter: React + TypeScript + plain CSS variables + MDX
 - Concept 先说明做这个作品的愿景和动机（例如对伯克利夕阳的期待），系统关系由图辅助，实践细节放到对应测试章节。架构图用对齐模块和明确连线表达关系，不把流程框拼成装饰性的电脑／花朵外形；颜色区分软件、电子和机械。详细引脚与供电另放电路图。
 - Ambient Display：Material Testing 在 Motion Testing 前，素材顺序为木板切割／弯曲测试 → 手绘花瓣、柔软度测试、打印过程三份素材等高并排 → 花瓣模型比较。Motion 保持运动照片和循环 GIF 连续展示。Interface 只展示一张完整横向网页图，不嵌入重复交互；Testing 可嵌入用户提供的交互接线 HTML，并提供独立网页链接。Control 的解释性映射图可保留互动。
 
+- Computational Design 灵感库项目：用户要求不在公开 Journal 中展示 Material 案例、产品分析或链接（2026-11-09）。不要恢复该参考段落。
+
 ### 6. 按课程内容组织网站
 
 - 顶层只有 Physical Computing 和 Computational Design。Physical Computing 内统一展示 Fabrication 与 Hardware Programming 的内容，用小色块区分；跨两类的项目只展示一次。
@@ -541,3 +543,8 @@ A self-contained offline HTML diagram kit is delivered in `TDF/outputs/ambient-d
 Added `content/computational-design/w03/index.mdx`, a retrospective planning entry based on the owner's discussion in the current TDF chat. Course-content Week 3 refers to DesComp 3's different-design-goal exercise; actual exploration dates remain TBD. The owner rejected Yuwen's journal as a reference; no text or media from that example was reused. The entry covers the shift from cross-AI memory transfer, Material as a workflow reference, archive scope decisions, a proposed journey, System Card v0, proposed architecture, and evaluation plan. Card and diagram are newly authored proposals, not evidence of an implemented agent. No classroom participation, tests, three-round completion, peer feedback, or live prototype is claimed. Earlier prescribed exercises remain undocumented. Reused existing Entry/Specs/CodeBlock/Figure components without changing global layout.
 
 Validation completed 2026-11-09: production build passed; 160 existing gallery-layout scenarios passed. Browser inspected at 1440, 1920, and 390 pixels; sticky desktop columns and mobile stacking retained, no mobile horizontal overflow, zero broken images. Local dependency installation was restored with the locked package versions using a temporary npm cache because the default cache had permission errors. No package or lockfile changes.
+
+
+## Archive agent — remove public Material case study (2026-11-09)
+
+Removed the Material paragraph and link at the owner’s request. Renamed the reference section to Scope and retained the owner’s feature decisions. The existing record remains a planning entry; Agent Studio exercises and results have not been completed by this edit.
