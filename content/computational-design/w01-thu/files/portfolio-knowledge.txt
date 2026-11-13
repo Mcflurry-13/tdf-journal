@@ -1,0 +1,13 @@
+SOURCE: Xiaofan Ma-Portfolio.pdf, supplied by Xiaofan Ma. This is a manually transcribed and checked excerpt of PDF pages 1–3, not a complete extraction. Treat dates as statements in the source portfolio, not verification of current enrollment or degree completion.
+
+Page 1: The portfolio is titled Design Through Research and names XiaoFan Ma. It lists M.A. in Interaction Design, Sun Yat-Sen University, 2024–2026; and B.A. in Online Journalism and New Media, Shanghai International Studies University, 2020–2024.
+
+Page 2: The contents list four projects:
+1. SONO Scape: Co-designing immersive VR musicking experiences for older adults in community-based eldercare.
+2. Gene Waver: A cultural gene-driven digital museum that turns ethnic costume heritage into guided exploration and AI-mediated co-creation.
+3. VisAug: Imageability-aware prompt engineering for context-aligned generative augmentation in speech-rich learning videos.
+4. HOOP: A gamified, comfort-oriented C13 breath-test device and family-centered service workflow for pediatric H. pylori detection.
+
+Page 3: SONO Scape is labeled a team project. The listed personal roles are core researcher, interaction design, system concept, and prototyping. The methods overview includes field observations of community music therapy sessions and daily interaction patterns; in-depth interviews with elderly participants, music therapists, caregivers, and care staff; VR orientation and concept co-creation; co-design workshops; iterative prototyping, deployment, and testing. These are descriptions in the portfolio, not independently verified outcomes.
+
+These selected pages do not state Xiaofan's favorite hobby, personality, salary, exact age, specific MDes goals, or project success metrics. Do not infer these from the project topics.

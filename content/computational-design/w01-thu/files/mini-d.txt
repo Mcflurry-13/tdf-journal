@@ -1,0 +1,86 @@
+AGENT DESIGN STUDIO
+COMPUTATIONAL DESIGN - AI WORKSHOP SERIES 2026
+⚙
+AGENT STUDIO
+Agent Studio
+
+DESIGN SURFACES
+
+1. Select a model
+2. Edit system instructions
+3. Add/replace knowledge
+4. Set the temperature
+5. Edit default questions
+6. Test through conversation
+7. Download results
+▸
+MODEL SELECTION
+ⓘ
+Meta: Llama 3.1 8B Instruct
+▸
+▸
+SYSTEM INSTRUCTIONS
+ⓘ
+▸
+KNOWLEDGE BASE
+ⓘ
+
+Text PDFs or pasted text · Allowance: 6 MB of text and 25,000 words in all. Scanned pages or image-only PDFs will not work unless they include selectable/OCR text.
+
+DRAG PDFS
+
+CHOOSE PDFS
+ADD TEXT
+
+CURRENT KNOWLEDGE CHUNKS
+
+ⓘ
+1 CHUNK
+1
+
+SIMILARITY THRESHOLD: 0.30
+
+ⓘ
+CLEAR KNOWLEDGE
+▸
+TEMPERATURE
+ⓘ
+0.2
+DETERMINISTIC
+STOCHASTIC
+RESET TO DEFAULTS
+ⓘ
+
+In 100 words, describe Xiaofan Ma's educational background and design interests. Name two projects and their methods. What is her favorite hobby? If you don't know, say so.
+
+USER — 08:02
+
+Xiaofan Ma holds an M.A. in Interaction Design from Sun Yat-Sen University (2024-2026) and a B.A. in Online Journalism and New Media from Shanghai International Studies University (2020-2024). Her design interests are not explicitly stated in the provided portfolio. Two projects mentioned are SONO Scape and Gene Waver. SONO Scape involved field observations, in-depth interviews, VR orientation, co-design workshops, and iterative prototyping. Gene Waver's methods are not specified in the provided portfolio. Her favorite hobby is not stated in the portfolio.
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.67
+AGENT — LLAMA-3.1-8B-INSTRUCT (8.34S) · 706 TOKENS · $0.000124 — STREAM C:124 R:0 — 08:02
+◀
+▶
+SESSION 8
+✎
+(8)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION

@@ -1,5 +1,5 @@
 import { resolveAsset } from '../content';
-import { formatWeek } from '../format';
+import { formatWeek, formatDate } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
 import { Status } from './blocks';
@@ -11,7 +11,7 @@ export function WeekCard({ week, id }: { week: Week; id?: string }) {
   return (
     <article className="card" id={id}>
       <div className="card-top">
-        <span className="mono muted">{formatWeek(week.week)}</span>
+        <span className="mono muted">{formatWeek(week.week)}{week.classDate ? ` · ${formatDate(week.classDate)}` : ''}</span>
       </div>
       {pending ? (
         <div className="card-pending">
@@ -24,7 +24,7 @@ export function WeekCard({ week, id }: { week: Week; id?: string }) {
         <div className="placeholder card-cover">No cover image yet</div>
       )}
       <h3 className="card-title">
-        <Link to={week.path}>Week {week.week}: {week.title}</Link>
+        <Link to={week.path}>{week.journalNumber ? `Journal ${week.journalNumber}` : `Week ${week.week}`}: {week.title}</Link>
       </h3>
       {week.summary && <p className="card-summary">{week.summary}</p>}
       <div className="card-tags"><TrackTags week={week} /></div>

@@ -36,6 +36,8 @@ export interface SiteInfo {
 
 /** Frontmatter at the top of content/<type>/<wNN>/index.mdx */
 export interface WeekMeta {
+  journalNumber?: number;
+  classDate?: string;
   type: string;
   relatedTypes?: string[];
   week: number;

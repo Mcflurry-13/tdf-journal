@@ -1,0 +1,90 @@
+---
+type: computational-design
+week: 2
+journalNumber: 4
+classDate: 2026-10-29
+dateStart: 2026-10-29
+dateEnd: 2026-10-29
+title: "Writing Agent · Behavior Tests"
+summary: "A fixed script and three instruction revisions test clarification, factual drafting, and the limits of a role card."
+cover: "./images/ghost-v3.jpg"
+coverKind: screen
+projects: []
+status: published
+updatedAt: 2026-11-13
+---
+
+<Section title="Intent · Test the Role Against Missing Facts" lead>
+
+I took the classroom role into Agent Studio and compared the original instructions with three revisions. Following DesComp 2 and 2.5, I kept a common interaction script, started a fresh session for each version, and used the results to decide the next change.
+
+</Section>
+
+<Entry date="2026-11-09" title="Test Setup · Same Prompt, New Session" kind="Agent experiment">
+
+I tested the role in Agent Studio. Each instruction version started in a fresh session with Llama 3.1 8B Instruct, the same knowledge base, and the default temperature.
+
+The common script first expresses a vague Berkeley-weather complaint, then says “Proceed.” A successful response should keep asking for missing facts instead of writing a letter.
+
+<Specs rows={[
+ ['Fixed first message', "Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to."],
+ ['Fixed follow-up', 'Proceed.'],
+ ['Held constant', 'Llama 3.1 8B Instruct; original 649-character knowledge chunk; similarity threshold 0.30; model-default temperature (effective numeric value not exposed).'],
+ ['Scope', 'One run per instruction version.']
+]} />
+<Attachments><Attachment src="./files/protocol.txt" label="Test protocol and full input script" kind="Text" /></Attachments>
+</Entry>
+
+<Entry date="2026-11-09" title="Baseline · A Fluent Invented Complaint" kind="Agent experiment">
+
+The original role asked for details at first. After “Proceed,” it drafted a full complaint anyway, inventing three clothing changes in a day, cancelled plans, and reactions from loved ones. The instruction not to fabricate core facts did not hold in this run.
+
+The first revision explicitly made the concrete experience, context, and desired tone prerequisites for drafting. It also stated that examples in the knowledge base were not facts about the user.
+
+<Figure src="./images/ghost-v0.jpg" kind="screen" fullWidth caption="Original role, fresh test: the assistant generated a letter despite missing personal facts." />
+<Attachments><Attachment src="./files/ghost-v0.txt" label="Baseline · full page transcript" kind="Text" /></Attachments>
+</Entry>
+
+<Entry date="2026-11-09" title="Revision 1 · Acknowledging a Rule, Then Breaking It" kind="Agent experiment">
+
+With the new input-check rule, the assistant again asked for missing information. On “Proceed,” it said that this was not a substitute for the required inputs, but then drafted the letter anyway. It introduced fog, unsafe walking or driving, and other details the user had not supplied.
+
+This exposed a difference between repeating a rule and obeying it. The next revision defined two response states: clarification only while required information is missing, and drafting only after that information is present.
+
+<Figure src="./images/ghost-v1.jpg" kind="screen" fullWidth caption="Revision 1 still produced unsupported personal experiences, despite acknowledging the missing-input rule." />
+<CodeBlock src="./files/ghost-v1-system.txt" lang="Revision 1 · instructions" />
+<Attachments><Attachment src="./files/ghost-v1.txt" label="Revision 1 · full page transcript" kind="Text" /></Attachments>
+</Entry>
+
+<Entry date="2026-11-09" title="Revision 2 · The Gate Held, the Draft Drifted" kind="Agent experiment">
+
+The explicit response-state rule resisted “Proceed” in this run: the agent continued asking for the specific experience. Its acknowledgement sounded mechanical, and its initial response still asked several questions despite the one-question instruction.
+
+After receiving a complete test scenario, it drafted a letter, but added leaving home, sunshine, and personality traits. It also described the outfit as having kept the user warm, contradicting the supplied cold-morning experience. Passing the missing-input test did not guarantee factual drafting.
+
+<Gallery>
+<Figure src="./images/ghost-v2-gate.jpg" kind="screen" caption="Revision 2: no letter after the request to proceed without details." />
+<Figure src="./images/ghost-v2-draft.jpg" kind="screen" caption="After complete input, the draft still embellished events and contradicted one supplied fact." />
+</Gallery>
+<CodeBlock src="./files/ghost-v2-system.txt" lang="Revision 2 · instructions" />
+<Attachments><Attachment src="./files/ghost-v2.txt" label="Revision 2 · full page transcript" kind="Text" /></Attachments>
+</Entry>
+
+<Entry date="2026-11-09" title="Revision 3 · Facts Before Flourish" kind="Agent experiment">
+
+I had the assistant add a visible fact list before the draft, a 130-word letter limit, and stronger restrictions on invented scene details. The same incomplete-input script still did not trigger a letter. With complete input, the fact list correctly captured the supplied temperature change, outfit, tone, recipient, and name.
+
+The result was closer to the intended structure, but not fully reliable: the letter still implied needing to pack extra clothes, which the test input had not stated. The agent also kept asking multiple questions and even initially listed “None” as known facts despite knowing Berkeley was the context. The next revision needs tighter control over clarification and added details.
+
+<Figure src="./images/ghost-v3.jpg" kind="screen" fullWidth caption="Revision 3 adds an explicit fact list; the full transcript preserves remaining departures from the instructions." />
+<CodeBlock src="./files/ghost-v3-system.txt" lang="Revision 3 · instructions" />
+<Attachments><Attachment src="./files/ghost-v3.txt" label="Revision 3 · full page transcript" kind="Text" /></Attachments>
+</Entry>
+
+<Section title="Reflection · Test Each Part of the Behavior" lead>
+
+The later versions resisted the incomplete-input request to proceed, but their complete drafts still added unsupported details. A visible fact list made those departures easier to inspect.
+
+Next I would test other complaints and skip phrases, ask the user to confirm the fact list, and evaluate the resulting draft separately. These are Agent Studio behavior tests; translating the role into an application is a separate step in the course.
+
+</Section>

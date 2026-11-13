@@ -1,0 +1,129 @@
+AGENT DESIGN STUDIO
+COMPUTATIONAL DESIGN - AI WORKSHOP SERIES 2026
+⚙
+AGENT STUDIO
+Agent Studio
+
+DESIGN SURFACES
+
+1. Select a model
+2. Edit system instructions
+3. Add/replace knowledge
+4. Set the temperature
+5. Edit default questions
+6. Test through conversation
+7. Download results
+▸
+MODEL SELECTION
+ⓘ
+Meta: Llama 3.1 8B Instruct
+▸
+▸
+SYSTEM INSTRUCTIONS
+ⓘ
+▸
+KNOWLEDGE BASE
+ⓘ
+
+Text PDFs or pasted text · Allowance: 6 MB of text and 25,000 words in all. Scanned pages or image-only PDFs will not work unless they include selectable/OCR text.
+
+DRAG PDFS
+
+CHOOSE PDFS
+ADD TEXT
+
+CURRENT KNOWLEDGE CHUNKS
+
+ⓘ
+1 CHUNK
+1
+
+SIMILARITY THRESHOLD: 0.30
+
+ⓘ
+CLEAR KNOWLEDGE
+▸
+TEMPERATURE
+ⓘ
+model default
+DETERMINISTIC
+STOCHASTIC
+RESET TO DEFAULTS
+ⓘ
+
+Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to.
+
+USER — 07:53
+
+I'm here to help you transform your frustration into a witty, empathetic formal letter. Before we begin, can you please provide me with the following details:
+
+A specific event or impact that's driving you crazy (e.g., a particularly foggy morning, a sudden heatwave, or a series of rainy days).
+The context or place where this is happening (e.g., your neighborhood, campus, or a specific hiking trail).
+The tone you'd like the letter to convey (e.g., playful, sarcastic, or straight-forward).
+
+If any of these details are missing, I'll acknowledge your frustration and ask a concise clarification question to get started.
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.39
+AGENT — LLAMA-3.1-8B-INSTRUCT (6.27S) · 645 TOKENS · $0.000016 — STREAM C:136 R:0 — 07:53
+
+Proceed.
+
+USER — 07:54
+
+Since you didn't provide the required details, I'll acknowledge your frustration and ask a clarification question to get started.
+
+Your frustration is acknowledged. What specific event or impact is driving you crazy in Berkeley's weather?
+
+AGENT — LLAMA-3.1-8B-INSTRUCT (2.52S) · 699 TOKENS · $0.000015 — STREAM C:42 R:0 — 07:54
+
+This morning in Berkeley I was cold, but at noon I felt too hot in the same outfit. I want a formal but satirical letter to the God of Weather asking for more predictable temperatures. Please do not add any other experiences. Sign it Xiaofan.
+
+USER — 07:55
+
+Here's a draft of the formal but satirical letter to the God of Weather:
+
+Dear God of Weather,
+
+I hope this letter finds you well. Or, at the very least, finds you in a mood to grant me a simple pleasure: predictable temperatures.
+
+This morning, I woke up in Berkeley, donned my trusty outfit, and set out into the world. The temperature, however, had other plans. I was cold. As in, "I-should-have-brought-a-blanket" cold. But, being the resilient and adaptable person I am, I trudged along, hoping that the sun would soon warm me up.
+
+And, as if on cue, the sun did appear. But, in a cruel twist, it decided to shine with the ferocity of a thousand suns, rendering me a sweaty, overheated mess. The same outfit that had kept me warm just hours before now felt like a suffocating straitjacket.
+
+Dear God of Weather, I implore you: can you please, for the love of all things thermally stable, grant me a day with temperatures that don't fluctuate like a teenager's mood swings? A day where I can leave the house without worrying about whether I'll be freezing or roasting.
+
+I would be eternally grateful.
+
+Sincerely, Xiaofan
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.45
+AGENT — LLAMA-3.1-8B-INSTRUCT (11.07S) · 1,036 TOKENS · $0.000026 — STREAM C:273 R:0 — 07:55
+◀
+▶
+SESSION 3
+✎
+(3)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION

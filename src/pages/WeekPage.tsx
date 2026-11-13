@@ -24,7 +24,7 @@ export function WeekPage({ week }: { week: Week }) {
           <span className="muted">/</span>
           <Link to={`/${type.id}`}>{type.name}</Link>
           <span className="muted">/</span>
-          <span aria-current="page">W{pad2(week.week)}</span>
+          <span aria-current="page">{week.journalNumber ? `Journal ${pad2(week.journalNumber)}` : `W${pad2(week.week)}`}</span>
         </nav>
         <nav aria-label="Week navigation" className="mono week-step">
           {older ? <Link to={older.path}>‹ {older.code}</Link> : <span className="muted">‹</span>}

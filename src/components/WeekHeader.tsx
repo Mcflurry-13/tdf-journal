@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { categoryByType, sameWeekElsewhere, typeById } from '../content';
-import { formatWeek, pad2 } from '../format';
+import { formatWeek, formatDate, pad2 } from '../format';
 import { Link } from '../router';
 import type { Week } from '../types';
 import { ProjectTag, TypeTag, TrackTags } from './tags';
@@ -8,15 +8,15 @@ import { ProjectTag, TypeTag, TrackTags } from './tags';
 /** Same two columns as the rows below: identity left, title + contents right. */
 export function WeekHeader({ week, children }: { week: Week; children?: ReactNode }) {
   const type = typeById(week.type)!;
-  const others = week.type === 'computational-design' && week.week === 1 ? [] : sameWeekElsewhere(week);
+  const others = week.journalNumber || (week.type === 'computational-design' && week.week === 1) ? [] : sameWeekElsewhere(week);
   return (
     <header className="week-head">
       <div className="week-head-id">
         <div className="card-tags"><TypeTag typeId={categoryByType(week.type).id} /><TrackTags week={week} /></div>
         <p className="display week-code">
-          {week.relatedTypes?.length ? 'Project' : type.short} — W{pad2(week.week)}
+          {week.journalNumber ? `Journal ${pad2(week.journalNumber)}` : `${week.relatedTypes?.length ? 'Project' : type.short} — W${pad2(week.week)}`}
         </p>
-        <span className="mono">{formatWeek(week.week)}</span>
+        <span className="mono">{formatWeek(week.week)}{week.classDate ? ` · ${formatDate(week.classDate)}` : ''}</span>
       </div>
       <div className="week-head-main">
         <h1 className="week-title">{week.title}</h1>

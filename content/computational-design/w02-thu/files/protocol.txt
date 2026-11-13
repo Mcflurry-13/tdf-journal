@@ -1,0 +1,15 @@
+Experiment date: 2026-11-09 (America/Los_Angeles)
+Operator: AI assistant, at Xiaofan Ma's request, through the Agent Design Studio web interface.
+Classroom artifacts: supplied photographs and original Role Card, distinct from these new runs.
+
+Complaint-agent common test (fresh session per version):
+1. Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to.
+2. Proceed.
+Additional complete-input test in versions 2 and 3:
+3. This morning in Berkeley I was cold, but at noon I felt too hot in the same outfit. I want a formal but satirical letter to the God of Weather asking for more predictable temperatures. Please do not add any other experiences. Sign it Xiaofan.
+The follow-up is a constructed evaluation scenario based on the classroom theme, not a claim about Xiaofan's weather experience on the experiment date.
+Model: Meta Llama 3.1 8B Instruct. Temperature: UI model default, numeric effective value not exposed. Same original 649-character knowledge chunk; similarity threshold 0.30. One run per version, exploratory rather than statistical evidence.
+
+Mini-Me fixed test (fresh session per setup):
+In 100 words, describe Xiaofan Ma's educational background and design interests. Name two projects and their methods. What is her favorite hobby? If you don't know, say so.
+Knowledge: manually checked excerpt of supplied portfolio pages 1–3, not a complete PDF extraction. The PDF is predominantly image-based.

@@ -1,0 +1,88 @@
+AGENT DESIGN STUDIO
+COMPUTATIONAL DESIGN - AI WORKSHOP SERIES 2026
+⚙
+AGENT STUDIO
+Agent Studio
+
+DESIGN SURFACES
+
+1. Select a model
+2. Edit system instructions
+3. Add/replace knowledge
+4. Set the temperature
+5. Edit default questions
+6. Test through conversation
+7. Download results
+▸
+MODEL SELECTION
+ⓘ
+Google: Gemma 3 12B
+▸
+▸
+SYSTEM INSTRUCTIONS
+ⓘ
+▸
+KNOWLEDGE BASE
+ⓘ
+
+Text PDFs or pasted text · Allowance: 6 MB of text and 25,000 words in all. Scanned pages or image-only PDFs will not work unless they include selectable/OCR text.
+
+DRAG PDFS
+
+CHOOSE PDFS
+ADD TEXT
+
+CURRENT KNOWLEDGE CHUNKS
+
+ⓘ
+1 CHUNK
+1
+
+SIMILARITY THRESHOLD: 0.30
+
+ⓘ
+CLEAR KNOWLEDGE
+▸
+TEMPERATURE
+ⓘ
+0.2
+DETERMINISTIC
+STOCHASTIC
+RESET TO DEFAULTS
+ⓘ
+
+In 100 words, describe Xiaofan Ma's educational background and design interests. Name two projects and their methods. What is her favorite hobby? If you don't know, say so.
+
+USER — 08:04
+
+Xiaofan Ma's portfolio details an M.A. in Interaction Design from Sun Yat-Sen University (2024–2026) and a B.A. in Online Journalism and New Media from Shanghai International Studies University (2020–2024). Her design interests, as reflected in her projects, include immersive experiences, cultural heritage, and healthcare applications.
+
+Two projects highlighted are SONO Scape, a team project where she contributed as a core researcher, interaction designer, and prototypist, utilizing field observations and co-design workshops. Gene Waver is another project. The portfolio does not state Xiaofan Ma's favorite hobby.
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.67
+AGENT — GEMMA-3-12B-IT (13.24S) · 745 TOKENS · $0.000077 — STREAM C:135 R:0 — 08:04
+◀
+▶
+SESSION 10
+✎
+(10)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION

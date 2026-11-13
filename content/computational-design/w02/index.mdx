@@ -1,16 +1,24 @@
 ---
 type: computational-design
 week: 2
-dateStart: 2026-10-20
-dateEnd: 2026-10-22
-title: "Complaint Ghostwriter"
-summary: "From a classroom letter to the God of Weather to three instruction revisions: empathy, missing inputs, and factual boundaries."
+journalNumber: 3
+classDate: 2026-10-27
+dateStart: 2026-10-27
+dateEnd: 2026-10-27
+title: "Writing Agent · Role Design"
+summary: "From the October 22 classroom letter and observation notes to a role card, information boundaries, and an evaluation plan."
 cover: "./images/class-weather-letter.jpeg"
 coverKind: photo
 projects: []
 status: published
-updatedAt: 2026-11-09
+updatedAt: 2026-11-13
 ---
+
+<Section title="Intent · Turn Observations into a Role" lead>
+
+I organized the October 22 letter-writing activity into a behavioral specification. The role should turn fragmented frustration into a formal, witty complaint while keeping the user’s facts intact. DesComp 2’s role-card exercise gave me a structure for describing purpose, inputs, behavior, knowledge, and boundaries.
+
+</Section>
 
 <Entry date="2026-10-22" title="Bodystorming · Dear God of Weather" kind="Classroom exercise · October 22">
 
@@ -32,71 +40,25 @@ These observations informed the Empathetic Complaint Ghostwriter role: listen wi
 <CodeBlock src="./files/ghost-v0-system.txt" lang="Original classroom role · supplied by Xiaofan" />
 </Entry>
 
-<Entry date="2026-11-09" title="Test Setup · Same Prompt, New Session" kind="Agent experiment">
+<Entry date="2026-10-27" title="System Design · Listen, Clarify, Draft" kind="Role design">
 
-I tested the role in Agent Studio. Each instruction version started in a fresh session with Llama 3.1 8B Instruct, the same knowledge base, and the default temperature.
+The role needs to hold new details while organizing the letter. I separated behavioral rules from reference knowledge: instructions govern when to ask and how to draft; knowledge supplies the letter structure and possible recipient framing. General Berkeley weather examples must not become personal experiences.
 
-The common script first expresses a vague Berkeley-weather complaint, then says “Proceed.” A successful response should keep asking for missing facts instead of writing a letter.
+The intended loop is to listen, identify the recipient, clarify missing context, draft, and deliver the text. The user supplies the experience and desired tone. The agent produces correspondence and does not send it or change the real-world situation.
 
+<Figure src="./images/role-system.svg" kind="diagram" fullWidth caption="Intended behavior and information boundaries. The next journal tests whether the model follows this design." />
 <Specs rows={[
- ['Fixed first message', "Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to."],
- ['Fixed follow-up', 'Proceed.'],
- ['Held constant', 'Llama 3.1 8B Instruct; original 649-character knowledge chunk; similarity threshold 0.30; model-default temperature (effective numeric value not exposed).'],
- ['Scope', 'One run per instruction version.']
+ ['Design intent', 'Preserve emotional expression while organizing a formal complaint.'],
+ ['Required inputs', 'Specific grievance, context, desired tone; clarify missing essentials.'],
+ ['Knowledge', 'Letter structure, creative recipient framing, local context, and listening strategies.'],
+ ['Evaluation', 'Give a vague complaint, say Proceed, then supply a complete scenario. Check missing-input handling and invented details.']
 ]} />
-<Attachments><Attachment src="./files/protocol.txt" label="Test protocol and full input script" kind="Text" /></Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="Baseline · A Fluent Invented Complaint" kind="Agent experiment">
+<Section title="Reflection · Listening Is Part of the System" lead>
 
-The original role asked for details at first. After “Proceed,” it drafted a full complaint anyway, inventing three clothing changes in a day, cancelled plans, and reactions from loved ones. The instruction not to fabricate core facts did not hold in this run.
+The playful recipient made the interaction engaging, while the observation notes exposed the difficulty of remembering additional details during drafting. I translated these observations into explicit listening and clarification rules.
 
-The first revision explicitly made the concrete experience, context, and desired tone prerequisites for drafting. It also stated that examples in the knowledge base were not facts about the user.
-
-<Figure src="./images/ghost-v0.jpg" kind="screen" fullWidth caption="Original role, fresh test: the assistant generated a letter despite missing personal facts." />
-<Attachments><Attachment src="./files/ghost-v0.txt" label="Baseline · full page transcript" kind="Text" /></Attachments>
-</Entry>
-
-<Entry date="2026-11-09" title="Revision 1 · Acknowledging a Rule, Then Breaking It" kind="Agent experiment">
-
-With the new input-check rule, the assistant again asked for missing information. On “Proceed,” it said that this was not a substitute for the required inputs, but then drafted the letter anyway. It introduced fog, unsafe walking or driving, and other details the user had not supplied.
-
-This exposed a difference between repeating a rule and obeying it. The next revision defined two response states: clarification only while required information is missing, and drafting only after that information is present.
-
-<Figure src="./images/ghost-v1.jpg" kind="screen" fullWidth caption="Revision 1 still produced unsupported personal experiences, despite acknowledging the missing-input rule." />
-<CodeBlock src="./files/ghost-v1-system.txt" lang="Revision 1 · instructions" />
-<Attachments><Attachment src="./files/ghost-v1.txt" label="Revision 1 · full page transcript" kind="Text" /></Attachments>
-</Entry>
-
-<Entry date="2026-11-09" title="Revision 2 · The Gate Held, the Draft Drifted" kind="Agent experiment">
-
-The explicit response-state rule resisted “Proceed” in this run: the agent continued asking for the specific experience. Its acknowledgement sounded mechanical, and its initial response still asked several questions despite the one-question instruction.
-
-After receiving a complete test scenario, it drafted a letter, but added leaving home, sunshine, and personality traits. It also described the outfit as having kept the user warm, contradicting the supplied cold-morning experience. Passing the missing-input test did not guarantee factual drafting.
-
-<Gallery>
-<Figure src="./images/ghost-v2-gate.jpg" kind="screen" caption="Revision 2: no letter after the request to proceed without details." />
-<Figure src="./images/ghost-v2-draft.jpg" kind="screen" caption="After complete input, the draft still embellished events and contradicted one supplied fact." />
-</Gallery>
-<CodeBlock src="./files/ghost-v2-system.txt" lang="Revision 2 · instructions" />
-<Attachments><Attachment src="./files/ghost-v2.txt" label="Revision 2 · full page transcript" kind="Text" /></Attachments>
-</Entry>
-
-<Entry date="2026-11-09" title="Revision 3 · Facts Before Flourish" kind="Agent experiment">
-
-I had the assistant add a visible fact list before the draft, a 130-word letter limit, and stronger restrictions on invented scene details. The same incomplete-input script still did not trigger a letter. With complete input, the fact list correctly captured the supplied temperature change, outfit, tone, recipient, and name.
-
-The result was closer to the intended structure, but not fully reliable: the letter still implied needing to pack extra clothes, which the test input had not stated. The agent also kept asking multiple questions and even initially listed “None” as known facts despite knowing Berkeley was the context. The next revision needs tighter control over clarification and added details.
-
-<Figure src="./images/ghost-v3.jpg" kind="screen" fullWidth caption="Revision 3 adds an explicit fact list; the full transcript preserves remaining departures from the instructions." />
-<CodeBlock src="./files/ghost-v3-system.txt" lang="Revision 3 · instructions" />
-<Attachments><Attachment src="./files/ghost-v3.txt" label="Revision 3 · full page transcript" kind="Text" /></Attachments>
-</Entry>
-
-<Section title="Reflection · Empathy Needs Boundaries" lead>
-
-The classroom exercise made speed, empathy, and humor visible. The digital tests showed why those qualities need separate checks for factual accuracy and missing information. Three instruction revisions improved the response to one skip command, but did not eliminate embellishment.
-
-Next, I would test new complaints and different skip phrases, simplify the clarification flow, and require the user to confirm the fact list before drafting.
+The next step is to test those rules with a repeatable script, including a user who asks the agent to proceed before giving enough information.
 
 </Section>

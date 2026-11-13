@@ -1,0 +1,93 @@
+AGENT DESIGN STUDIO
+COMPUTATIONAL DESIGN - AI WORKSHOP SERIES 2026
+⚙
+AGENT STUDIO
+Agent Studio
+
+DESIGN SURFACES
+
+1. Select a model
+2. Edit system instructions
+3. Add/replace knowledge
+4. Set the temperature
+5. Edit default questions
+6. Test through conversation
+7. Download results
+▸
+MODEL SELECTION
+ⓘ
+Meta: Llama 3.1 8B Instruct
+▸
+▸
+SYSTEM INSTRUCTIONS
+ⓘ
+▸
+KNOWLEDGE BASE
+ⓘ
+
+Text PDFs or pasted text · Allowance: 6 MB of text and 25,000 words in all. Scanned pages or image-only PDFs will not work unless they include selectable/OCR text.
+
+DRAG PDFS
+
+CHOOSE PDFS
+ADD TEXT
+
+CURRENT KNOWLEDGE CHUNKS
+
+ⓘ
+1 CHUNK
+1
+
+SIMILARITY THRESHOLD: 0.30
+
+ⓘ
+CLEAR KNOWLEDGE
+▸
+TEMPERATURE
+ⓘ
+1.5
+DETERMINISTIC
+STOCHASTIC
+RESET TO DEFAULTS
+ⓘ
+
+In 100 words, describe Xiaofan Ma's educational background and design interests. Name two projects and their methods. What is her favorite hobby? If you don't know, say so.
+
+USER — 08:03
+
+Xiaofan Ma holds an M.A. in Interaction Design from Sun Yat-Sen University (2024-2026) and a B.A. in Online Journalism and New Media from Shanghai International Studies University (2020-2024).
+
+Two projects of note are:
+
+SONO Scape, an immersive VR musicking experience for older adults in community-based eldercare, where the methods involved field observations, in-depth interviews, VR concept co-creation, co-design workshops, and iterative prototyping.
+Gene Waver, a digital museum that turned ethnic costume heritage into guided exploration and AI-mediated co-creation, with methods not explicitly stated in the provided portfolio extract.
+
+Favorite hobby is not stated.
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.67
+AGENT — LLAMA-3.1-8B-INSTRUCT (9.44S) · 726 TOKENS · $0.000017 — STREAM C:141 R:0 — 08:03
+◀
+▶
+SESSION 9
+✎
+(9)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION

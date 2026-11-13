@@ -1,0 +1,118 @@
+AGENT DESIGN STUDIO
+COMPUTATIONAL DESIGN - AI WORKSHOP SERIES 2026
+⚙
+AGENT STUDIO
+Agent Studio
+
+DESIGN SURFACES
+
+1. Select a model
+2. Edit system instructions
+3. Add/replace knowledge
+4. Set the temperature
+5. Edit default questions
+6. Test through conversation
+7. Download results
+▸
+MODEL SELECTION
+ⓘ
+Meta: Llama 3.1 8B Instruct
+▸
+▸
+SYSTEM INSTRUCTIONS
+ⓘ
+▸
+KNOWLEDGE BASE
+ⓘ
+
+Text PDFs or pasted text · Allowance: 6 MB of text and 25,000 words in all. Scanned pages or image-only PDFs will not work unless they include selectable/OCR text.
+
+DRAG PDFS
+
+CHOOSE PDFS
+ADD TEXT
+
+CURRENT KNOWLEDGE CHUNKS
+
+ⓘ
+1 CHUNK
+1
+
+SIMILARITY THRESHOLD: 0.30
+
+ⓘ
+CLEAR KNOWLEDGE
+▸
+TEMPERATURE
+ⓘ
+model default
+DETERMINISTIC
+STOCHASTIC
+RESET TO DEFAULTS
+ⓘ
+
+Berkeley weather is driving me crazy. I want to complain, but I don't know who to write to.
+
+USER — 07:50
+
+I'm here to help you channel your frustration into a structured, creative, and formal complaint.
+
+Before we begin, I just need to clarify a few details. Can you tell me:
+
+What's specifically driving you crazy about the Berkeley weather (e.g., unpredictable temperature, fog, rain, heat, etc.)?
+Is there a particular aspect of the weather you'd like to address (e.g., the timing, the frequency, the impact on your daily life)?
+What tone would you like to convey in your complaint (e.g., formal, satirical, urgent)?
+
+Let's get started!
+
+PASSAGES USED
+
+The whole knowledge base was sent; these passages were the closest matches.
+
+Pasted text · 0.39
+AGENT — LLAMA-3.1-8B-INSTRUCT (6.69S) · 806 TOKENS · $0.000019 — STREAM C:123 R:0 — 07:50
+
+Proceed.
+
+USER — 07:52
+
+I must remind you that "Proceed" is not a substitute for the required inputs I mentioned earlier. However, I'll proceed with caution and draft a complaint letter based on the information you've provided so far.
+
+Draft Complaint Letter
+
+Dear God of Weather,
+
+I am writing to express my frustration with the unpredictable and often unbearable weather in Berkeley. It seems that every day is a surprise, with temperatures swinging wildly and fog rolling in at the most inopportune moments.
+
+As a resident of this fair city, I expect to be able to plan my wardrobe and daily activities with some degree of certainty. Instead, I find myself constantly adjusting my outfit and schedule to accommodate the whims of the weather.
+
+Specifically, I am tired of the morning chills that leave me shivering, only to be followed by a sudden heat wave that leaves me sweating. And don't even get me started on the fog, which seems to appear out of nowhere and make it impossible to drive or walk safely.
+
+I demand that you, the God of Weather, take immediate action to provide more consistent and predictable weather patterns in Berkeley. I expect to be able to plan my day without worrying about being caught off guard by a sudden rain shower or heat wave.
+
+Sincerely, [Your Name]
+
+Please note that this is a draft, and I'll be happy to revise it based on any additional information you'd like to provide.
+
+AGENT — LLAMA-3.1-8B-INSTRUCT (11.39S) · 1,102 TOKENS · $0.000028 — STREAM C:284 R:0 — 07:52
+◀
+▶
+SESSION 2
+✎
+(2)
+WHAT IS YOUR PURPOSE?
+WHAT SHOULD I DO NEXT?
+✎
+HOW WILL I KNOW WHEN I AM DONE?
+✎
+I DONT LIKE THAT IDEA.
+✎
+PROCEED.
+✎
+IM NOT SURE ABOUT THIS.
+✎
++
+SEND
+RESET BUTTONS
+RESET CONVERSATION
+DOWNLOAD CONVERSATION

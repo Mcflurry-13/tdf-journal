@@ -1,26 +1,24 @@
 ---
 type: computational-design
 week: 1
-dateStart: TBD
-dateEnd: TBD
-title: "Mini-Me · Grounding a Biography"
-summary: "Six Agent Studio conditions compare instructions, portfolio knowledge, temperature, and models using the same question."
-cover: "./images/mini-c.jpg"
+journalNumber: 1
+classDate: 2026-10-20
+dateStart: 2026-10-20
+dateEnd: 2026-10-20
+title: "Personal Agent · Instructions"
+summary: "Testing a personal-profile agent before adding portfolio knowledge: the same question, two configurations, and invented biographies."
+cover: "./images/mini-a.jpg"
 coverKind: screen
 projects: []
 status: published
-updatedAt: 2026-11-09
+updatedAt: 2026-11-13
 ---
 
-<Entry date="2026-11-09" title="Setup · What Can an Agent Know About Me?" kind="Experiment">
+<Section title="Intent · Describe Me Without Guessing" lead>
 
-The Mini-Me exercise explores how instructions, knowledge, temperature, and model choice shape an agent’s description of me. I compared six configurations in Agent Studio using the same question.
+I explored how a personal-profile agent describes me when its context changes. Following the Agent Studio exercise in DesComp 1, I kept the question fixed and first compared a bare model with an instruction-only configuration. I wanted to see whether a behavioral rule alone could stop invented biographical details.
 
-My portfolio uses image-based pages. I used a checked text excerpt from pages 1–3 covering my education, four projects, and the methods and roles documented for SONO Scape.
-
-<Figure src="./images/test-system.svg" kind="diagram" fullWidth caption="Actual experiment structure: keep the question fixed while changing one configuration between comparisons." />
-<CodeBlock src="./files/portfolio-knowledge.txt" lang="Knowledge · checked portfolio excerpt" />
-</Entry>
+</Section>
 
 <Entry date="2026-11-09" title="A / B · Adding Instructions" kind="Experiment">
 
@@ -39,46 +37,10 @@ With no instructions or knowledge, Llama invented a degree at the Academy of Art
 </Attachments>
 </Entry>
 
-<Entry date="2026-11-09" title="C · Add a Checked Source" kind="Experiment">
+<Section title="Reflection · Instructions Need Evidence" lead>
 
-Adding the portfolio excerpt produced the correct universities and programs, SONO Scape and VisAug, and relevant methods. The agent again said the hobby was not stated. However, “currently pursuing” went beyond what the portfolio's dated education entry could establish.
+Both configurations produced confident but unsupported education and project details. The instruction-only version even claimed to use a portfolio it had not received. Both admitted the unknown hobby, so that single correct refusal did not make the rest of the biography reliable.
 
-The knowledge base contained one text chunk, with a similarity threshold of 0.30. Agent Studio reported that the whole knowledge base was sent.
-
-<Figure src="./images/mini-c.jpg" kind="screen" fullWidth caption="C · Same Llama configuration as B, now with the checked portfolio excerpt." />
-<Attachments><Attachment src="./files/mini-c.txt" label="C · full response" kind="Text" /></Attachments>
-</Entry>
-
-<Entry date="2026-11-09" title="D / E · Comparing Temperature" kind="Experiment">
-
-I compared temperatures 0.2 and 1.5 with the same Llama model, instructions, knowledge, and question. Both responses named the correct universities and SONO Scape and Gene Waver. Both recognized missing hobby information and limited detail about Gene Waver's methods.
-
-Neither setting solved every source-boundary problem: both described the M.A. as something I “hold,” although completion was not verified. The higher-temperature answer was not obviously less grounded in this pair. I would repeat these tests to check whether the pattern holds.
-
-<Gallery>
-<Figure src="./images/mini-d.jpg" kind="screen" caption="D · Llama with knowledge, temperature 0.2." />
-<Figure src="./images/mini-e.jpg" kind="screen" caption="E · Same configuration, temperature 1.5." />
-</Gallery>
-<Attachments>
-<Attachment src="./files/mini-d.txt" label="D · full response" kind="Text" />
-<Attachment src="./files/mini-e.txt" label="E · full response" kind="Text" />
-</Attachments>
-</Entry>
-
-<Entry date="2026-11-09" title="F · Compare Another Model" kind="Experiment">
-
-Finally, I switched to Google Gemma 3 12B at temperature 0.2, keeping the instructions, knowledge, and question unchanged. Compared with D, it attributed education to the portfolio more carefully and described design interests as an inference from the projects. It also included my documented team roles in SONO Scape and acknowledged the unknown hobby.
-
-The response still did not fully answer the request for two projects and their methods: Gene Waver was only named.
-
-<Figure src="./images/mini-f.jpg" kind="screen" fullWidth caption="F · Gemma 3 12B at 0.2, with the same instructions and knowledge used in D." />
-<Attachments><Attachment src="./files/mini-f.txt" label="F · full response" kind="Text" /></Attachments>
-</Entry>
-
-<Section title="Reflection · A Source Helps, but Needs Boundaries" lead>
-
-The largest observed improvement came from supplying checked portfolio knowledge. Instructions alone did not prevent an invented biography, and temperature did not act as a reliability switch. Even grounded answers needed review for source dates, inferred interests, and unanswered parts of the question.
-
-Next, I would add page references and check that the agent preserves the source’s dates and uncertainty.
+Next I would supply a checked portfolio excerpt, keep the same question, and compare source use, temperature, and model choice.
 
 </Section>

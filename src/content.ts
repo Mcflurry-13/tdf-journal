@@ -59,6 +59,8 @@ function toWeek(path: string, mod: MdxModule): Week | null {
     type: typeId,
     relatedTypes: fm.relatedTypes ?? [],
     week,
+    journalNumber: fm.journalNumber,
+    classDate: fm.classDate ? asDateString(fm.classDate) : undefined,
     dateStart: asDateString(fm.dateStart),
     dateEnd: asDateString(fm.dateEnd),
     title: fm.title ?? '[Untitled week]',
@@ -71,7 +73,7 @@ function toWeek(path: string, mod: MdxModule): Week | null {
     sample: fm.sample === true,
     slug,
     dir: `/content/${typeId}/${slug}`,
-    code: `${type.short}-W${pad2(week)}`,
+    code: fm.journalNumber ? `${type.short}-J${pad2(fm.journalNumber)}` : `${type.short}-W${pad2(week)}`,
     path: `/${typeId}/${slug}`,
     Content: mod.default,
   };
