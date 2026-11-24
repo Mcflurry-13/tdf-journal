@@ -1,92 +1,85 @@
 ---
 type: computational-design
 week: 3
-dateStart: TBD
-dateEnd: TBD
-title: "An Inspiration Archive Agent"
-summary: "Defining a personal archive agent: design intent, a user journey, proposed behavior, and a first evaluation plan."
-cover: "./images/archive-system.svg"
-coverKind: diagram
+journalNumber: 5
+dateStart: 2026-11-05
+dateEnd: 2026-11-08
+title: "Folio · Designing a Personal Knowledge Agent"
+summary: "I can remember why I saved something long after I forget how to find it. That gap shaped the two jobs I gave Folio and the system behind them."
+cover: "./images/library.png"
+coverKind: screen
 projects: []
 status: published
-updatedAt: 2026-11-09
+updatedAt: 2026-11-24
 ---
 
-<Entry date="TBD" title="Intent · Reuse What I Save" kind="Design exploration">
+<Entry date="2026-11-05" title="Why I kept losing things I had saved" kind="November 5–8 · Choosing a design goal">
 
-I save useful posts, design cases, and portfolio advice across Xiaohongshu and other websites. My folders already have purposes, such as Resume, Portfolio, and UI/UX. I want these materials to become useful again when I begin a creative task, including when I work with an AI assistant.
+One of my albums on Xiaohongshu, also called RedNote, holds <Hl>772 saved posts</Hl>. It’s a Chinese social platform where people share photos, short videos and written posts. For me, it has the visual discovery of Pinterest alongside the personal posts, conversations and clips I associate with Instagram, X and TikTok.
 
-I initially considered transferring conversation memories between AI tools. Through discussion, I shifted toward a personal inspiration archive: keeping the resources I choose and helping me bring them into a new task.
+I save design examples, résumé advice, tools and internship announcements in the same place. Saving takes a tap. Weeks later, when I want to revise my résumé, build a portfolio page or find a tool, I remember seeing something useful. I rarely remember its title or its author. That is the moment I want to design Folio for.
 
+<FocusFigure src="./images/rednote-album-772.png" full="./images/rednote-saved-albums.png" width={690}
+  caption="One of my RedNote albums held 772 saved posts. Look for 笔记 · 772 at the top left. Highlight added."
+  alt="My RedNote saved albums. The first album is labelled 笔记 · 772 above four post covers." />
+</Entry>
+
+<Entry date="2026-11-08" title="Giving the agent two jobs" kind="November 8 · Product design">
+
+I picture the same collection being used at two moments. <Hl>When I import saves</Hl>, I want some order. Folio reads the mixed posts and proposes topics, and I adjust and confirm them. That gives me a collection I can browse.
+
+<Hl>When I return with a task</Hl>, I start by saying what I am working on. A post about interviews could help me write a résumé or structure a portfolio page, so Folio finds references across topics, explains how each could help, and I choose what to use.
+
+The two entrances sit side by side. I can ask a question before I have organized anything.
+
+<FolioTwoMoments />
+<FocusFigure src="./images/topic-plan-focus.png" full="./images/topic-plan.png" width={720} zoom={1.5} x={0}
+  caption="The first moment as it later looked in the prototype. Folio proposes six topics for 100 saves, and each name and rule stays editable until I confirm."
+  alt="Folio’s topic plan screen. It reads Topic plan ready, 100 / 100, with six topics. The first topic, Internship recruiting, shows an editable inclusion rule and one reference note." />
+</Entry>
+
+<Entry date="2026-11-12" title="Writing the system card" kind="Agent behavior">
+
+“Find relevant posts” left too much open. I used the system card to settle who makes which decision. The model judges which passages could help. The program checks what can be checked. I keep the choices that depend on my own work.
+
+My first card, v0, had me pick an archive to search and copy a context pack by hand. In the card I submitted, the planner starts from my task and the topic names, and my selection is exported for a coding agent to read.
+
+One boundary stayed the same. A saved résumé can show me a writing technique. <Hl>Only I can supply the facts about my own work.</Hl>
+
+<FolioRoles />
+<FocusFigure src="./images/conversation-study-focus.png" full="./images/conversation-study.jpg" width={560}
+  caption="A résumé task in the prototype’s Chinese interface. Folio says my sentence only states that I took part, then offers saved posts as references for rewriting it."
+  alt="Folio’s Find inspiration conversation in Chinese. I ask to revise a résumé line about a course selection system redesign. Folio replies that the line only says I took part and lists saved posts with checkboxes." />
 <Specs rows={[
-  ['Design intent', 'Help me find and reuse relevant material from my own collection during a creative task.'],
-  ['Course connection', 'DesComp 3: apply the agent-design process to a different design goal. This entry establishes the intent, journey, proposed instructions, and evaluation plan.'],
-  ['Current stage', 'Concept and behavior specification. No retrieval prototype or evaluation results yet.'],
+  ["System card v0", "“Search only the supplied or selected archive.” “Let the user choose references for a copyable context pack.”"],
+  ["Submitted card", "“The planner receives the topic names of eligible saves before any passages. General tasks search across the authorized collection.”"]
 ]} />
+<CodeBlock src="./files/system-card-v0.txt" lang="System card v0 · proposed, not yet tested" />
 </Entry>
 
-<Entry date="TBD" title="Scope · A Library I Can Use" kind="Design decisions">
+<Entry date="2026-11-13" title="Following one task through the system" kind="System architecture">
 
-I want to focus my prototype on a specific moment: returning with a design task and deciding which saved materials are useful. I also decided against proactive recommendations and notifications because I do not want another stream of content to maintain.
+The system card says who decides. The architecture decides what each part gets to see. My saved posts stay in the browser. When I describe a task, the browser calls one Folio endpoint, POST /api/find. The server adds the instructions for that stage and calls the model with its own key.
 
-<Specs rows={[
-  ['Keep', 'Existing archive categories; new links, images, and notes; a path for bringing in older collections.'],
-  ['Focus', 'Task-based retrieval with a source and a concrete explanation of how each result might help.'],
-  ['Leave out', 'Push notifications, recommendation feeds, and a complex canvas.'],
-  ['Open question', 'Which parts of a saved item does the agent need: its title, full content, images, or my reason for saving it?']
-]} />
+Plan, search, review and answer are stages of that same endpoint. <Hl>The planner sees the task and topic names.</Hl> Source passages enter during search, one batch at a time. The model judges which passages could help. The program checks each quotation against its note and leaves out the notes I excluded.
+
+At the end, <Hl>I choose which references leave Folio</Hl>.
+
+<FolioSequence />
+<CodeBlock src="./files/search-request.js" lang="Search stage · client call from public/kb-workspace.js, line breaks added" />
 </Entry>
 
-<Entry date="TBD" title="Journey · Return With a Task" kind="Proposed scenario">
+<Entry date="2026-11-15" title="Using the references outside Folio" kind="Example task">
 
-For a first scenario, I am preparing a portfolio case study and need references for structuring the story. I select my Portfolio archive and explain the task. The agent returns a small set of references, explains their relevance, and suggests what I could learn from each one. I choose what to carry into my next AI conversation.
+By now I had a working prototype, loaded with a separate sample of 100 saved posts. I used turning Mini Me into a portfolio case study as one example. I might use one save for how to tell the story and another for how to lay out the page.
 
-The first prototype will use a small collection of links, notes, and images to test retrieval and export.
+Once I have ticked them, I export the task, the source links and Folio’s suggestions as a <Hl>read-only snapshot</Hl>. Claude Code or Codex can read it through the Folio CLI. In a separate recorded run, I opened an exported bundle with the CLI’s inspect command. It reported a read-only snapshot with one selected reference.
 
-<Specs rows={[
-  ['1 · Collect', 'Supply a small set of saved links, notes, or images and retain their sources.'],
-  ['2 · Ask', 'Choose an archive and describe the current task.'],
-  ['3 · Review', 'Read the references, relevance explanations, and suggested uses.'],
-  ['4 · Continue', 'Select references and copy a source-linked context pack into the next AI conversation.']
-]} />
+<FocusFigure src="./images/library-focus.png" full="./images/library.png" width={790} zoom={1.5} x={18}
+  caption="Library in the prototype with the sample loaded. The banner reads 100 saves loaded and offers Start organizing."
+  alt="Folio’s library. A banner says 100 saves loaded, with a Start organizing button, above a grid of saved RedNote posts." />
+<FocusFigure src="./images/handoff-dialog.png" full="./images/handoff.png" width={790} zoom={1.3} x={15}
+  caption="Handoff dialog in the prototype, from a portfolio homepage task. It names the 3 references I ticked and describes the export as a read-only snapshot."
+  alt="Folio’s handoff dialog. It says the export contains the current output, the iteration plan and the 3 references you ticked, as a read-only snapshot." />
+<CodeBlock src="./files/cli-inspect.json" lang="CLI inspect · a separate recorded run with one selected reference" />
 </Entry>
-
-<Entry date="TBD" title="Behavior · System Card v0" kind="Proposed instructions">
-
-The important behavior is deciding what is relevant to my task and explaining that decision. Saving and sorting files supports this behavior. I translated the concept into an initial system-card proposal so that the next prototype has something specific to follow and test.
-
-The card separates source content, my own notes, and AI suggestions. It also specifies what should happen when the task is vague or a saved link cannot be read.
-
-<CodeBlock src="./files/system-card-v0.txt" lang="System card · proposed" />
-</Entry>
-
-<Entry date="TBD" title="System · From Archive to Context" kind="Proposed architecture">
-
-The proposed system keeps original sources and user notes in an archive. A retrieval step selects candidate materials within the chosen scope; the agent then explains their relevance to the task. The user reviews the results before exporting selected references.
-
-The diagram guides the first implementation: collect, retrieve, review, and export.
-
-<Figure src="./images/archive-system.svg" kind="diagram" fullWidth caption="Proposed system: the archive supplies evidence; the user chooses what moves into the next AI conversation." />
-</Entry>
-
-<Entry date="TBD" title="Evaluation · What I Will Test" kind="Test plan">
-
-I will use the same small collection and repeat the same prompts across revisions. For each run, I will keep the instructions and actual output, then note whether the sources are traceable, the selection helps the task, and the suggestions are specific enough to act on.
-
-The first comparison will examine how much context the agent needs: titles and tags alone, then source content and any notes I actually supplied. Further changes will respond to observed failures. I will record the prompts, outputs, and changes across three iterations.
-
-<Specs rows={[
-  ['Clear task', '“From my Portfolio archive, find references that could help me structure a design case study.” Check whether each result supports this task and explains a specific use.'],
-  ['Vague task', '“Find me some inspiration.” Check whether the agent asks a focused question before selecting material.'],
-  ['Missing content', 'Provide a saved link whose content is unavailable. Check whether the agent reports the limitation instead of inventing a summary.'],
-  ['No relevant match', 'Ask for a topic absent from the test archive. Check whether the agent acknowledges the gap rather than forcing an unrelated result.']
-]} />
-</Entry>
-
-<Section title="Reflection · A Smaller First Prototype" lead>
-
-The discussion helped me narrow the project to the moment when a collection becomes useful again. Before adding more import formats or AI integrations, I need to find out whether the agent can help me choose a reference and understand how to use it.
-
-Next steps are building the prototype, testing and revising it, deploying it, and collecting classmate feedback.
-
-</Section>

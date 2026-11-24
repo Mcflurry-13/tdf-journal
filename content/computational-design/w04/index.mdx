@@ -1,0 +1,80 @@
+---
+type: computational-design
+week: 4
+journalNumber: 6
+dateStart: 2026-11-10
+dateEnd: 2026-11-15
+title: "Folio · Revising the Classification Rule"
+summary: "An Adobe internship announcement exposed a gap between verifying a quotation and deciding which topic a post could represent."
+cover: "./images/classification-before.png"
+coverKind: screen
+projects: []
+status: published
+updatedAt: 2026-11-24
+---
+
+<Entry date="2026-11-10" title="My starting rule" kind="November 10 · Initial test">
+
+I asked Folio to propose topics from the posts it had read and support each example with an exact passage I could check against the post. In an early run with three RedNote posts, it suggested career topics for two and UI/UX for one. I could trace the suggestions back to the posts. I still needed a way to judge <Hl>whether the examples made sense</Hl> under the rule the user was being asked to approve.
+
+<Specs rows={[
+  ["Input", "Saved post text."],
+  ["What the model proposed", "A topic, an inclusion rule and representative posts."],
+  ["What the program verified", "The quoted words appeared in the source."],
+  ["Still unchecked", "Whether the example made sense for the topic."]
+]} />
+</Entry>
+
+<Entry date="2026-11-12" title="The hiring post on the prototype card" kind="November 12 · Preview design and subsequent review">
+
+I put representative posts beside each proposed rule. Later, reviewing the cards, I spotted <Hl>a hiring post representing *Interactive prototypes*</Hl>. It was an Adobe Research summer internship. I went back to the passage the model had selected. It mentioned “new forms of interaction,” which described the research an intern might do.
+
+At the step where Folio consolidated topics and picked examples, the model received selected quotations without the post’s title or its opening invitation to apply. The program had verified that the sentence came from the post. Nothing checked whether that sentence could stand for what the whole post was for.
+
+<FocusFigure src="./images/classification-before-focus.png" full="./images/classification-before.png" zoom={1.75}
+  caption="Original preview with a highlight added. The topic name reads Interactive prototypes, and its first example is Adobe’s call for summer interns."
+  alt="Topic preview for Interactive prototypes. The first reference note is an Adobe Research poster that says We’re looking for summer interns." />
+<Specs rows={[
+  ["What the model saw", "A verified quotation that mentions new forms of interaction."],
+  ["What it did not see", "The title, “2027暑期实习招聘” (2027 summer internship hiring), and the opening line, “我们团队招实习生啦！” (Our team is hiring interns!)."],
+  ["What the program checked", "The quotation appears in the post."],
+  ["Still unchecked", "Whether that sentence can stand for the whole post."]
+]} />
+</Entry>
+
+<Entry date="2026-11-15" title="First revision · Read for purpose" kind="Prompt and input">
+
+I changed the instruction to ask, “What does this post help its reader do?” I also gave the model the title and up to 500 characters of the opening alongside the selected quotation. On the next run, Adobe’s <Hl>final assignment</Hl> was *Career development*. Its poster still appeared as the <Hl>preview example</Hl> for *Interactive prototypes*.
+
+I had been treating “Where does Folio file this post?” and “Which post does Folio show as an example?” as one decision. Folio actually picked examples while proposing the plan, then assigned the individual posts later. Checking only one of the two would have missed the other.
+
+<FolioRunOutputs />
+</Entry>
+
+<Entry date="2026-11-15" title="Second revision · Check the example" kind="Program rule and counterexample">
+
+I added a narrow check where Folio selects examples. After verifying the quotation, the program looks in the post for <Hl>a hiring invitation together with a role or application details</Hl>. A post with both cannot represent a topic about making prototypes. The check recognizes a short list of career topic names. When it finds none, it leaves the post for my review.
+
+I tested the boundary with two kinds of post. Adobe’s announcement went to career and stopped appearing as a prototype example. A deliberately constructed tutorial about *building a recruitment website* stayed under prototypes. The word “recruitment” fits both. The useful difference is whether a reader can apply for a job or learn to build something.
+
+<Specs rows={[
+  ["The condition", <code>{"invitation.test(text)&&application.test(text)"}</code>],
+  ["In plain words", "The post invites people to a job, and it names a role or says how to apply."]
+]} />
+<CodeBlock src="./files/topic-purpose-check.js" lang="The check · excerpt from lib/topic-purpose.mjs" />
+<FocusFigure src="./images/classification-after-focus.png" full="./images/classification-after-en.png" width={720} zoom={1.6}
+  caption="Corrected preview, reconstructed in an isolated browser. Interactive prototypes shows a design post, and the Adobe post sits under Career development."
+  alt="Reconstructed preview. Interactive prototypes shows a post about designers learning vibe coding. Career development shows the Adobe Research hiring post." />
+<Specs rows={[
+  ["Adobe post · real", "“Apply for an internship.” Went to Career development in a live-model test."],
+  ["Tutorial · constructed", "“Build a recruitment website.” Stayed under Interactive prototypes."]
+]} />
+</Entry>
+
+<Section title="Reflection · Check Both Decisions" lead>
+
+Checking the final category caught only half the problem. I also needed to open the preview and see which post Folio had chosen to represent the topic.
+
+Next I would keep the same posts, vary the topic names, and check both the assignments and the examples.
+
+</Section>

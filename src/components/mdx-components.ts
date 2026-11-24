@@ -2,6 +2,7 @@ import { AmbientMapping, AmbientStudies, AmbientWiring } from './AmbientDisplay'
 import { FrontendStudy } from './FrontendStudy';
 import { CadViewer, CadGroup } from './CadViewer';
 import { InteractionFlow } from './RecordArchive';
+import { FocusFigure, FolioRoles, FolioRunOutputs, FolioSequence, FolioTwoMoments, Hl } from './FolioJournal';
 import type { MDXComponents } from 'mdx/types';
 import {
   Attachment,
@@ -26,6 +27,7 @@ import { CodeBlock, Pre } from './CodeBlock';
 export const mdxComponents: MDXComponents = {
   AmbientMapping, AmbientStudies, AmbientWiring,
   InteractionFlow,
+  FocusFigure, FolioTwoMoments, FolioRoles, FolioSequence, FolioRunOutputs, Hl,
   CadViewer,
   CadGroup,
   FrontendStudy,

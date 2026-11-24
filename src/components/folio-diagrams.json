@@ -1,0 +1,180 @@
+{
+ "moments": {
+  "caption": "Two moments, one collection. Grey steps are Folio’s, white steps are mine. I can ask a question before any topic is confirmed.",
+  "lanes": [
+   {
+    "title": "When I import saves",
+    "want": "I want some order.",
+    "steps": [
+     [
+      "Folio",
+      "Reads the mixed saves"
+     ],
+     [
+      "Folio",
+      "Proposes topics"
+     ],
+     [
+      "Me",
+      "I adjust and confirm"
+     ]
+    ],
+    "out": "A collection I can browse"
+   },
+   {
+    "title": "When I return with a task",
+    "want": "I want to find what helps.",
+    "steps": [
+     [
+      "Me",
+      "I say what I am working on"
+     ],
+     [
+      "Folio",
+      "Finds references across topics"
+     ],
+     [
+      "Folio",
+      "Explains how each could help"
+     ],
+     [
+      "Me",
+      "I choose what to use"
+     ]
+    ],
+    "out": "References I can take into the work"
+   }
+  ]
+ },
+ "roles": {
+  "caption": "Who makes which decision. Methods come from saved posts. Facts about my work come from me.",
+  "cols": [
+   [
+    "fj-model",
+    "Model judgment",
+    "Which passage offers a method I can use for this task?",
+    "A stranger’s résumé shows a way to describe teamwork."
+   ],
+   [
+    "fj-program",
+    "Program check",
+    "Is the quoted text really in the saved post?",
+    "A quotation counts only when it matches the source."
+   ],
+   [
+    "",
+    "My decision",
+    "Which ideas do I try, and what are the facts about my work?",
+    "My role and results come from me. Folio asks when they are missing."
+   ]
+  ]
+ },
+ "run": {
+  "caption": "A recorded test after the first revision.",
+  "flowCap": "How Folio organizes saves",
+  "flow": [
+   [
+    "Read the saves",
+    ""
+   ],
+   [
+    "Propose topics, pick examples",
+    "Step 1"
+   ],
+   [
+    "I confirm",
+    ""
+   ],
+   [
+    "Assign each post to a topic",
+    "Step 2"
+   ]
+  ],
+  "pickCap": "One post, followed through both steps",
+  "post": [
+   "Adobe Research internship post",
+   "A hiring announcement. These are its results in each step after the first revision."
+  ],
+  "steps": [
+   [
+    "fj-warn",
+    "Step 1 · Picking the preview example",
+    "Shown as an example of Interactive prototypes",
+    [
+     "The topic is about: making interactive prototypes",
+     "The example is: an internship hiring announcement"
+    ],
+    "✗ Example and topic do not match · Still wrong"
+   ],
+   [
+    "fj-model",
+    "Step 2 · Final assignment",
+    "Assigned to Career development",
+    [
+     "The post is: an internship hiring announcement",
+     "The topic is about: job opportunities"
+    ],
+    "✓ Post and topic match · Fixed"
+   ]
+  ],
+  "result": "The first revision fixed only Step 2. Step 1, where examples are picked, needed its own check."
+ },
+ "sequence": {
+  "caption": "Read each row from left to right. I choose which references leave Folio.",
+  "start": [
+   "Me · in the browser",
+   "I describe a task",
+   "My saved posts stay in the browser. Every request goes to one endpoint, POST /api/find."
+  ],
+  "cols": [
+   [
+    "Browser sends",
+    "What leaves my library"
+   ],
+   [
+    "Model judges",
+    "Called by the server, with its key"
+   ],
+   [
+    "Folio server checks",
+    "A program check on the reply"
+   ]
+  ],
+  "stages": [
+   [
+    "plan",
+    "The task and topic names. No source passages.",
+    "What to search for, or one clarifying question.",
+    ""
+   ],
+   [
+    "search",
+    "The questions and one batch of eligible text.",
+    "Which passages could help.",
+    "Each quotation must match its note. Notes I excluded are left out."
+   ],
+   [
+    "review",
+    "The passages picked so far.",
+    "Which ones I can apply.",
+    "At most eight are kept."
+   ],
+   [
+    "answer",
+    "The passages that passed review.",
+    "How each reference could help. A second call audits the answer.",
+    "Quotations are checked again. Each save is listed once."
+   ]
+  ],
+  "end": [
+   "Me · in the browser",
+   "I choose which references to use",
+   "Folio shows its suggestions with their sources."
+  ],
+  "leave": [
+   "Leaves Folio only when I export",
+   "Read-only snapshot → Folio CLI → coding agent",
+   "A coding agent reads the snapshot. It has no live access to my library."
+  ]
+ }
+}

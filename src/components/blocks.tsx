@@ -19,6 +19,7 @@ import { Figure, Gallery, BeforeAfter } from './Gallery';
 import { CadViewer, CadGroup } from './CadViewer';
 export { Figure, Gallery, BeforeAfter, FigurePair, ImageGallery } from './Gallery';
 import { ProjectTag } from './tags';
+import { FocusFigure, FolioRoles, FolioRunOutputs, FolioSequence, FolioTwoMoments } from './FolioJournal';
 
 /* ---------- Status ---------- */
 
@@ -271,6 +272,7 @@ export function Video({ href, src, title, duration, poster, portrait = false }: 
 /** Blocks that go to the right-hand column of an Entry. Everything else is text (left). */
 const EVIDENCE = new Set<unknown>([
   AmbientMapping, AmbientStudies, AmbientWiring,
+  FocusFigure, FolioTwoMoments, FolioRoles, FolioSequence, FolioRunOutputs,
   Figure,
   CadViewer,
   CadGroup,
